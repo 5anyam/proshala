@@ -32,7 +32,7 @@ export async function generateMetadata(
   return {
     title: post?.title.rendered,
     openGraph: {
-      images: ['/open-graph.jpg', ...previousImages],
+      images: ['/Proshala-logo.png', ...previousImages],
     },
   };
 }

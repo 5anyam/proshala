@@ -46,7 +46,7 @@ export default async function BlogPage() {
             </Link>
             <h2 className="text-xl font-semibold" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             <p className="text-gray-600 mt-2">{new Date(post.date).toDateString()}</p>
-            <Link href={`/blog/${post.slug}`} className="mt-4 inline-block text-blue-600 hover:underline">
+            <Link href={`/${post.slug}`} className="mt-4 inline-block text-blue-600 hover:underline">
               Read More
             </Link>
           </div>
