@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { db } from '@/firebase'; // adjust this import based on your Firebase setup
+import { db } from '@/firebase/config'; // adjust this import based on your Firebase setup
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 export default function Page() {
