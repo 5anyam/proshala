@@ -61,7 +61,7 @@ export const Navbar = () => {
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">
-          <Button> Call Us
+          <Button className="bg-yellow-400 font-bold text-black"> Call Us
             </Button>
           </NavbarItem>
       </NavbarContent>
@@ -91,7 +91,7 @@ export const Navbar = () => {
             </NavbarMenuItem>
             
           ))}
-          <Button className="bg-yellow-500 text-black"> Call Us
+          <Button className="bg-yellow-500 text-black"> Call Us Now
             </Button>
         </div>
       </NavbarMenu>

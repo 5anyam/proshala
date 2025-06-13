@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   });
 
   return (
-    <div className="container mx-auto px-4 mt-24 flex flex-col lg:flex-row gap-12">
+    <div className="container mx-auto px-4 mt-4 flex flex-col lg:flex-row gap-12">
       {/* Main Content */}
       <div className="lg:w-2/3 w-full">
         <h1
