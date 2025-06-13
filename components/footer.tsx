@@ -14,7 +14,7 @@ export const Footer = () => {
             />
           Proshala Tech 
       </a>
-      <p className="my-6 text-gray-500 dark:text-gray-400">Proshala Tech have been a Digital Marketing Company for 6 years now and have a large client base for which we make amazing products and solutions.</p>
+      <p className="my-6 text-gray-500 dark:text-gray-400">Proshala Tech have been a Digital Marketing Company for 5 years now and have a large client base for which we make amazing products and solutions.</p>
       <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
               <a href="https://proshala.com" className="mr-4 hover:underline md:mr-6 ">Home</a>

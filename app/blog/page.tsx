@@ -35,7 +35,7 @@ export default async function BlogPage() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <div key={post.id} className="border rounded-lg shadow-md p-4">
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/${post.slug}`}>
               {post._embedded?.["wp:featuredmedia"]?.[0]?.source_url && (
                 <img
                   src={post._embedded["wp:featuredmedia"][0].source_url}
