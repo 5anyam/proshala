@@ -15,7 +15,7 @@ interface Post {
 }
 
 async function getPosts(): Promise<Post[]> {
-  const res = await fetch("https://proshala.com/wp-json/wp/v2/posts?_embed", {
+  const res = await fetch("https://cms.proshala.com/wp-json/wp/v2/posts?_embed", {
     next: { revalidate: 10 },
   });
 
