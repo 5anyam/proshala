@@ -1,105 +1,99 @@
-"use client";
 
 import { Metadata } from "next";
-import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Building2, Users, Shield } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { toast } from "sonner";
+import Link from "next/link";
 
-const services = [
-  "Company Registration",
-  "NCLT Matters", 
-  "Annual Compliance",
-  "Trademark Registration",
-  "Conversion Services",
-  "Strike Off Services",
-  "Secretarial Audit",
-  "Other Services"
-];
+export const metadata: Metadata = {
+  title: 'Contact Us - CS Praveen Kumar | Professional Company Secretary Services',
+  description: 'Get in touch with CS Praveen Kumar for professional Company Secretary services. Located in Delhi with expert CS consultation and compliance solutions.',
+  keywords: 'contact CS Praveen Kumar, company secretary Delhi, CS services contact, professional consultation',
+};
 
 const contactInfo = [
   {
+    icon: Building2,
+    title: "Office Address",
+    details: [
+      "M/s Praveen K & Associates",
+      "(Company Secretaries)",
+      "D-7/296, 2nd Floor, Sector-6",
+      "Rohini, New Delhi - 110086"
+    ],
+    description: "Visit us during business hours for consultation"
+  },
+  {
     icon: Phone,
-    title: "Phone",
-    details: ["+91 9876543210", "+91 9876543211"],
-    description: "Mon-Sat 9:00 AM to 7:00 PM"
+    title: "Phone Numbers",
+    details: ["+91 8800343499", "+91 9868428811"],
+    description: "Available Mon-Sat 9:00 AM to 6:00 PM"
+  },
+  {
+    icon: MessageSquare,
+    title: "WhatsApp",
+    details: ["+91 9811657065"],
+    description: "Quick responses on WhatsApp"
   },
   {
     icon: Mail,
-    title: "Email", 
-    details: ["contact@cspkindia.in", "info@cspkindia.in"],
+    title: "Email",
+    details: ["contact@cspraveenkumar.in"],
     description: "We'll respond within 24 hours"
-  },
-  {
-    icon: MapPin,
-    title: "Office",
-    details: ["123 Business Hub, Andheri East", "Mumbai, Maharashtra 400069"],
-    description: "Visit us during business hours"
   },
   {
     icon: Clock,
     title: "Business Hours",
-    details: ["Monday - Friday: 9:00 AM - 7:00 PM", "Saturday: 9:00 AM - 5:00 PM"],
+    details: [
+      "Monday - Friday: 9:00 AM - 6:00 PM",
+      "Saturday: 9:00 AM - 4:00 PM"
+    ],
     description: "Sunday: Closed"
   }
 ];
 
+const whyChooseUs = [
+  {
+    icon: Users,
+    title: "Expert Team",
+    description: "Qualified Company Secretaries with 10+ years experience"
+  },
+  {
+    icon: Shield,
+    title: "100% Compliance",
+    description: "Perfect track record in regulatory compliance"
+  },
+  {
+    icon: Clock,
+    title: "Timely Service",
+    description: "On-time delivery with proactive updates"
+  },
+  {
+    icon: Phone,
+    title: "24/7 Support",
+    description: "Always available for urgent consultations"
+  }
+];
+
+const serviceAreas = [
+  "Company Registration & Incorporation",
+  "NCLT Matters & Corporate Restructuring", 
+  "Annual Compliance & ROC Filings",
+  "Trademark Registration & IPR",
+  "Conversion Services",
+  "Strike Off Services",
+  "Secretarial Audit",
+  "Regional Director Approvals"
+];
+
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    message: ""
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // In production, this would send an actual email
-      console.log("Contact form submission:", formData);
-      
-      toast.success("Thank you for your inquiry! We'll get back to you soon - हम आपसे जल्द ही संपर्क करेंगे");
-      
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        message: ""
-      });
-    } catch (error) {
-      toast.error("Something went wrong. Please try again or call us directly.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [field]: e.target.value }));
-  };
-
   return (
     <>
       <PageHeader
-        title="Contact Us"
-        description="Get in touch with our CS experts for professional guidance and consultation"
+        title="Contact CS Praveen Kumar"
+        description="Get professional Company Secretary consultation and services from experienced CS professionals"
         breadcrumb={[
           { label: "Home", href: "/" },
           { label: "Contact" }
@@ -107,31 +101,53 @@ export default function ContactPage() {
       />
 
       <Section>
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Get Professional CS Guidance
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Our team of qualified Company Secretaries is ready to assist you with all your 
-              compliance and regulatory needs. Reach out to us for expert guidance and 
-              personalized solutions for your business.
-            </p>
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Contact Information - Takes 2 columns */}
+          <div className="lg:col-span-2">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                M/s Praveen K & Associates
+              </h2>
+              <p className="text-lg text-gray-600 mb-2">Professional Company Secretaries</p>
+              <p className="text-gray-600 leading-relaxed">
+                With over 10+ years of experience in Company Secretary services, we provide comprehensive 
+                professional solutions for all your compliance and regulatory needs. Our team of qualified 
+                CS professionals ensures 100% compliance and timely service delivery across India.
+              </p>
+            </div>
 
-            <div className="space-y-6">
+            {/* Contact Details Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6">
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 mb-2">{info.title}</h3>
+                      <h3 className="font-semibold text-gray-900 mb-3">{info.title}</h3>
                       {info.details.map((detail, idx) => (
-                        <div key={idx} className="text-gray-600 mb-1">{detail}</div>
+                        <div key={idx} className="text-gray-600 mb-1 text-sm">
+                          {info.title === "Phone Numbers" || info.title === "WhatsApp" ? (
+                            <a 
+                              href={`tel:${detail}`} 
+                              className="hover:text-[#3AA6FF] transition-colors cursor-pointer"
+                            >
+                              {detail}
+                            </a>
+                          ) : info.title === "Email" ? (
+                            <a 
+                              href={`mailto:${detail}`} 
+                              className="hover:text-[#3AA6FF] transition-colors cursor-pointer"
+                            >
+                              {detail}
+                            </a>
+                          ) : (
+                            detail
+                          )}
+                        </div>
                       ))}
-                      <p className="text-sm text-gray-500 mt-2">{info.description}</p>
+                      <p className="text-xs text-gray-500 mt-2 italic">{info.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -139,126 +155,138 @@ export default function ContactPage() {
             </div>
 
             {/* Map Placeholder */}
-            <Card className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MapPin className="h-5 w-5 mr-2 text-[#3AA6FF]" />
+                  Our Location - Delhi
+                </CardTitle>
+              </CardHeader>
               <CardContent className="p-0">
-                <div className="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <MapPin className="h-8 w-8 mx-auto mb-2" />
-                    <p>Interactive map would be embedded here</p>
-                    <p className="text-sm">Google Maps integration</p>
+                <div className="h-64 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-b-lg flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <MapPin className="h-12 w-12 mx-auto mb-4 text-[#3AA6FF]" />
+                    <p className="font-medium text-lg mb-2">Rohini, New Delhi</p>
+                    <p className="text-sm">D-7/296, 2nd Floor, Sector-6</p>
+                    <p className="text-sm">Rohini, New Delhi - 110086</p>
+                    <p className="text-xs text-gray-500 mt-3">Google Maps integration available</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Contact Form */}
-          <div>
+          {/* Sidebar Information */}
+          <div className="space-y-6">
+            {/* Quick Contact CTA */}
+            <Card className="bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] text-white">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg mb-4">Need Immediate Consultation?</h3>
+                <p className="text-blue-100 text-sm mb-6">
+                  Contact our CS experts directly for professional guidance and quick solutions.
+                </p>
+                
+                <div className="space-y-3 mb-6">
+                  <Button 
+                    asChild 
+                    variant="secondary" 
+                    className="w-full bg-white text-[#3AA6FF] hover:bg-gray-100"
+                  >
+                    <a href="tel:+918800343499" className="flex items-center justify-center">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Call: +91 8800343499
+                    </a>
+                  </Button>
+                  
+                  <Button 
+                    asChild 
+                    variant="secondary" 
+                    className="w-full bg-white text-[#3AA6FF] hover:bg-gray-100"
+                  >
+                    <a 
+                      href="https://wa.me/919811657065" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center"
+                    >
+                      <MessageSquare className="h-4 w-4 mr-2" />
+                      WhatsApp: +91 9811657065
+                    </a>
+                  </Button>
+                </div>
+                
+                <p className="text-xs text-blue-100 text-center">
+                  Available Mon-Sat, 9:00 AM - 6:00 PM
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Why Choose Us */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24 hours - 
-                  हम 24 घंटे में जवाब देंगे
-                </p>
+                <CardTitle className="text-lg">Why Choose CS Praveen Kumar?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {whyChooseUs.map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <item.icon className="h-4 w-4 text-[#3AA6FF]" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 text-sm">{item.title}</h4>
+                      <p className="text-xs text-gray-600 mt-1">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Service Areas */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Our Service Areas</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={handleInputChange("name")}
-                        placeholder="Your full name"
-                        required
-                      />
+                <div className="space-y-2">
+                  {serviceAreas.map((service, index) => (
+                    <div key={index} className="flex items-center text-sm text-gray-600">
+                      <div className="w-2 h-2 bg-[#3AA6FF] rounded-full mr-3 flex-shrink-0"></div>
+                      <span>{service}</span>
                     </div>
-                    <div>
-                      <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange("phone")}
-                        placeholder="+91 9876543210"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange("email")}
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="company">Company Name</Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={handleInputChange("company")}
-                        placeholder="Your company name (optional)"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="service">Service Required</Label>
-                    <Select onValueChange={(value) => setFormData(prev => ({ ...prev, service: value }))}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select the service you need" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {services.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={handleInputChange("message")}
-                      placeholder="Please describe your requirements in detail..."
-                      rows={5}
-                      required
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-[#3AA6FF] hover:bg-[#2690E6] text-white"
-                    size="lg"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      "Sending Message..."
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-5 w-5" />
-                        Send Message
-                      </>
-                    )}
+                  ))}
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <Button asChild variant="outline" size="sm" className="w-full">
+                    <Link href="/services">View All Services</Link>
                   </Button>
+                </div>
+              </CardContent>
+            </Card>
 
-                  <p className="text-sm text-gray-500 text-center">
-                    By submitting this form, you agree to our privacy policy and terms of service.
-                  </p>
-                </form>
+            {/* Professional Credentials */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Professional Credentials</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center">
+                    <Shield className="h-4 w-4 text-[#3AA6FF] mr-2" />
+                    <span className="text-gray-600">ICSI Qualified Company Secretary</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Users className="h-4 w-4 text-[#3AA6FF] mr-2" />
+                    <span className="text-gray-600">10+ Years Professional Experience</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Building2 className="h-4 w-4 text-[#3AA6FF] mr-2" />
+                    <span className="text-gray-600">500+ Successful Cases</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Clock className="h-4 w-4 text-[#3AA6FF] mr-2" />
+                    <span className="text-gray-600">100% Compliance Track Record</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -272,34 +300,68 @@ export default function ContactPage() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Quick answers to common questions about our CS services
+            Quick answers to common questions about our CS services and consultation process
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[
             {
-              question: "How quickly can you incorporate my company?", 
-              answer: "Most company registrations are completed within 15-20 working days, depending on the type and complexity."
+              question: "How can I schedule a consultation?", 
+              answer: "You can call us directly at +91 8800343499 or send a WhatsApp message to +91 9811657065. We're available Mon-Sat, 9:00 AM - 6:00 PM for immediate consultation."
             },
             {
-              question: "What are your fees for annual compliance?",
-              answer: "Our fees vary based on company type and complexity. Contact us for a customized quote based on your specific requirements."
+              question: "Do you provide services across India?",
+              answer: "Yes, we provide Company Secretary services across India. While our office is in Delhi, we handle matters in all major cities through our professional network."
             },
             {
-              question: "Do you handle NCLT matters across India?",
-              answer: "Yes, we handle NCLT matters across all major cities in India with our network of qualified professionals."
+              question: "What are your consultation charges?",
+              answer: "Initial consultation is free for new clients. For detailed service charges, please contact us directly as fees vary based on service complexity and requirements."
             },
             {
-              question: "Can you help with urgent ROC filings?",
-              answer: "Yes, we offer urgent filing services with additional fees. Most urgent filings can be completed within 2-3 working days."
+              question: "How quickly can you start working on my case?",
+              answer: "We can start immediately after initial consultation and documentation. Most services begin within 1-2 working days of receiving complete requirements."
+            },
+            {
+              question: "Do you handle urgent compliance matters?",
+              answer: "Yes, we handle urgent ROC filings and compliance matters. Contact us immediately for time-sensitive cases - we provide expedited services when needed."
+            },
+            {
+              question: "Can I visit your office for consultation?",
+              answer: "Absolutely! Our office is located in Rohini, Delhi. Please call ahead to schedule an appointment to ensure our CS team is available for your consultation."
             }
           ].map((faq, index) => (
-            <Card key={index} className="p-6">
+            <Card key={index} className="p-6 hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-gray-900 mb-3">{faq.question}</h3>
-              <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              <p className="text-gray-600 leading-relaxed text-sm">{faq.answer}</p>
             </Card>
           ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="text-center mt-12">
+          <Card className="inline-block p-8 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              Still Have Questions?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Our CS experts are ready to provide personalized guidance for your specific requirements.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild className="bg-[#3AA6FF] hover:bg-[#2690E6]">
+                <a href="tel:+918800343499">
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call Now
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="https://wa.me/919811657065" target="_blank" rel="noopener noreferrer">
+                  <MessageSquare className="h-4 w-4 mr-2" />
+                  WhatsApp
+                </a>
+              </Button>
+            </div>
+          </Card>
         </div>
       </Section>
     </>
