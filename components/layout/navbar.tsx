@@ -123,7 +123,7 @@ export function Navbar() {
       {/* Main navbar */}
       <nav className={cn(
         "sticky top-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b" : "bg-white border-b border-gray-100"
+        isScrolled ? "bg-white backdrop-blur-md shadow-lg border-b" : "bg-white border-b border-gray-100"
       )}>
         <Container>
           <div className="flex justify-between items-center py-4">
