@@ -10,14 +10,27 @@ import { CTA } from "@/components/ui/cta";
 import { getFeaturedServices } from "@/lib/data/services";
 import { useState, useEffect } from "react";
 
-interface BlogPost {
+const WP_API_URL = 'https://cms.cspkindia.com/wp-json/wp/v2';
+
+interface WordPressPost {
   id: number;
-  title: string;
-  excerpt: string;
-  slug: string;
   date: string;
-  featured_image: string | null;
-  author: string;
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
+  slug: string;
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{
+      source_url: string;
+      alt_text: string;
+    }>;
+    author?: Array<{
+      name: string;
+    }>;
+  };
 }
 
 // Hero carousel images - professional CS/business related
@@ -121,7 +134,7 @@ const FullWidthCarousel = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" asChild className="bg-[#3AA6FF] hover:bg-[#2690E6] text-white font-semibold">
                     <Link href="/services">
-                    View All Services
+                      View All Services
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
@@ -308,40 +321,43 @@ const firmHighlights = [
   }
 ];
 
-// Dummy blog posts data
-const dummyBlogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "New Annual Filing Requirements for FY 2024-25",
-    excerpt: "Important updates on annual filing requirements and compliance deadlines for companies. Learn about the latest changes in ROC regulations and ensure your business stays compliant.",
-    slug: "annual-filing-requirements-2024-25",
-    date: "2024-09-15T10:30:00Z",
-    featured_image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    author: "CS Praveen Kumar Team"
-  },
-  {
-    id: 2,
-    title: "NCLT Procedures: A Complete Guide for Businesses",
-    excerpt: "Comprehensive guide to NCLT procedures, including merger applications, revival cases, and compliance requirements. Expert insights from our legal team.",
-    slug: "nclt-procedures-complete-guide",
-    date: "2024-09-10T14:15:00Z",
-    featured_image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    author: "CS Praveen Kumar"
-  },
-  {
-    id: 3,
-    title: "Trademark Registration Process Simplified",
-    excerpt: "Step-by-step guide to trademark registration in India. Understand the process, required documents, and timelines for successful trademark protection.",
-    slug: "trademark-registration-process-simplified",
-    date: "2024-09-05T09:45:00Z",
-    featured_image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    author: "Legal Team"
-  }
-];
+// Strip HTML and format functions
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-IN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
 
 export default function HomePage() {
   const featuredServices = getFeaturedServices();
-  const latestBlogPosts = dummyBlogPosts;
+  const [latestBlogPosts, setLatestBlogPosts] = useState<WordPressPost[]>([]);
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
+
+  // Fetch WordPress posts on client side
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const res = await fetch(`${WP_API_URL}/posts?_embed&per_page=3`);
+        if (res.ok) {
+          const posts = await res.json();
+          setLatestBlogPosts(posts);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setIsLoadingBlogs(false);
+      }
+    }
+
+    fetchPosts();
+  }, []);
 
   return (
     <>
@@ -354,7 +370,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
               <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold mb-4">
-              Welcome to <span className="font-black">M/s Praveen K & Associates</span>
+                Welcome to <span className="font-black">M/s Praveen K & Associates</span>
               </span>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
                 Your Trusted Partner for 
@@ -397,11 +413,10 @@ export default function HomePage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            About M/s Praveen K & Associates
+              About M/s Praveen K & Associates
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-            Established with the vision to provide comprehensive Company Secretary services, M/s Praveen K & Associates has grown to become one of India trusted CS firms
-            .Our experienced team specializes in 
+              Established with the vision to provide comprehensive Company Secretary services, M/s Praveen K & Associates has grown to become one of India's trusted CS firms. Our experienced team specializes in 
               company law matters, regulatory compliance, and corporate advisory services, serving clients 
               from diverse industries including manufacturing, technology, healthcare, and financial services.
             </p>
@@ -457,7 +472,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Latest Updates Section */}
+      {/* Latest Updates Section - WordPress Integration */}
       <Section className="bg-gray-50">
         <Container>
           <div className="text-center mb-16">
@@ -469,58 +484,77 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {latestBlogPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                {post.featured_image && (
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={post.featured_image} 
-                      alt={post.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {new Date(post.date).toLocaleDateString('en-IN', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 hover:text-[#3AA6FF] transition-colors">
-                    <Link href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">By {post.author}</span>
-                    <Link 
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center text-[#3AA6FF] hover:text-[#2690E6] font-semibold text-sm"
-                    >
-                      Read More
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Button size="lg" variant="outline" asChild className="border-[#3AA6FF] text-[#3AA6FF] hover:bg-[#3AA6FF] hover:text-white">
-              <Link href="/blog">
-                <BookOpen className="mr-2 h-5 w-5" />
-                View All Articles
-              </Link>
-            </Button>
-          </div>
+          {isLoadingBlogs ? (
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#3AA6FF]"></div>
+              <p className="mt-4 text-gray-600">Loading articles...</p>
+            </div>
+          ) : latestBlogPosts.length > 0 ? (
+            <>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {latestBlogPosts.map((post) => (
+                  <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group">
+                    <div className="aspect-video overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
+                      {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
+                        <img 
+                          src={post._embedded['wp:featuredmedia'][0].source_url} 
+                          alt={post._embedded['wp:featuredmedia'][0].alt_text || post.title.rendered}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <Calendar className="h-12 w-12 text-[#3AA6FF]" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        {formatDate(post.date)}
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-[#3AA6FF] transition-colors line-clamp-2">
+                        <Link href={`/blogs/${post.slug}`}>
+                          {post.title.rendered}
+                        </Link>
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                        {stripHtml(post.excerpt.rendered)}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        {post._embedded?.author?.[0]?.name && (
+                          <span className="text-xs text-gray-500">By {post._embedded.author[0].name}</span>
+                        )}
+                        <Link 
+                          href={`/blogs/${post.slug}`}
+                          className="inline-flex items-center text-[#3AA6FF] hover:text-[#2690E6] font-semibold text-sm"
+                        >
+                          Read More
+                          <ArrowRight className="ml-1 h-4 w-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              
+              <div className="text-center">
+                <Button size="lg" variant="outline" asChild className="border-[#3AA6FF] text-[#3AA6FF] hover:bg-[#3AA6FF] hover:text-white">
+                  <Link href="/blogs">
+                    <BookOpen className="mr-2 h-5 w-5" />
+                    View All Articles
+                  </Link>
+                </Button>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No Articles Available</h3>
+              <p className="text-gray-600">Check back soon for new insights and updates.</p>
+            </div>
+          )}
         </Container>
       </Section>
 
@@ -529,10 +563,10 @@ export default function HomePage() {
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Why Choose M/s Praveen K & Associates?
+              Why Choose M/s Praveen K & Associates?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-             We combine expertise, experience, and commitment to deliver exceptional professional services that help your business maintain perfect regulatory compliance.
+              We combine expertise, experience, and commitment to deliver exceptional professional services that help your business maintain perfect regulatory compliance.
             </p>
           </div>
           
@@ -549,7 +583,9 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
-     
+
+      {/* Contact Form */}
+      <SimpleContactForm />
     </>
   );
 }
