@@ -106,15 +106,15 @@ export function Navbar() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center hover:text-blue-200 transition-colors">
                 <Phone className="h-4 w-4 mr-2" />
-                <span>+91 9876543210</span>
+                <span>+91 8800343499</span>
               </div>
               <div className="flex items-center hover:text-blue-200 transition-colors">
                 <Mail className="h-4 w-4 mr-2" />
-                <span>contact@cspraveenkumar.in</span>
+                <span>contact@cspkindia.com</span>
               </div>
             </div>
             <div className="hidden md:block">
-              <span className="text-blue-200">Professional CS & Compliance Services Since 2018</span>
+              <span className="text-blue-200">Serving the Corporates Since 2018</span>
             </div>
           </div>
         </Container>
