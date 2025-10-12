@@ -288,7 +288,7 @@ const usps = [
 const firmHighlights = [
   {
     icon: Award,
-    title: "10+ Years Experience",
+    title: "7+ Years Experience",
     description: "Serving businesses with expert CS services since our establishment"
   },
   {
@@ -305,27 +305,6 @@ const firmHighlights = [
     icon: Shield,
     title: "100% Compliance Rate",
     description: "Maintaining perfect track record in statutory compliances"
-  }
-];
-
-const testimonials = [
-  {
-    name: "Rajesh Kumar",
-    company: "Tech Innovations Pvt Ltd",
-    rating: 5,
-    testimonial: "CS Praveen Kumar helped us with our company registration and annual compliance. Their team is professional and always delivers on time. Highly recommended for any CS services."
-  },
-  {
-    name: "Priya Sharma",
-    company: "Green Earth NGO",
-    rating: 5,
-    testimonial: "Excellent service for our Section 8 company registration. They guided us through the entire process and made it hassle-free. Very knowledgeable team."
-  },
-  {
-    name: "Amit Patel",
-    company: "Digital Solutions LLP",
-    rating: 5,
-    testimonial: "We've been working with CS Praveen Kumar for our LLP compliance for over 2 years. Their expertise in regulatory matters is outstanding. Great value for money."
   }
 ];
 
@@ -375,7 +354,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
               <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold mb-4">
-              Welcome to <span className="font-bold">M/s Praveen K & Associates</span>
+              Welcome to <span className="font-black">M/s Praveen K & Associates</span>
               </span>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
                 Your Trusted Partner for 
@@ -384,7 +363,7 @@ export default function HomePage() {
             </div>
             
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              CS Praveen Kumar is a leading Company Secretary firm providing comprehensive professional services 
+              M/s Praveen K & Associates is a leading Company Secretary firm providing comprehensive professional services 
               to businesses across India. We specialize in company incorporation, ROC compliance, NCLT matters, 
               intellectual property rights, and corporate advisory services. Our team of qualified CS professionals 
               ensures your business maintains perfect regulatory compliance while you focus on growth.
@@ -397,7 +376,7 @@ export default function HomePage() {
                 <div className="text-gray-600">Clients Served</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#3AA6FF] mb-2">10+</div>
+                <div className="text-3xl font-bold text-[#3AA6FF] mb-2">7+</div>
                 <div className="text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
@@ -418,11 +397,11 @@ export default function HomePage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              About CS Praveen Kumar
+            About M/s Praveen K & Associates
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Established with the vision to provide comprehensive Company Secretary services, CS Praveen Kumar 
-              has grown to become one of India trusted CS firms. Our experienced team specializes in 
+            Established with the vision to provide comprehensive Company Secretary services, M/s Praveen K & Associates has grown to become one of India trusted CS firms
+            .Our experienced team specializes in 
               company law matters, regulatory compliance, and corporate advisory services, serving clients 
               from diverse industries including manufacturing, technology, healthcare, and financial services.
             </p>
@@ -550,11 +529,10 @@ export default function HomePage() {
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose CS Praveen Kumar?
+            Why Choose M/s Praveen K & Associates?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We combine expertise, experience, and commitment to deliver exceptional CS services 
-              that help your business maintain perfect regulatory compliance.
+             We combine expertise, experience, and commitment to deliver exceptional professional services that help your business maintain perfect regulatory compliance.
             </p>
           </div>
           
@@ -567,32 +545,6 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">{usp.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{usp.description}</p>
               </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Client Testimonials */}
-      <Section className="bg-gray-50">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Client Testimonials
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Read what our satisfied clients have to say about our professional CS services and expertise.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                name={testimonial.name}
-                company={testimonial.company}
-                rating={testimonial.rating}
-                testimonial={testimonial.testimonial}
-              />
             ))}
           </div>
         </Container>

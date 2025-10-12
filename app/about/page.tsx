@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
+
 export const metadata: Metadata = {
   title: 'About CS Praveen Kumar - Leading Company Secretary Firm | Praveen K & Associates',
-  description: 'Learn about Praveen K & Associates, a leading Company Secretary firm founded in 2018 by Mr. Praveen Kumar, providing comprehensive CS and compliance services across India.',
+  description: 'Learn about Praveen K & Associates, a leading Company Secretary firm founded in 2018 by CS Praveen Kumar, providing comprehensive CS and compliance services across India.',
   keywords: 'about CS Praveen Kumar, Praveen K Associates, company secretary firm, CS services, compliance experts, corporate governance',
 };
+
 
 const stats = [
   { icon: Users, number: "500+", label: "Happy Clients" },
@@ -18,6 +20,7 @@ const stats = [
   { icon: Award, number: "100%", label: "Success Rate" },
   { icon: Clock, number: "24/7", label: "Support" }
 ];
+
 
 const timeline = [
   {
@@ -42,6 +45,7 @@ const timeline = [
   }
 ];
 
+
 const values = [
   {
     title: "Excellence",
@@ -61,6 +65,7 @@ const values = [
   }
 ];
 
+
 const serviceAreas = [
   {
     icon: FileText,
@@ -79,10 +84,12 @@ const serviceAreas = [
   }
 ];
 
+
 const industries = [
   "Manufacturing", "Construction", "Insurance", "Banking", "Power", "Textiles",
   "Retail", "Commodities", "Healthcare", "Hospitality", "Media", "Information Technology"
 ];
+
 
 export default function AboutPage() {
   return (
@@ -96,28 +103,29 @@ export default function AboutPage() {
         ]}
       />
 
-      {/* Company Overview - Using exact content from document */}
+
+      {/* Company Overview */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Leading CS Firm Since 2018
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Praveen K & Associates is a leading Company Secretary firm founded in 2018 by Mr. Praveen Kumar. 
+            <p className="text-gray-600 text-lg leading-relaxed mb-6 text-justify">
+              Praveen K & Associates is a leading Company Secretary firm founded in 2018 by CS Praveen Kumar. 
               It provides comprehensive professional services which include Secretarial Services, Corporate Advisory, 
               Management Consultancy, Financial Management etc. to a large and wide variety of clients throughout India.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+            <p className="text-gray-600 text-lg leading-relaxed mb-6 text-justify">
               Our clients include listed and non-listed companies and cover a broad spectrum of industries ranging 
               from manufacturing, construction, insurance, banking, power, textiles, retail, commodities, healthcare, 
               hospitality, media and information technology.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+            <p className="text-gray-600 text-lg leading-relaxed mb-6 text-justify">
               We are a team of young professionals, committed to provide quality professional services in a 
               time-bound manner and build a longstanding relationship with our clients.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-lg leading-relaxed mb-8 text-justify">
               We are an established firm of Practicing Company Secretaries providing various professional services 
               to both public and private companies. We are acknowledged experts in all areas of company secretarial 
               practice, Merger and Acquisitions, Intellectual Property Rights (IPR), Direct and Indirect Tax Laws. 
@@ -125,8 +133,7 @@ export default function AboutPage() {
             </p>
             <Button size="lg" asChild className="bg-[#3AA6FF] hover:bg-[#2690E6] text-white">
               <Link href="/contact">
-                <Download className="mr-2 h-5 w-5" />
-                Get Professional Consultation
+                Rate Us
               </Link>
             </Button>
           </div>
@@ -147,13 +154,14 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Mission & Vision - Using exact content from document */}
+
+      {/* Mission & Vision */}
       <Section className="bg-gray-50">
         <div className="grid md:grid-cols-2 gap-12">
           <Card className="p-8 border-l-4 border-[#3AA6FF]">
             <CardContent className="p-0">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 Our mission is to deliver trusted, ethical, and efficient corporate governance and compliance 
                 solutions that empower businesses to operate with transparency, integrity, and legal confidence. 
                 We strive to be a reliable partner to our clients, ensuring seamless adherence to statutory 
@@ -165,7 +173,7 @@ export default function AboutPage() {
           <Card className="p-8 border-l-4 border-[#2690E6]">
             <CardContent className="p-0">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 To be the most trusted and innovative corporate governance partner, recognized for excellence 
                 in compliance, strategic advisory, and ethical business practices — enabling organizations to 
                 thrive in a transparent, responsible, and sustainable corporate environment.
@@ -174,6 +182,7 @@ export default function AboutPage() {
           </Card>
         </div>
       </Section>
+
 
       {/* Service Areas */}
       <Section>
@@ -200,6 +209,7 @@ export default function AboutPage() {
           ))}
         </div>
 
+
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
           <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">Our Expertise Areas</h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -221,6 +231,7 @@ export default function AboutPage() {
           </div>
         </div>
       </Section>
+
 
       {/* Company Values */}
       <Section className="bg-gray-50">
@@ -246,14 +257,15 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Industries We Serve - Using exact list from document */}
+
+      {/* Industries We Serve */}
       <Section>
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Industries We Serve
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We serve clients across diverse industries, from listed to non-listed companies
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-justify">
+            We serve clients across diverse industries, from unlisted to listed companies
           </p>
         </div>
         
@@ -266,6 +278,7 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
 
       {/* Company Timeline */}
       <Section className="bg-gray-50">
@@ -293,6 +306,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
+
       {/* Leadership Section */}
       <Section>
         <div className="text-center mb-16">
@@ -310,12 +324,12 @@ export default function AboutPage() {
               <div className="w-32 h-32 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-3xl">PK</span>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">Mr. Praveen Kumar</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">CS Praveen Kumar</h3>
               <p className="text-[#3AA6FF] font-medium mb-4">Founder & Managing Partner</p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Qualified Company Secretary and the visionary founder of Praveen K & Associates. With extensive 
-                experience in corporate compliance, governance, and strategic advisory, Mr. Praveen Kumar leads 
-                our team of young professionals committed to delivering quality services in a time-bound manner.
+              <p className="text-gray-600 leading-relaxed mb-6 text-justify">
+                Qualified Company Secretary and the visionary founder of M/s Praveen K & Associates. With extensive 
+                experience in corporate compliance, governance, and strategic advisory, CS Praveen Kumar leads 
+                the team of young professionals committed to delivering quality services in a time-bound manner.
               </p>
               <div className="text-sm text-gray-500">
                 <p>Company Secretary • Corporate Law Expert • Strategic Advisor</p>
@@ -324,16 +338,15 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        {/* Team Description - Using exact content from document */}
+
+        {/* Team Description */}
         <div className="mt-12 text-center">
           <Card className="p-8 bg-gradient-to-r from-blue-50 to-indigo-50 border-0">
             <CardContent className="p-0">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Our Professional Team</h3>
-              <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                Our team consists of Company Secretaries and other Professional Associates such as 
-                Chartered Accountants and Advocates. We are a team of young professionals committed 
-                to providing quality professional services in a time-bound manner and building longstanding 
-                relationships with our clients.
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Why Work With Us?</h3>
+              <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto text-justify">
+                At M/s Praveen K & Associates, we believe our people are our greatest asset. We provide a collaborative 
+                environment where professionals can grow, learn, and make a meaningful impact on businesses across India.
               </p>
             </CardContent>
           </Card>

@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Building2, Users, Shield } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
@@ -7,11 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+
 export const metadata: Metadata = {
   title: 'Contact Us - CS Praveen Kumar | Professional Company Secretary Services',
   description: 'Get in touch with CS Praveen Kumar for professional Company Secretary services. Located in Delhi with expert CS consultation and compliance solutions.',
   keywords: 'contact CS Praveen Kumar, company secretary Delhi, CS services contact, professional consultation',
 };
+
 
 const contactInfo = [
   {
@@ -29,7 +30,7 @@ const contactInfo = [
     icon: Phone,
     title: "Phone Numbers",
     details: ["+91 8800343499", "+91 9868428811"],
-    description: "Available Mon-Sat 9:00 AM to 6:00 PM"
+    description: "Available Mon-Sat 10:00 AM to 7:00 PM"
   },
   {
     icon: MessageSquare,
@@ -40,25 +41,25 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["contact@cspraveenkumar.in"],
+    details: ["contact@cspkindia.com"],
     description: "We'll respond within 24 hours"
   },
   {
     icon: Clock,
     title: "Business Hours",
     details: [
-      "Monday - Friday: 9:00 AM - 6:00 PM",
-      "Saturday: 9:00 AM - 4:00 PM"
+      "Monday - Saturday: 10:00 AM - 7:00 PM"
     ],
     description: "Sunday: Closed"
   }
 ];
 
+
 const whyChooseUs = [
   {
     icon: Users,
     title: "Expert Team",
-    description: "Qualified Company Secretaries with 10+ years experience"
+    description: "Qualified Company Secretaries with 7+ years experience"
   },
   {
     icon: Shield,
@@ -77,6 +78,7 @@ const whyChooseUs = [
   }
 ];
 
+
 const serviceAreas = [
   "Company Registration & Incorporation",
   "NCLT Matters & Corporate Restructuring", 
@@ -88,17 +90,19 @@ const serviceAreas = [
   "Regional Director Approvals"
 ];
 
+
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        title="Contact CS Praveen Kumar"
-        description="Get professional Company Secretary consultation and services from experienced CS professionals"
+        title="Contact M/s Praveen K & Associates"
+        description="Get professional consultation and services from experienced professionals"
         breadcrumb={[
           { label: "Home", href: "/" },
           { label: "Contact" }
         ]}
       />
+
 
       <Section>
         <div className="grid lg:grid-cols-3 gap-12">
@@ -108,13 +112,15 @@ export default function ContactPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 M/s Praveen K & Associates
               </h2>
-              <p className="text-lg text-gray-600 mb-2">Professional Company Secretaries</p>
+              <p className="text-lg text-gray-600 mb-2">(Company Secretaries)</p>
+              <p className="text-lg text-gray-600 mb-2">(Peer Reviewed)</p>
               <p className="text-gray-600 leading-relaxed">
-                With over 10+ years of experience in Company Secretary services, we provide comprehensive 
+                With over 7+ years of experience in Company Secretary services, we provide comprehensive 
                 professional solutions for all your compliance and regulatory needs. Our team of qualified 
-                CS professionals ensures 100% compliance and timely service delivery across India.
+                professionals ensures 100% compliance and timely service delivery across India.
               </p>
             </div>
+
 
             {/* Contact Details Grid */}
             <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -154,6 +160,7 @@ export default function ContactPage() {
               ))}
             </div>
 
+
             {/* Map Placeholder */}
             <Card>
               <CardHeader>
@@ -175,6 +182,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
           </div>
+
 
           {/* Sidebar Information */}
           <div className="space-y-6">
@@ -221,6 +229,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
+
             {/* Why Choose Us */}
             <Card>
               <CardHeader>
@@ -240,6 +249,7 @@ export default function ContactPage() {
                 ))}
               </CardContent>
             </Card>
+
 
             {/* Service Areas */}
             <Card>
@@ -263,6 +273,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
+
             {/* Professional Credentials */}
             <Card>
               <CardHeader>
@@ -276,7 +287,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center">
                     <Users className="h-4 w-4 text-[#3AA6FF] mr-2" />
-                    <span className="text-gray-600">10+ Years Professional Experience</span>
+                    <span className="text-gray-600">7+ Years Professional Experience</span>
                   </div>
                   <div className="flex items-center">
                     <Building2 className="h-4 w-4 text-[#3AA6FF] mr-2" />
@@ -293,6 +304,7 @@ export default function ContactPage() {
         </div>
       </Section>
 
+
       {/* FAQ Section */}
       <Section className="bg-gray-50">
         <div className="text-center mb-12">
@@ -304,15 +316,16 @@ export default function ContactPage() {
           </p>
         </div>
 
+
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[
             {
               question: "How can I schedule a consultation?", 
-              answer: "You can call us directly at +91 8800343499 or send a WhatsApp message to +91 9811657065. We're available Mon-Sat, 9:00 AM - 6:00 PM for immediate consultation."
+              answer: "We're available Mon-Sat, 10:00 AM - 7:00 PM for immediate consultation."
             },
             {
               question: "Do you provide services across India?",
-              answer: "Yes, we provide Company Secretary services across India. While our office is in Delhi, we handle matters in all major cities through our professional network."
+              answer: "Yes, we provide Company Secretary services across India. While our office is in Delhi, we handle matters whole India through our professional network."
             },
             {
               question: "What are your consultation charges?",
@@ -337,6 +350,7 @@ export default function ContactPage() {
             </Card>
           ))}
         </div>
+
 
         {/* Contact CTA */}
         <div className="text-center mt-12">
