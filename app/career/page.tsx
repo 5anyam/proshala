@@ -1,168 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import { Metadata } from "next";
-import { Briefcase, Users, MapPin, Clock } from "lucide-react";
+import { Briefcase, Users, MapPin, Clock, Upload, Send } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section } from "@/components/ui/section";
-import { JobCard } from "@/components/ui/job-card";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-export const metadata: Metadata = {
-  title: 'Career Opportunities - Join CSPKIndia Team',
-  description: 'Explore exciting career opportunities at CSPKIndia. Join our team of Company Secretary professionals and grow your career in corporate compliance and law.',
-  keywords: 'CS careers, company secretary jobs, compliance careers, corporate law jobs, legal careers India',
-};
-
-// // Sample job data
-// const jobs = [
-//   {
-//     title: "Senior Company Secretary",
-//     department: "Compliance",
-//     location: "Mumbai",
-//     type: "Full-time",
-//     experience: "5-8 years",
-//     salary: "₹8-12 LPA",
-//     description: "Lead our compliance team and handle complex corporate matters including NCLT proceedings, mergers, and regulatory filings. Perfect opportunity for experienced CS professionals.",
-//     slug: "senior-company-secretary",
-//     requirements: [
-//       "Qualified Company Secretary (CS) with valid COP",
-//       "5+ years experience in corporate compliance",
-//       "Experience with NCLT matters and complex filings",
-//       "Strong knowledge of Companies Act and SEBI regulations",
-//       "Excellent communication and leadership skills"
-//     ],
-//     responsibilities: [
-//       "Handle complex ROC filings and annual compliance",
-//       "Manage NCLT matters and court proceedings",
-//       "Lead team of junior CS professionals",
-//       "Client relationship management",
-//       "Ensure timely completion of all statutory requirements"
-//     ]
-//   },
-//   {
-//     title: "Junior Company Secretary",
-//     department: "Registration Services",
-//     location: "Mumbai",
-//     type: "Full-time", 
-//     experience: "1-3 years",
-//     salary: "₹4-6 LPA",
-//     description: "Join our registration team to assist with company incorporations, LLP registrations, and basic compliance work. Great opportunity for freshers and junior CS professionals.",
-//     slug: "junior-company-secretary",
-//     requirements: [
-//       "Company Secretary qualification (CS) or pursuing final",
-//       "1-3 years relevant experience",
-//       "Knowledge of company incorporation process",
-//       "Proficiency in MCA portal and ROC procedures",
-//       "Strong attention to detail"
-//     ],
-//     responsibilities: [
-//       "Assist in company and LLP registrations",
-//       "Prepare incorporation documents",
-//       "Handle basic ROC filings",
-//       "Client documentation and follow-up",
-//       "Support senior team members"
-//     ]
-//   },
-//   {
-//     title: "Legal Associate - IPR",
-//     department: "Intellectual Property",
-//     location: "Mumbai", 
-//     type: "Full-time",
-//     experience: "2-4 years",
-//     salary: "₹5-8 LPA",
-//     description: "Specialize in trademark registrations, patent filings, and intellectual property matters. Handle client portfolios and ensure timely renewals and prosecutions.",
-//     slug: "legal-associate-ipr",
-//     requirements: [
-//       "Law degree (LLB) or equivalent qualification",
-//       "2+ years experience in IPR/trademark matters",
-//       "Knowledge of trademark and patent procedures",
-//       "Experience with IP office portals",
-//       "Good research and analytical skills"
-//     ],
-//     responsibilities: [
-//       "Handle trademark search and registration",
-//       "Manage patent filing process",
-//       "Client consultation on IP matters",
-//       "Prosecution and renewal of IP rights",
-//       "Maintain IP databases and records"
-//     ]
-//   },
-//   {
-//     title: "Compliance Executive",
-//     department: "Annual Compliance",
-//     location: "Mumbai",
-//     type: "Full-time",
-//     experience: "1-2 years",
-//     salary: "₹3-5 LPA", 
-//     description: "Support our compliance team with annual filings, statutory returns, and regulatory submissions. Ideal for candidates looking to build expertise in corporate compliance.",
-//     slug: "compliance-executive",
-//     requirements: [
-//       "Commerce graduate or pursuing professional course",
-//       "Basic knowledge of Companies Act and ROC procedures",
-//       "Proficiency in MS Office and MCA portal",
-//       "Strong organizational skills",
-//       "Willingness to learn and grow"
-//     ],
-//     responsibilities: [
-//       "Prepare annual returns and financial statements",
-//       "Assist in ROC filings and submissions",
-//       "Maintain compliance calendars",
-//       "Client communication and updates",
-//       "Document management and filing"
-//     ]
-//   },
-//   {
-//     title: "Business Development Executive",
-//     department: "Sales & Marketing",
-//     location: "Mumbai",
-//     type: "Full-time",
-//     experience: "2-5 years", 
-//     salary: "₹4-7 LPA + Incentives",
-//     description: "Drive business growth by acquiring new clients and expanding our service offerings. Build relationships with corporates and professionals requiring CS services.",
-//     slug: "business-development-executive",
-//     requirements: [
-//       "Bachelor's degree in Business/Marketing",
-//       "2+ years B2B sales experience", 
-//       "Understanding of corporate services market",
-//       "Excellent communication and presentation skills",
-//       "Target-oriented with proven track record"
-//     ],
-//     responsibilities: [
-//       "Generate leads and acquire new clients",
-//       "Present CS services to potential customers",
-//       "Build and maintain client relationships",
-//       "Achieve monthly and quarterly targets",
-//       "Market research and competitor analysis"
-//     ]
-//   },
-//   {
-//     title: "Content Writer - Legal",
-//     department: "Marketing",
-//     location: "Mumbai/Remote",
-//     type: "Full-time",
-//     experience: "1-3 years",
-//     salary: "₹3-5 LPA",
-//     description: "Create compelling content around CS services, legal updates, and compliance matters. Help build our thought leadership through blogs, articles, and marketing materials.",
-//     slug: "content-writer-legal", 
-//     requirements: [
-//       "English/Journalism degree or Law background",
-//       "1+ years content writing experience",
-//       "Knowledge of corporate law and compliance",
-//       "SEO writing skills",
-//       "Creative thinking and research abilities"
-//     ],
-//     responsibilities: [
-//       "Write blogs and articles on CS topics",
-//       "Create marketing content and brochures",
-//       "Develop web content and service descriptions",
-//       "Social media content creation",
-//       "Research industry trends and updates"
-//     ]
-//   }
-// ];
-
-const departments = ["All", "Compliance", "Registration Services", "Intellectual Property", "Annual Compliance", "Sales & Marketing", "Marketing"];
-const jobTypes = ["All", "Full-time", "Part-time", "Contract", "Internship"];
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { toast } from "sonner";
 
 const stats = [
   { icon: Users, number: "50+", label: "Team Members" },
@@ -171,7 +20,128 @@ const stats = [
   { icon: Clock, number: "24/7", label: "Support" }
 ];
 
+const positions = [
+  "Senior Company Secretary",
+  "Junior Company Secretary", 
+  "Legal Associate - IPR",
+  "Compliance Executive",
+  "Business Development Executive",
+  "Content Writer - Legal",
+  "Intern - CS Practice",
+  "Other/General Application"
+];
+
 export default function CareerPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    position: "",
+    experience: "",
+    currentCompany: "",
+    qualification: "",
+    location: "",
+    noticePeriod: "",
+    expectedSalary: "",
+    linkedIn: "",
+    coverLetter: "",
+    resume: null as File | null
+  });
+
+  const handleInputChange = (field: string) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("File size should be less than 5MB");
+        return;
+      }
+      
+      // Check file type
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      if (!allowedTypes.includes(file.type)) {
+        toast.error("Please upload PDF or Word document only");
+        return;
+      }
+      
+      setFormData(prev => ({ ...prev, resume: file }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.position) {
+      toast.error("Please fill all required fields");
+      return;
+    }
+    
+    if (!formData.resume) {
+      toast.error("Please upload your resume");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Create FormData for file upload
+      const submitData = new FormData();
+      Object.keys(formData).forEach(key => {
+        if (key === 'resume' && formData.resume) {
+          submitData.append('resume', formData.resume);
+        } else {
+          submitData.append(key, formData[key as keyof typeof formData] as string);
+        }
+      });
+
+      // Send to API route that will forward to email
+      const response = await fetch('/api/career-application', {
+        method: 'POST',
+        body: submitData
+      });
+
+      if (response.ok) {
+        toast.success("Application submitted successfully! We'll get back to you soon.");
+        
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          position: "",
+          experience: "",
+          currentCompany: "",
+          qualification: "",
+          location: "",
+          noticePeriod: "",
+          expectedSalary: "",
+          linkedIn: "",
+          coverLetter: "",
+          resume: null
+        });
+        
+        // Reset file input
+        const fileInput = document.getElementById('resume') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please email your resume to careers@cspkindia.com");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <PageHeader
@@ -183,112 +153,217 @@ export default function CareerPage() {
         ]}
       />
 
-      {/* Company Culture */}
-      <Section>
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-6">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Why Work With Us?
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            At M/s Praveen K & Associates, we believe our people are our greatest asset. 
-            We provide a collaborative environment where professionals can grow, learn,
-            and make a meaningful impact on businesses across India.
+      {/* Application Form */}
+      <Section className="bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Apply Now</h2>
+            <p className="text-xl text-gray-600">
+              Fill out the form below and we'll get back to you within 48 hours
             </p>
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex items-start">
-                <span className="text-[#3AA6FF] mr-2">•</span>
-                Professional development and continuous learning opportunities
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#3AA6FF] mr-2">•</span>
-                Competitive compensation and performance-based incentives
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#3AA6FF] mr-2">•</span>
-                Work-life balance with flexible working arrangements
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#3AA6FF] mr-2">•</span>
-                Exposure to complex corporate matters and high-profile clients
-              </li>
-            </ul>
           </div>
-          
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <Card key={index} className="text-center p-6">
-                <CardContent className="p-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <stat.icon className="h-6 w-6 text-white" />
+
+          <Card className="p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Personal Information */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="fullName">Full Name *</Label>
+                    <Input
+                      id="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange("fullName")}
+                      placeholder="Enter your full name"
+                      required
+                    />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                  <div className="text-gray-600 text-sm">{stat.label}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <div>
+                    <Label htmlFor="email">Email Address *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange("email")}
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone">Phone Number *</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange("phone")}
+                      placeholder="+91 9876543210"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="location">Current Location *</Label>
+                    <Input
+                      id="location"
+                      value={formData.location}
+                      onChange={handleInputChange("location")}
+                      placeholder="City, State"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Professional Information */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Professional Information</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="position">Position Applied For *</Label>
+                    <Select onValueChange={(value) => setFormData(prev => ({ ...prev, position: value }))}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select position" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {positions.map((position) => (
+                          <SelectItem key={position} value={position}>
+                            {position}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="experience">Total Experience *</Label>
+                    <Input
+                      id="experience"
+                      value={formData.experience}
+                      onChange={handleInputChange("experience")}
+                      placeholder="e.g., 3 years"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="qualification">Highest Qualification *</Label>
+                    <Input
+                      id="qualification"
+                      value={formData.qualification}
+                      onChange={handleInputChange("qualification")}
+                      placeholder="e.g., CS, CA, MBA, B.Com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="currentCompany">Current Company</Label>
+                    <Input
+                      id="currentCompany"
+                      value={formData.currentCompany}
+                      onChange={handleInputChange("currentCompany")}
+                      placeholder="Your current employer"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="noticePeriod">Notice Period</Label>
+                    <Input
+                      id="noticePeriod"
+                      value={formData.noticePeriod}
+                      onChange={handleInputChange("noticePeriod")}
+                      placeholder="e.g., Immediate, 30 days"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="expectedSalary">Expected Salary (Annual)</Label>
+                    <Input
+                      id="expectedSalary"
+                      value={formData.expectedSalary}
+                      onChange={handleInputChange("expectedSalary")}
+                      placeholder="e.g., ₹6-8 LPA"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Information */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Information</h3>
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="linkedIn">LinkedIn Profile URL</Label>
+                    <Input
+                      id="linkedIn"
+                      value={formData.linkedIn}
+                      onChange={handleInputChange("linkedIn")}
+                      placeholder="https://linkedin.com/in/yourprofile"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="coverLetter">Cover Letter / Why do you want to join us?</Label>
+                    <Textarea
+                      id="coverLetter"
+                      value={formData.coverLetter}
+                      onChange={handleInputChange("coverLetter")}
+                      placeholder="Tell us about yourself and why you're interested in this position..."
+                      rows={6}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Resume Upload */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Resume Upload *</h3>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#3AA6FF] transition-colors">
+                  <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <Label htmlFor="resume" className="cursor-pointer">
+                    <span className="text-[#3AA6FF] hover:underline">Click to upload</span>
+                    <span className="text-gray-600"> or drag and drop</span>
+                  </Label>
+                  <p className="text-sm text-gray-500 mt-2">PDF or Word document (Max 5MB)</p>
+                  <Input
+                    id="resume"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    required
+                  />
+                  {formData.resume && (
+                    <p className="text-sm text-green-600 mt-4">
+                      ✓ {formData.resume.name} selected
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-6">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-[#3AA6FF] hover:bg-[#2690E6] text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Submitting Application..."
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Submit Application
+                    </>
+                  )}
+                </Button>
+                <p className="text-sm text-gray-500 text-center mt-4">
+                  By submitting this application, you agree to our privacy policy and terms of service.
+                </p>
+              </div>
+            </form>
+          </Card>
         </div>
       </Section>
-      {/* <Section className="bg-gray-50"> */}
-        {/* <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Current Openings</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our growing team and take your CS career to the next level
-          </p>
-        </div> */}
-
-        {/* Filters
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="flex-1">
-            <h3 className="font-medium mb-2">Department</h3>
-            <div className="flex flex-wrap gap-2">
-              {departments.map((dept) => (
-                <Badge 
-                  key={dept}
-                  variant={dept === "All" ? "default" : "outline"}
-                  className={`cursor-pointer ${
-                    dept === "All" 
-                      ? "bg-[#3AA6FF] text-white" 
-                      : "hover:bg-[#3AA6FF] hover:text-white"
-                  }`}
-                >
-                  {dept}
-                </Badge>
-              ))}
-            </div>
-          </div>
-          <div className="flex-1">
-            <h3 className="font-medium mb-2">Job Type</h3>
-            <div className="flex flex-wrap gap-2">
-              {jobTypes.map((type) => (
-                <Badge 
-                  key={type}
-                  variant={type === "All" ? "default" : "outline"}
-                  className={`cursor-pointer ${
-                    type === "All" 
-                      ? "bg-[#3AA6FF] text-white" 
-                      : "hover:bg-[#3AA6FF] hover:text-white"
-                  }`}
-                >
-                  {type}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
-        {/* Job Cards
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {jobs.map((job) => (
-            <JobCard key={job.slug} {...job} />
-          ))}
-        </div> */}
-      {/* </Section> */}
 
       {/* Application Process */}
       <Section>
-        <div className="text-center mb-4">
+        <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Application Process</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Simple and transparent hiring process designed to find the best fit
@@ -297,7 +372,7 @@ export default function CareerPage() {
         
         <div className="grid md:grid-cols-4 gap-8">
           {[
-            { step: "1", title: "Apply Online", desc: "Submit your application through our portal with your resume and cover letter" },
+            { step: "1", title: "Apply Online", desc: "Submit your application through our form with your resume and details" },
             { step: "2", title: "Initial Screening", desc: "Our HR team reviews your application and conducts initial screening" },
             { step: "3", title: "Technical Interview", desc: "Technical assessment by our senior CS professionals" },
             { step: "4", title: "Final Interview", desc: "Final discussion with leadership team and offer negotiation" }
@@ -316,13 +391,13 @@ export default function CareerPage() {
       {/* CTA */}
       <Section className="bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] text-white">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Do not See the Right Role?</h2>
+          <h2 className="text-3xl font-bold mb-4">Questions About the Application?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            We are always looking for talented professionals. Send us your resume and we will keep you in mind for future opportunities.
+            Feel free to reach out to our HR team for any queries regarding the application process or available positions.
           </p>
           <Button asChild size="lg" className="bg-white text-[#3AA6FF] hover:bg-gray-100">
-            <a href="mailto:careers@cspkindia.com?subject=General Application">
-              Send Your Resume
+            <a href="mailto:careers@cspraveenkumar.in?subject=Career Inquiry">
+              Contact HR Team
             </a>
           </Button>
         </div>

@@ -585,7 +585,7 @@ export default function HomePage() {
       </Section>
 
       {/* Contact Form */}
-      <SimpleContactForm />
+    
     </>
   );
 }
