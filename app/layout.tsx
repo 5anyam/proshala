@@ -1,98 +1,335 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Navbar } from '@/components/layout/navbar';
-import { Footer } from '@/components/layout/footer';
+// app/layout.tsx
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Navbar from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "next-themes";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
+// SEO-optimized metadata for Proshala - Delhi NCR focused
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.proshala.com"),
   title: {
-    default: 'CSPKIndia - Trusted CS & Compliance Partner for Growing Businesses',
-    template: '%s | CSPKIndia'
+    default:
+      "Proshala - Top Digital Marketing Agency in Delhi NCR | Performance Marketing & Web Development",
+    template: "%s | Proshala - Digital Marketing Agency Delhi NCR",
   },
-  description: 'Leading Company Secretary (CS) firm in India providing comprehensive compliance, registration, NCLT, and legal services for businesses. Expert guidance for ROC filings, trademark registration, and corporate law matters.',
-  keywords: 'Company Secretary, CS services, compliance, company registration, NCLT, trademark, ROC filing, corporate law, India',
-  authors: [{ name: 'CSPKIndia' }],
-  creator: 'CSPKIndia',
-  publisher: 'CSPKIndia',
-  robots: 'index, follow',
+  description:
+    "Proshala is a leading digital marketing agency in Delhi NCR specializing in performance marketing, website development, SEO, social media management, and branding. Serving businesses across Noida, Gurgaon, Ghaziabad since 2020. Get measurable results with data-driven strategies.",
+  keywords: [
+    "digital marketing agency Delhi",
+    "digital marketing company Delhi NCR",
+    "performance marketing agency Delhi",
+    "website development Delhi NCR",
+    "SEO services Delhi",
+    "social media marketing Delhi",
+    "PPC agency Delhi NCR",
+    "Google Ads expert Delhi",
+    "web design company Noida",
+    "digital marketing Gurgaon",
+    "branding agency Delhi",
+    "influencer marketing Delhi NCR",
+    "e-commerce marketing Delhi",
+    "startup marketing Delhi",
+    "best digital marketing agency NCR",
+  ],
+  authors: [{ name: "Proshala Digital Marketing Agency", url: "https://www.proshala.com" }],
+  creator: "Proshala",
+  publisher: "Proshala Digital Marketing Agency",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: 'https://cspkindia.in',
-    siteName: 'CSPKIndia',
-    title: 'CSPKIndia - Trusted CS & Compliance Partner',
-    description: 'Leading Company Secretary firm providing comprehensive compliance and legal services for Indian businesses.',
+    type: "website",
+    locale: "en_IN",
+    url: "https://www.proshala.com",
+    siteName: "Proshala - Digital Marketing Agency Delhi NCR",
+    title:
+      "Proshala - Top Digital Marketing Agency in Delhi NCR | Performance Marketing Experts",
+    description:
+      "Award-winning digital marketing agency in Delhi NCR. Expert in performance marketing, website development, SEO, social media & branding. Trusted by 80+ businesses since 2020.",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'CSPKIndia - Company Secretary Services',
+        alt: "Proshala - Digital Marketing Agency Delhi NCR",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'CSPKIndia - CS & Compliance Services',
-    description: 'Leading Company Secretary firm providing comprehensive compliance and legal services.',
-    images: ['/og-image.jpg'],
+    card: "summary_large_image",
+    site: "@proshala",
+    creator: "@proshala",
+    title: "Proshala - Digital Marketing Agency Delhi NCR | Performance Marketing",
+    description:
+      "Leading digital marketing agency in Delhi NCR. Performance marketing, web dev, SEO & branding for growth-focused businesses.",
+    images: ["/twitter-image.jpg"],
   },
   alternates: {
-    canonical: 'https://cspkindia.in',
+    canonical: "https://www.proshala.com",
+    languages: {
+      "en-IN": "https://www.proshala.com",
+      "hi-IN": "https://www.proshala.com/hi",
+    },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: "your-google-site-verification-code", // Replace with actual code from Google Search Console
+  },
+  category: "Digital Marketing",
+  classification: "Business Services",
+  other: {
+    "geo.region": "IN-DL",
+    "geo.placename": "Delhi NCR",
+    "geo.position": "28.7041;77.1025", // Delhi coordinates
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'CSPKIndia',
-  url: 'https://cspkindia.in',
-  logo: 'https://cspkindia.in/logo.png',
-  description: 'Leading Company Secretary firm providing comprehensive compliance and legal services for Indian businesses.',
+// Enhanced JSON-LD structured data for Local Business - Delhi NCR [web:249][web:253][web:255]
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.proshala.com/#organization",
+  name: "Proshala - Digital Marketing Agency",
+  legalName: "Proshala Digital Marketing Services",
+  url: "https://www.proshala.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://www.proshala.com/Proshala-logo.png",
+    width: 500,
+    height: 500,
+    caption: "Proshala Logo",
+  },
+  image: [
+    "https://www.proshala.com/og-image.jpg",
+    "https://www.proshala.com/office-photo.jpg",
+  ],
+  description:
+    "Proshala is a leading digital marketing agency in Delhi NCR providing performance marketing, website development, SEO, social media management, branding, and influencer marketing services since 2020.",
+  foundingDate: "2020-01-15",
+  founder: {
+    "@type": "Person",
+    name: "Your Name", // Replace with founder's name
+    jobTitle: "Founder & CEO",
+  },
   address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Mumbai',
-    addressRegion: 'Maharashtra',
-    addressCountry: 'IN',
+    "@type": "PostalAddress",
+    streetAddress: "Your Office Address", // Replace with actual address
+    addressLocality: "Delhi",
+    addressRegion: "DL",
+    postalCode: "110001", // Replace with actual postal code
+    addressCountry: "IN",
   },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+91-9876543210',
-    contactType: 'customer service',
-    email: 'contact@cspkindia.in',
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.7041,
+    longitude: 77.1025,
   },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Delhi",
+    },
+    {
+      "@type": "City",
+      name: "Noida",
+    },
+    {
+      "@type": "City",
+      name: "Gurgaon",
+    },
+    {
+      "@type": "City",
+      name: "Ghaziabad",
+    },
+    {
+      "@type": "City",
+      name: "Faridabad",
+    },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+91-XXXXXXXXXX", // Replace with actual phone
+      contactType: "customer service",
+      email: "hello@proshala.com", // Replace with actual email
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+      contactOption: "TollFree",
+    },
+  ],
   sameAs: [
-    'https://www.facebook.com/cspkindia',
-    'https://www.twitter.com/cspkindia',
-    'https://www.linkedin.com/company/cspkindia',
+    "https://www.facebook.com/proshala",
+    "https://www.instagram.com/proshala",
+    "https://www.linkedin.com/company/proshala",
+    "https://twitter.com/proshala",
+  ],
+  priceRange: "$$",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "80",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "10:00",
+      closes: "16:00",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Digital Marketing Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Performance Marketing",
+          description: "ROI-driven PPC and paid social campaigns with measurable ROAS",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Website Development",
+          description: "Conversion-first websites on Next.js, React, WordPress",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "SEO Services",
+          description: "Technical SEO, content strategy, and authority building",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Social Media Management",
+          description: "Channel strategy, content systems, and community management",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Influencer Marketing",
+          description: "Creator partnerships with transparent performance KPIs",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Branding & Design",
+          description: "Brand identity, design systems, and visual storytelling",
+        },
+      },
+    ],
+  },
+};
+
+// Website schema for sitelinks search box [web:256]
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.proshala.com/#website",
+  url: "https://www.proshala.com",
+  name: "Proshala Digital Marketing Agency",
+  description: "Leading digital marketing agency in Delhi NCR",
+  publisher: {
+    "@id": "https://www.proshala.com/#organization",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://www.proshala.com/search?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+  inLanguage: "en-IN",
+};
+
+// Breadcrumb schema [web:256]
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.proshala.com",
+    },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://cms.proshala.com" />
+        <link rel="dns-prefetch" href="https://cms.proshala.com" />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

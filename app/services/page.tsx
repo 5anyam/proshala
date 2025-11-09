@@ -1,333 +1,321 @@
+// app/services/page.tsx
 import { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader } from "@/components/ui/page-header";
-import { Section } from "@/components/ui/section";
-import { Container } from "@/components/ui/container";
-import { ServiceCard } from "@/components/ui/service-card";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { services, serviceCategories, getServicesByCategory } from "@/lib/data/services";
-import { 
-  ArrowRight, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Award, 
-  Users, 
-  Shield, 
-  FileText,
-  Building2,
-  Scale,
-  RefreshCw,
-  CheckCircle
+import {
+  ArrowRight,
+  Globe,
+  TrendingUp,
+  Users,
+  Megaphone,
+  CheckCircle,
+  Sparkles,
+  Mail,
+  BarChart,
+  Target,
+  Zap,
+  Shield,
+  Award,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Professional CS Services - CS Praveen Kumar | Company Secretary & Compliance',
-  description: 'Comprehensive Company Secretary services including company registration, NCLT matters, annual compliance, trademark registration, and corporate law solutions by CS Praveen Kumar.',
-  keywords: 'company secretary services, company registration, NCLT, annual compliance, trademark, corporate law, ROC filing, CS Praveen Kumar',
+  title: "Digital Marketing Services - Proshala | Performance Marketing & Web Development",
+  description:
+    "Comprehensive digital marketing services by Proshala: Website development, performance marketing, SEO, social media management, branding. Serving Delhi NCR since 2020.",
+  keywords:
+    "digital marketing services Delhi, performance marketing, web development, SEO services, social media management, PPC agency, branding agency Delhi NCR",
 };
 
-const whyChooseFeatures = [
+const services = [
   {
-    icon: Award,
-    title: "10+ Years Experience",
-    description: "Extensive experience in Company Secretary services"
+    icon: Globe,
+    title: "Website Development",
+    description:
+      "Conversion-first websites built on Next.js, React, WordPress with Core Web Vitals optimization. Lightning-fast, SEO-ready, mobile-responsive.",
+    href: "/services/website-development",
+    features: ["Next.js & React", "Core Web Vitals", "SEO Optimized", "Mobile First"],
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    description:
+      "ROI-driven Google Ads, Meta Ads, LinkedIn campaigns with measurable ROAS. Transparent reporting, disciplined budgets, data-backed optimization.",
+    href: "/services/performance-marketing",
+    features: ["Google Ads", "Meta Ads", "ROAS Focused", "Transparent Reporting"],
   },
   {
     icon: Users,
-    title: "Expert Team",
-    description: "Qualified CS professionals with proven track record"
+    title: "Social Media Management",
+    description:
+      "Channel strategy, content calendars, community management across Instagram, LinkedIn, Twitter. Build engaged audiences that convert.",
+    href: "/services/social-media-management",
+    features: ["Content Strategy", "Community Mgmt", "Multi-Platform", "Analytics"],
+  },
+  {
+    icon: Megaphone,
+    title: "Influencer Marketing",
+    description:
+      "Creator partnerships tied to pipeline with transparent KPIs. Influencer discovery, negotiation, campaign execution, performance tracking.",
+    href: "/services/influencer-marketing",
+    features: ["Creator Network", "Campaign Mgmt", "Performance KPIs", "Authentic Reach"],
+  },
+  {
+    icon: CheckCircle,
+    title: "SEO & Content",
+    description:
+      "Technical SEO, topical authority, content depth that ranks and converts. Link building, on-page optimization, content strategy.",
+    href: "/services/seo",
+    features: ["Technical SEO", "Content Strategy", "Link Building", "Keyword Research"],
+  },
+  {
+    icon: Sparkles,
+    title: "Branding & Creatives",
+    description:
+      "Design systems, brand identity, motion graphics, visual storytelling. Logo design, brand guidelines, marketing collateral.",
+    href: "/services/branding",
+    features: ["Brand Identity", "Design Systems", "Motion Graphics", "Collateral Design"],
+  },
+  {
+    icon: Mail,
+    title: "Email & Automation",
+    description:
+      "Lifecycle journeys, CRM integrations, experimentation for sustained growth. Drip campaigns, segmentation, A/B testing.",
+    href: "/services/automation",
+    features: ["Lifecycle Emails", "CRM Integration", "Segmentation", "A/B Testing"],
+  },
+  {
+    icon: BarChart,
+    title: "Analytics & Reporting",
+    description:
+      "Attribution, dashboards, decision-ready insights. Google Analytics 4, Data Studio, custom tracking, conversion optimization.",
+    href: "/services/analytics",
+    features: ["GA4 Setup", "Custom Dashboards", "Attribution", "Conversion Tracking"],
+  },
+  {
+    icon: Target,
+    title: "CRO & Landing Pages",
+    description:
+      "Experiment-led landing pages and UX flows that lift conversion rates. Heatmaps, session recordings, multivariate testing.",
+    href: "/services/cro",
+    features: ["Landing Pages", "A/B Testing", "Heatmap Analysis", "UX Optimization"],
+  },
+];
+
+const whyChoose = [
+  {
+    icon: Zap,
+    title: "Speed to Market",
+    description:
+      "From brief to launch in weeks, not months. Agile sprints, rapid prototyping, fast iteration cycles.",
   },
   {
     icon: Shield,
-    title: "100% Compliance",
-    description: "Perfect regulatory compliance across all services"
+    title: "Data-First Approach",
+    description:
+      "Every decision backed by analytics. A/B testing, cohort analysis, attribution modeling, performance metrics.",
   },
   {
-    icon: Clock,
-    title: "Timely Delivery",
-    description: "On-time completion with proactive updates"
-  }
+    icon: Award,
+    title: "Proven Results",
+    description:
+      "150+ successful campaigns since 2020. Average ROAS: 4.5x. Client retention: 2+ years.",
+  },
+  {
+    icon: Users,
+    title: "Transparent Reporting",
+    description:
+      "Weekly dashboards, monthly reviews, real-time campaign access. You own your data, always.",
+  },
 ];
 
-const serviceStats = [
-  {
-    number: "500+",
-    label: "Clients Served",
-    description: "Businesses across various industries"
-  },
-  {
-    number: "22+",
-    label: "Services",
-    description: "Comprehensive CS service portfolio"
-  },
-  {
-    number: "10+",
-    label: "Years",
-    description: "Professional experience in CS domain"
-  },
-  {
-    number: "100%",
-    label: "Success Rate",
-    description: "Perfect compliance track record"
-  }
+const industries = [
+  "E-Commerce & Retail",
+  "SaaS & Technology",
+  "Education & EdTech",
+  "Healthcare & Wellness",
+  "Fintech & BFSI",
+  "Real Estate",
+  "Food & Beverage",
+  "Professional Services",
 ];
 
-const industryExpertise = [
-  "Manufacturing Companies",
-  "Technology Startups", 
-  "Healthcare Organizations",
-  "Financial Services",
-  "Educational Institutions",
-  "NGOs and Trusts",
-  "Trading Companies",
-  "Service Providers"
+const stats = [
+  { number: "150+", label: "Projects Delivered" },
+  { number: "80+", label: "Happy Clients" },
+  { number: "6+", label: "Years in Business" },
+  { number: "4.5x", label: "Avg. ROAS" },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        title="Professional CS Services"
-        description="Comprehensive Company Secretary and compliance services for businesses across India"
-        breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Services" }
-        ]}
-      />
+      {/* Hero Section */}
+      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at center, #FACC15 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
 
-      <Section>
-        <Container>
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* Services Content */}
-            <div className="lg:col-span-3">
-              {/* Introduction */}
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Professional Company Secretary Services by CS Praveen Kumar
-                </h2>
-                <div className="prose prose-lg max-w-none text-gray-600 space-y-4">
-                  <p>
-                    CS Praveen Kumar provides comprehensive Company Secretary services to businesses across India, 
-                    ensuring complete regulatory compliance and professional corporate governance. Our team of 
-                    qualified CS professionals has extensive experience in handling complex corporate matters, 
-                    from simple business registrations to intricate NCLT proceedings.
-                  </p>
-                  <p>
-                    We specialize in providing end-to-end solutions for company incorporation, annual compliances, 
-                    corporate restructuring, and specialized approvals. Our client-centric approach ensures 
-                    personalized service delivery with complete transparency and timely execution.
-                  </p>
-                  <p>
-                    With over 10+ years of experience in the CS domain, we have successfully served 500+ clients 
-                    across various industries, maintaining a perfect track record of regulatory compliance and 
-                    professional service delivery.
-                  </p>
+        <div className="container mx-auto max-w-7xl px-5 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FACC15]/20 text-[#FACC15] text-sm font-semibold mb-4 uppercase tracking-wide">
+              Our Services
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Full-Funnel{" "}
+              <span className="text-[#FACC15]">Digital Marketing</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+              From strategy to execution—performance marketing, web development,
+              SEO, social media, and creative services that drive measurable growth
+              for startups and enterprises.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-[#FACC15] mb-2">
+                  {stat.number}
                 </div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Why Choose Us */}
-              <div className="mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
-                  Why Choose CS Praveen Kumar?
+      {/* Services Grid */}
+      <section className="py-20 bg-white dark:bg-black">
+        <div className="container mx-auto max-w-7xl px-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <article
+                key={index}
+                className="group rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-[#FACC15] transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#FACC15]/20 text-[#FACC15] mb-4">
+                  <service.icon className="h-6 w-6" />
+                </div>
+
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#FACC15] transition-colors">
+                  {service.title}
                 </h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {whyChooseFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <feature.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                        <p className="text-gray-600 text-sm">{feature.description}</p>
-                      </div>
-                    </div>
+
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {service.features.map((feature, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                    >
+                      {feature}
+                    </span>
                   ))}
                 </div>
-              </div>
 
-              {/* Service Categories */}
-              <div className="space-y-12">
-                {serviceCategories.map((category) => {
-                  const categoryServices = getServicesByCategory(category);
-                  return (
-                    <div key={category} id={category.toLowerCase().replace(/\s+/g, '-')}>
-                      <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-2 border-[#3AA6FF] pb-2">
-                        {category}
-                      </h3>
-                      <div className="grid md:grid-cols-2 gap-6">
-                        {categoryServices.map((service) => (
-                          <ServiceCard
-                            key={service.id}
-                            title={service.title}
-                            description={service.shortDesc}
-                            href={`/services/${service.slug}`}
-                            category={service.category}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Professional Approach */}
-              <div className="mt-16 bg-gray-50 rounded-xl p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Our Professional Approach</h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FileText className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="font-semibold mb-2">Documentation</h4>
-                    <p className="text-gray-600 text-sm">Complete and accurate documentation for all regulatory requirements</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Shield className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="font-semibold mb-2">Compliance</h4>
-                    <p className="text-gray-600 text-sm">Ensuring 100% regulatory compliance across all service deliveries</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Users className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="font-semibold mb-2">Support</h4>
-                    <p className="text-gray-600 text-sm">Continuous support and guidance throughout the service lifecycle</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar - Informational */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-6">
-                {/* Contact Information Card */}
-                <Card className="bg-gradient-to-r from-[#3AA6FF] to-[#2690E6] text-white">
-                  <CardHeader>
-                    <CardTitle className="text-white">Get Professional Consultation</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-blue-100 text-sm">
-                      Contact our experienced CS professionals for personalized guidance and detailed information about our services.
-                    </p>
-                    
-                    <div className="space-y-3">
-                      <div className="flex items-center text-sm">
-                        <Phone className="h-4 w-4 mr-3" />
-                        <span>+91 9876543210</span>
-                      </div>
-                      <div className="flex items-center text-sm">
-                        <Mail className="h-4 w-4 mr-3" />
-                        <span>contact@cspraveenkumar.in</span>
-                      </div>
-                      <div className="flex items-center text-sm">
-                        <Clock className="h-4 w-4 mr-3" />
-                        <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
-                      </div>
-                    </div>
-
-                    <Button asChild variant="secondary" className="w-full bg-white text-[#3AA6FF] hover:bg-gray-100">
-                      <Link href="/contact">
-                        Contact Us
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Service Statistics */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Our Track Record</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {serviceStats.map((stat, index) => (
-                      <div key={index} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
-                        <div>
-                          <div className="text-2xl font-bold text-[#3AA6FF]">{stat.number}</div>
-                          <div className="text-sm font-medium text-gray-900">{stat.label}</div>
-                          <div className="text-xs text-gray-500">{stat.description}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-
-                {/* Industry Expertise */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Industry Expertise</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-gray-600 mb-4">
-                      We serve businesses across various industries:
-                    </p>
-                    <div className="space-y-2">
-                      {industryExpertise.map((industry, index) => (
-                        <div key={index} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
-                          <span>{industry}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Popular Services Quick Links */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Popular Services</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <div className="space-y-1">
-                      {services.slice(0, 8).map((service) => (
-                        <Link
-                          key={service.id}
-                          href={`/services/${service.slug}`}
-                          className="block px-6 py-2 text-sm text-gray-600 hover:text-[#3AA6FF] hover:bg-blue-50 transition-colors border-b border-gray-100 last:border-b-0"
-                        >
-                          {service.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Professional Credentials */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Professional Credentials</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-center">
-                        <Award className="h-4 w-4 text-[#3AA6FF] mr-2" />
-                        <span className="text-gray-600">Qualified Company Secretary</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Shield className="h-4 w-4 text-[#3AA6FF] mr-2" />
-                        <span className="text-gray-600">ICSI Registered Professional</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Users className="h-4 w-4 text-[#3AA6FF] mr-2" />
-                        <span className="text-gray-600">10+ Years Experience</span>
-                      </div>
-                      <div className="flex items-center">
-                        <CheckCircle className="h-4 w-4 text-[#3AA6FF] mr-2" />
-                        <span className="text-gray-600">Pan India Service Coverage</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#FACC15] hover:gap-3 transition-all"
+                >
+                  Learn More
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            ))}
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
+
+      {/* Why Choose Proshala */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto max-w-7xl px-5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+              Why Choose <span className="text-[#FACC15]">Proshala</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Results-driven approach backed by proven systems and transparent
+              reporting.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChoose.map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#FACC15]/20 text-[#FACC15] mb-4">
+                  <item.icon className="h-8 w-8" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section className="py-20 bg-white dark:bg-black">
+        <div className="container mx-auto max-w-7xl px-5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+              Industries We <span className="text-[#FACC15]">Serve</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              From funded startups to established enterprises across verticals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {industries.map((industry, index) => (
+              <div
+                key={index}
+                className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 text-center hover:border-[#FACC15] transition-all"
+              >
+                <div className="h-2 w-2 rounded-full bg-[#FACC15] mx-auto mb-3" />
+                <span className="text-sm font-medium">{industry}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#FACC15] to-[#EAB308]">
+        <div className="container mx-auto max-w-4xl px-5 text-center">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
+            Ready to Scale Your Business?
+          </h3>
+          <p className="text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
+            Book a free 30-minute strategy call. No fluff—just honest recommendations
+            on how we can help you grow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 font-bold text-white hover:bg-gray-900 transition-all hover:scale-105"
+            >
+              Get in Touch
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center justify-center rounded-full border-2 border-black px-8 py-4 font-bold text-black hover:bg-black hover:text-white transition-all"
+            >
+              View Portfolio
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
