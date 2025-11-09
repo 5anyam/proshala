@@ -10,8 +10,8 @@ interface FloatingActionsProps {
 }
 
 export function FloatingActions({
-  phoneNumber = "9999774046",
-  whatsappNumber = "9999774046",
+  phoneNumber = "+919999774046",
+  whatsappNumber = "919999774046",
 }: FloatingActionsProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -24,7 +24,7 @@ export function FloatingActions({
 
   const handleWhatsAppClick = () => {
     window.open(
-      `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=Hi, I'm interested in your e-commerce development services`,
+      `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=Hi, I'm interested to know more about digital marketing serivces you provide`,
       "_blank"
     );
   };
