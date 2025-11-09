@@ -25,7 +25,7 @@ const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Blog", href: "/blogs" },
+  { name: "Blogs", href: "/blogs" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
