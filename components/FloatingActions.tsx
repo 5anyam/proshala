@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, MessageCircle, X } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 
 interface FloatingActionsProps {
   phoneNumber?: string;
@@ -10,8 +10,8 @@ interface FloatingActionsProps {
 }
 
 export function FloatingActions({
-  phoneNumber = "+919999774046",
-  whatsappNumber = "+919999774046",
+  phoneNumber = "9999774046",
+  whatsappNumber = "919999774046", // Without + sign, with country code
 }: FloatingActionsProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -23,14 +23,21 @@ export function FloatingActions({
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.open(
-      `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=Hi, I'm interested to know more about digital marketing serivces you provide`,
-      "_blank"
-    );
+    // Clean the number - remove all non-digits
+    const cleanNumber = whatsappNumber.replace(/\D/g, "");
+    
+    // WhatsApp URL format: https://wa.me/919999774046
+    const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
+      "Hi, I'm interested to know more about digital marketing services you provide"
+    )}`;
+    
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   const handleCallClick = () => {
-    window.location.href = `tel:${phoneNumber}`;
+    // For tel: we can use +91 format
+    const telNumber = phoneNumber.startsWith("+") ? phoneNumber : `+91${phoneNumber}`;
+    window.location.href = `tel:${telNumber}`;
   };
 
   if (!isVisible) return null;
@@ -45,10 +52,10 @@ export function FloatingActions({
             onClick={handleWhatsAppClick}
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            className="flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow"
+            className="relative flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-bounce-slow"
             aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="h-7 w-7" />
+            <MessageCircle className="h-7 w-7 relative z-10" />
             
             {/* Pulse animation ring */}
             <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-75" />
