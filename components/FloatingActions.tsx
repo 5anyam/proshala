@@ -11,7 +11,7 @@ interface FloatingActionsProps {
 
 export function FloatingActions({
   phoneNumber = "+919999774046",
-  whatsappNumber = "919999774046",
+  whatsappNumber = "+919999774046",
 }: FloatingActionsProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
