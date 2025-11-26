@@ -329,7 +329,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
-          <FloatingActions phoneNumber="9999774046" whatsappNumber="9999774046" />
+          <FloatingActions phoneNumber="9999774046" whatsappNumber="919999774046" />
           <Toaster />
         </ThemeProvider>
       </body>
