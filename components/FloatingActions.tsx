@@ -13,7 +13,7 @@ interface FloatingActionsProps {
 
 export function FloatingActions({
   phoneNumber = "9999774046",
-  whatsappNumber = "919999774046",
+  whatsappNumber = "919999774046", // Country code + number, no +
 }: FloatingActionsProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -30,14 +30,16 @@ export function FloatingActions({
 
   if (!isVisible) return null;
 
+  // Clean WhatsApp number - remove all non-digits
+  const cleanWhatsAppNumber = whatsappNumber.replace(/\D/g, "");
+
   return (
     <>
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-9 z-50 flex flex-col gap-3">
         {/* WhatsApp Button - Always visible on all devices */}
         <Link
-          passHref
-          href={`https://api.whatsapp.com/send?phone=${whatsappNumber}`}
+          href={`https://api.whatsapp.com/send?phone=${cleanWhatsAppNumber}&text=${encodeURIComponent("Hi, I'm interested to know more about digital marketing services you provide")}`}
           target="_blank"
           rel="noopener noreferrer"
         >
