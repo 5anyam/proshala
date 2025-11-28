@@ -2,6 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import Navbar from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -102,7 +103,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Enhanced JSON-LD structured data for Local Business - Delhi NCR [web:249][web:253][web:255]
+// Enhanced JSON-LD structured data for Local Business - Delhi NCR
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -167,9 +168,9 @@ const localBusinessSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+91-XXXXXXXXXX", // Replace with actual phone
+      telephone: "+91-9999774046",
       contactType: "customer service",
-      email: "hello@proshala.com", // Replace with actual email
+      email: "hello@proshala.com",
       areaServed: "IN",
       availableLanguage: ["English", "Hindi"],
       contactOption: "TollFree",
@@ -259,7 +260,7 @@ const localBusinessSchema = {
   },
 };
 
-// Website schema for sitelinks search box [web:256]
+// Website schema for sitelinks search box
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -281,7 +282,7 @@ const websiteSchema = {
   inLanguage: "en-IN",
 };
 
-// Breadcrumb schema [web:256]
+// Breadcrumb schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -325,6 +326,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://cms.proshala.com" />
       </head>
       <body className={inter.className}>
+        {/* Google Tag (gtag.js) - Conversion Tracking */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17763121352"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17763121352');
+          `}
+        </Script>
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar />
           <main className="min-h-screen">{children}</main>
