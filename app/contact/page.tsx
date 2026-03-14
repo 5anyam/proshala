@@ -10,10 +10,10 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const PHONE      = "+918588837072";
-const PHONE_DISP = "+91 85888 37072";
-const EMAIL      = "info@adshouz.com";
-const ADDRESS    = "Pitampura, Delhi, India";
+const PHONE      = "+917840000618";
+const PHONE_DISP = "+91 78400 00618";
+const EMAIL      = "info@rigvedaadds.com";
+const ADDRESS    = "Delhi, India";
 
 // ─── Data ──────────────────────────────────────────────────────
 const contactInfo = [
@@ -122,13 +122,26 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    // Replace with your actual form submission logic
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("success");
+  
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+  
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (

@@ -6,15 +6,20 @@ import {
 } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const PHONE      = "+918588837072";
-const PHONE_DISP = "+91 85888 37072";
-const EMAIL      = "marketing@adshouz.com";
+const PHONE      = "+917840000618";
+const PHONE_DISP = "+91 78400 00618";
+const EMAIL      = "info@rigvedaadds.com";
 
 // ─── Text Logo ────────────────────────────────────────────────────────────────
 function Logo() {
   return (
     <div className="flex flex-col leading-none select-none">
-      <img src="/adshouz-logo.jpg" alt="adshouz" />
+      <span className="font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300 text-[24px]">
+        Rigveda
+      </span>
+      <span className="font-semibold tracking-widest uppercase text-white/40 text-[8px] mt-0.5">
+        Ads Agency Pvt. Ltd.
+      </span>
     </div>
   );
 }
@@ -79,7 +84,7 @@ export function Footer() {
               </Link>
 
               <p className="text-white/40 mb-7 leading-relaxed text-sm">
-                Ads Houz is a certified Google Ads &amp; performance marketing agency
+                Rigveda Ads is a certified Google Ads &amp; performance marketing agency
                 delivering data-driven campaigns with proven ROI — across all industries in
                 India and internationally.
               </p>
@@ -89,8 +94,8 @@ export function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 text-violet-400 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-white/50 leading-snug">
-                    NU-296<br />
-                    Pitampura, New Delhi — 110036
+                    D-7/296, 2nd Floor, Sector-6<br />
+                    Rohini, New Delhi — 110086
                   </div>
                 </div>
 

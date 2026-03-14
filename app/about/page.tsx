@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "about rigveda ads, digital marketing agency Delhi, performance marketing agency, google ads agency India",
 };
 
-const PHONE      = "+918588837072";
-const PHONE_DISP = "+91 85888 37072";
+const PHONE      = "+917840000618";
+const PHONE_DISP = "+91 78400 00618";
 
 // ─── Data ──────────────────────────────────────────────────────
 const stats = [
