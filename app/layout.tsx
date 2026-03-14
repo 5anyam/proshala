@@ -11,6 +11,8 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  fallback: ['system-ui', 'arial'],  // ← yeh add karo
+  preload: false,                     // ← yeh bhi
 });
 
 const syne = Syne({
@@ -18,6 +20,8 @@ const syne = Syne({
   variable: '--font-syne',
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
+  fallback: ['system-ui', 'arial'],  // ← yeh add karo
+  preload: false,                     // ← yeh bhi
 });
 
 export const metadata: Metadata = {
