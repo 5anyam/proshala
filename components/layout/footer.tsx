@@ -244,7 +244,7 @@ export function Footer() {
         <div className="border-t border-white/5 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/25 text-xs text-center md:text-left">
-              © {new Date().getFullYear()} Adshouz. All rights reserved.
+              © {new Date().getFullYear()} Adshouz Digital LLP. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
               {[
