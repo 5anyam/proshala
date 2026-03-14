@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     default: 'Adshouz - Performance Marketing & Web Development Agency India',
     template: '%s | Adshouz',
   },
+  icons: {
+    icon: [
+      { url: '/adshouz-logo.jpg', type: 'image/jpeg' },
+      { url: '/favicon.ico',      sizes: 'any' },
+    ],
+    apple: '/adshouz-logo.jpg',
+    shortcut: '/adshouz-logo.jpg',
+  },
   description:
     'Adshouz is a Meta & Google certified performance marketing agency in India. We specialise in Google Ads, SEO, social media ads, brand bidding, website development and international campaigns that deliver measurable ROI.',
   keywords: [
