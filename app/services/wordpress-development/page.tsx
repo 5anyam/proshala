@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "WordPress Development Services India | Custom Themes, WooCommerce & Speed Optimisation | Rigveda Ads",
+  title: "WordPress Development Services India | Custom Themes, WooCommerce & Speed Optimisation | Adshouz Digital",
   description:
     "Expert WordPress development in India — custom themes, WooCommerce stores, speed optimisation, security hardening and ongoing maintenance. Google-certified agency delivering fast, SEO-ready WordPress sites.",
   keywords: [
@@ -24,19 +24,19 @@ export const metadata: Metadata = {
     "WordPress website design India",
     "WordPress plugin development",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/wordpress-development" },
+  alternates: { canonical: "https://adshouz.com/services/wordpress-development" },
   openGraph: {
-    title: "WordPress Development Services India | Rigveda Ads",
+    title: "WordPress Development Services India | Adshouz Digital",
     description:
-      "Custom WordPress websites, WooCommerce stores and landing pages — fast, secure, SEO-optimised. Built by Rigveda Ads, India's performance marketing agency.",
-    url: "https://rigvedaadds.com/services/wordpress-development",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+      "Custom WordPress websites, WooCommerce stores and landing pages — fast, secure, SEO-optimised. Built by Adshouz Digital, India's performance marketing agency.",
+    url: "https://adshouz.com/services/wordpress-development",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
-
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const services = [
   {
@@ -175,13 +175,13 @@ const jsonLd = {
   name: "WordPress Development Services",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   description:
     "Expert WordPress development in India — custom themes, WooCommerce stores, speed optimisation, security hardening and ongoing maintenance.",
   areaServed: { "@type": "Country", name: "India" },
-  url: "https://rigvedaadds.com/services/wordpress-development",
+  url: "https://adshouz.com/services/wordpress-development",
 };
 
 const tagColors: Record<string, string> = {
@@ -414,7 +414,7 @@ export default function WordPressDevelopmentPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-blue-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                   </span>
-                  <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   WordPress Done{" "}

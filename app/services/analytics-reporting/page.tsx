@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Analytics & Reporting Services India | Google Analytics 4, Data Studio & Campaign Reporting | Rigveda Ads",
+  title: "Analytics & Reporting Services India | Google Analytics 4, Data Studio & Campaign Reporting | Adshouz Digital",
   description:
     "Expert analytics and reporting services in India — GA4 setup, Google Tag Manager, Looker Studio dashboards, conversion tracking and monthly campaign performance reports. Make data-driven decisions.",
   keywords: [
@@ -24,18 +24,19 @@ export const metadata: Metadata = {
     "data-driven marketing India",
     "Google Analytics agency India",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/analytics-reporting" },
+  alternates: { canonical: "https://adshouz.com/services/analytics-reporting" },
   openGraph: {
-    title: "Analytics & Reporting Services India | Rigveda Ads",
+    title: "Analytics & Reporting Services India | Adshouz Digital",
     description:
-      "GA4, GTM, Looker Studio dashboards and conversion tracking — stop guessing, start growing with data-driven marketing from Rigveda Ads.",
-    url: "https://rigvedaadds.com/services/analytics-reporting",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+      "GA4, GTM, Looker Studio dashboards and conversion tracking — stop guessing, start growing with data-driven marketing from Adshouz Digital.",
+    url: "https://adshouz.com/services/analytics-reporting",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const services = [
@@ -184,13 +185,13 @@ const jsonLd = {
   name: "Analytics & Reporting Services",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   description:
     "Expert analytics and reporting services — GA4 setup, Google Tag Manager, Looker Studio dashboards, conversion tracking and monthly campaign performance reports.",
   areaServed: { "@type": "Country", name: "India" },
-  url: "https://rigvedaadds.com/services/analytics-reporting",
+  url: "https://adshouz.com/services/analytics-reporting",
 };
 
 const tagColors: Record<string, string> = {
@@ -454,7 +455,7 @@ export default function AnalyticsReportingPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-violet-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   </span>
-                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   Analytics That Shows{" "}

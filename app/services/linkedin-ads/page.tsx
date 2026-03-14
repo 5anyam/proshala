@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "LinkedIn Ads | B2B Advertising | Rigveda Ads",
+  title: "LinkedIn Ads | B2B Advertising | Adshouz Digital",
   description:
     "Reach decision-makers, CTOs, and C-suite executives with LinkedIn Ads. Expert B2B campaign management for lead generation, brand awareness, and account-based marketing.",
   keywords: "linkedin ads, linkedin advertising, b2b ads, linkedin lead generation, linkedin ad agency Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Filter,     title: "Precise B2B Targeting",    desc: "Target by job title, seniority, company size, industry, and skills — reaching exactly the decision-makers you need." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "LinkedIn Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

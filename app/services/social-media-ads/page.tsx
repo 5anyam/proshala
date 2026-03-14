@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Social Media Ads | Paid Social Agency | Rigveda Ads",
+  title: "Social Media Ads | Paid Social Agency | Adshouz Digital",
   description:
     "High-ROI social media advertising across Facebook, Instagram, LinkedIn, and YouTube. Expert paid social campaigns for lead generation, brand awareness, and e-commerce sales.",
   keywords: "social media ads, paid social, facebook ads, instagram ads, linkedin ads, youtube ads, social media agency Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const platforms = [
   {
@@ -105,7 +106,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Social Media Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

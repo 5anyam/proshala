@@ -10,13 +10,13 @@ import {
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Content Marketing Services | SEO Content Strategy | Rigveda Ads",
+  title: "Content Marketing Services | SEO Content Strategy | Adshouz Digital",
   description:
-    "Drive organic traffic, build authority, and generate leads with data-driven content marketing. Rigveda Ads creates SEO-optimised blogs, landing pages, and content strategies that rank and convert.",
+    "Drive organic traffic, build authority, and generate leads with data-driven content marketing. Adshouz Digital creates SEO-optimised blogs, landing pages, and content strategies that rank and convert.",
   keywords:
     "content marketing, SEO content writing, blog writing services, content strategy, digital content marketing, Delhi",
   openGraph: {
-    title: "Content Marketing Services — Rigveda Ads",
+    title: "Content Marketing Services — Adshouz Digital",
     description:
       "SEO-driven content that ranks on Page 1, builds brand authority, and converts readers into customers.",
     type: "website",
@@ -24,8 +24,9 @@ export const metadata: Metadata = {
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const problems = [
   {
@@ -193,8 +194,8 @@ const jsonLd = {
     "SEO-driven content marketing including blog writing, landing page copy, content strategy, and performance tracking.",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",

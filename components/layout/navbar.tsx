@@ -9,9 +9,9 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
-const EMAIL      = "info@rigvedaadds.com";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 type DropdownItem = { name: string; href: string; };
 type NavItem = {
@@ -19,47 +19,40 @@ type NavItem = {
   hasDropdown?: boolean; dropdownItems?: DropdownItem[];
 };
 
-// ─── Theme Toggle ──────────────────────────────────────────────
-function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return (
-    <div className="w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 dark:border-white/10" />
-  );
-  const isDark = resolvedTheme === "dark";
-  return (
-    <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Toggle theme"
-      className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200 flex-shrink-0"
-    >
-      {isDark
-        ? <Sun  className="w-4 h-4 text-yellow-400" />
-        : <Moon className="w-4 h-4 text-violet-600" />
-      }
-    </button>
-  );
-}
+// // ─── Theme Toggle ──────────────────────────────────────────────
+// function ThemeToggle() {
+//   const { resolvedTheme, setTheme } = useTheme();
+//   const [mounted, setMounted] = useState(false);
+//   useEffect(() => setMounted(true), []);
+//   if (!mounted) return (
+//     <div className="w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 dark:border-white/10" />
+//   );
+//   const isDark = resolvedTheme === "dark";
+//   return (
+//     <button
+//       onClick={() => setTheme(isDark ? "light" : "dark")}
+//       aria-label="Toggle theme"
+//       className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200 flex-shrink-0"
+//     >
+//       {isDark
+//         ? <Sun  className="w-4 h-4 text-yellow-400" />
+//         : <Moon className="w-4 h-4 text-sky-600" />
+//       }
+//     </button>
+//   );
+// }
 
 // ─── Logo ──────────────────────────────────────────────────────
 function Logo({ size = "md" }: { size?: "sm" | "md" }) {
   return (
-    <div className="flex flex-col leading-none select-none">
-      <span className={cn(
-        "font-black tracking-tight pb-1 text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-purple-400",
-        size === "md" ? "text-[22px]" : "text-[18px]"
-      )}>
-        Rigveda
-      </span>
-      {/* ✅ solid white instead of white/40 */}
-      <span className={cn(
-        "font-semibold tracking-widest uppercase text-black/40 dark:text-white",
-        size === "md" ? "text-[8px]" : "text-[7px]"
-      )}>
-        Ads Agency Pvt. Ltd.
-      </span>
-    </div>
+    <img
+      src="/adshouz-logo.jpg"
+      alt="Adshouz"
+      className={cn(
+        "object-contain select-none",
+        size === "md" ? "h-9 w-auto" : "h-7 w-auto"
+      )}
+    />
   );
 }
 
@@ -97,13 +90,13 @@ const mainNav: NavItem[] = [
       { name: "Landing Pages", href: "/services/landing-pages" },
     ],
   },
-  { name: "Blogs",   href: "/blogs" },    // ✅ Performance ki jagah
-  { name: "Contact", href: "/contact" },  // ✅ Brand Bidding ki jagah
+  { name: "Blogs",   href: "/blogs" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const moreNav: NavItem[] = [
   { name: "About Us",     href: "/about" },
-  { name: "Case Studies", href: "/case-studies" }
+  { name: "Case Studies", href: "/case-studies" },
 ];
 
 const mobileNav: NavItem[] = [{ name: "Home", href: "/" }, ...mainNav, ...moreNav];
@@ -116,7 +109,7 @@ function DropdownPanel({ item, isOpen, align = "left", onClose }: {
     <div className={cn(
       "absolute top-[calc(100%+8px)] min-w-[190px] z-50",
       align === "right" ? "right-0" : "left-0",
-      "bg-white dark:bg-[#13131A]",
+      "bg-white dark:bg-[#071828]",
       "border border-gray-200 dark:border-white/10",
       "rounded-xl shadow-xl shadow-black/10 dark:shadow-black/60",
       "overflow-hidden transition-all duration-200",
@@ -125,20 +118,20 @@ function DropdownPanel({ item, isOpen, align = "left", onClose }: {
         ? "opacity-100 scale-100 pointer-events-auto translate-y-0"
         : "opacity-0 scale-[0.96] pointer-events-none -translate-y-1"
     )}>
-      <div className="h-0.5 bg-gradient-to-r from-violet-500 to-purple-500" />
+      {/* Sky → Cyan top accent bar */}
+      <div className="h-0.5 bg-gradient-to-r from-sky-500 to-cyan-400" />
       {item.href && (
         <Link href={item.href} onClick={onClose}
-          className="flex items-center gap-2 px-4 py-2.5 text-[12px] font-bold text-violet-600 dark:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 transition-colors border-b border-gray-100 dark:border-white/[0.06]">
-          <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
+          className="flex items-center gap-2 px-4 py-2.5 text-[12px] font-bold text-sky-600 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-500/10 transition-colors border-b border-gray-100 dark:border-white/[0.06]">
+          <span className="w-1.5 h-1.5 bg-sky-500 rounded-full" />
           View All {item.name}
           <ArrowRight className="w-3 h-3 ml-auto" />
         </Link>
       )}
       {item.dropdownItems?.map((sub, si) => (
         <Link key={si} href={sub.href} onClick={onClose}
-          // ✅ solid dark:text-white — no opacity
           className="flex items-center gap-2 px-4 py-2.5 text-[13px] text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/10 transition-all group">
-          <span className="w-1 h-1 bg-gray-300 dark:bg-white/40 rounded-full group-hover:bg-violet-500 transition-colors flex-shrink-0" />
+          <span className="w-1 h-1 bg-gray-300 dark:bg-white/40 rounded-full group-hover:bg-sky-500 transition-colors flex-shrink-0" />
           {sub.name}
         </Link>
       ))}
@@ -196,24 +189,23 @@ export function Navbar() {
   return (
     <>
       {/* ── Top bar ─────────────────────────────────────────── */}
-      <div className="bg-gray-50 dark:bg-[#08080C] border-b border-gray-200 dark:border-white/[0.06] py-1.5 hidden md:block">
+      <div className="bg-gray-50 dark:bg-[#040D18] border-b border-gray-200 dark:border-white/[0.06] py-1.5 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-5">
             <a href={`tel:${PHONE}`}
-              className="flex items-center gap-1.5 text-gray-500 dark:text-white hover:text-violet-600 dark:hover:text-violet-400 transition-colors text-[11px] font-medium">
+              className="flex items-center gap-1.5 text-gray-500 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors text-[11px] font-medium">
               <Phone className="w-3 h-3 flex-shrink-0" /> {PHONE_DISP}
             </a>
             <span className="w-px h-3 bg-gray-200 dark:bg-white/20" />
             <a href={`mailto:${EMAIL}`}
-              className="flex items-center gap-1.5 text-gray-500 dark:text-white hover:text-violet-600 dark:hover:text-violet-400 transition-colors text-[11px] font-medium">
+              className="flex items-center gap-1.5 text-gray-500 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors text-[11px] font-medium">
               <Mail className="w-3 h-3 flex-shrink-0" /> {EMAIL}
             </a>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-            {/* ✅ solid white */}
             <span className="text-gray-400 dark:text-white text-[11px] font-medium tracking-wide">
-              Google Certified Partner · 8+ Years of Performance Marketing
+              Meta & Google Certified · 7+ Years of Performance Marketing
             </span>
           </div>
         </div>
@@ -223,8 +215,8 @@ export function Navbar() {
       <nav ref={dropdownRef} className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 dark:bg-[#0B0B0F]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl shadow-black/10 dark:shadow-black/40"
-          : "bg-white dark:bg-[#0B0B0F] border-b border-gray-100 dark:border-white/[0.06]"
+          ? "bg-white/90 dark:bg-[#030E1C]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl shadow-black/10 dark:shadow-black/40"
+          : "bg-white dark:bg-[#030E1C] border-b border-gray-100 dark:border-white/[0.06]"
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 gap-4">
@@ -251,7 +243,9 @@ export function Navbar() {
                     {item.hasDropdown && (
                       <ChevronDown className={cn(
                         "w-3 h-3 transition-transform duration-200",
-                        activeDropdown === item.name ? "rotate-180 text-violet-400" : "text-gray-400 dark:text-white/60"
+                        activeDropdown === item.name
+                          ? "rotate-180 text-sky-400"
+                          : "text-gray-400 dark:text-white/60"
                       )} />
                     )}
                   </Link>
@@ -261,6 +255,7 @@ export function Navbar() {
                 </div>
               ))}
 
+              {/* More dropdown */}
               <div className="relative"
                 onMouseEnter={() => handleMouseEnter("__more__")}
                 onMouseLeave={handleMouseLeave}>
@@ -279,16 +274,16 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
-              <ThemeToggle />
+              
               <Link href="/contact"
-                className="inline-flex items-center gap-1.5 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-[13px] font-bold px-4 py-2 rounded-xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-md shadow-violet-500/25 whitespace-nowrap">
+                className="inline-flex items-center gap-1.5 bg-gradient-to-r from-sky-600 to-cyan-500 text-white text-[13px] font-bold px-4 py-2 rounded-xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-md shadow-sky-500/25 whitespace-nowrap">
                 <Zap className="w-3.5 h-3.5" /> Free Audit
               </Link>
             </div>
 
             {/* Mobile toggle */}
             <div className="flex items-center gap-2 lg:hidden">
-              <ThemeToggle />
+              
               <button onClick={() => setIsOpen(!isOpen)}
                 className="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
                 aria-label={isOpen ? "Close menu" : "Open menu"}>
@@ -299,9 +294,9 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* ════════════════════════════════════════════════════════
-          MOBILE DRAWER — ALL TEXT SOLID WHITE IN DARK MODE
-      ════════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════════
+          MOBILE DRAWER
+      ══════════════════════════════════════════════════════ */}
       <div className={cn(
         "fixed inset-0 z-40 lg:hidden",
         isOpen ? "pointer-events-auto" : "pointer-events-none"
@@ -318,8 +313,7 @@ export function Navbar() {
         {/* Drawer panel */}
         <div className={cn(
           "absolute top-0 right-0 h-full w-full max-w-[320px] flex flex-col",
-          // ✅ SOLID backgrounds — no opacity tricks
-          "bg-white dark:bg-[#0F0F15]",
+          "bg-white dark:bg-[#071828]",
           "border-l border-gray-100 dark:border-white/10",
           "shadow-2xl",
           "transition-transform duration-300 ease-out",
@@ -327,7 +321,7 @@ export function Navbar() {
         )}>
 
           {/* Header */}
-          <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-white/10 flex-shrink-0 bg-white dark:bg-[#0F0F15]">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-white/10 flex-shrink-0 bg-white dark:bg-[#071828]">
             <Link href="/" onClick={closeAll}>
               <Logo size="sm" />
             </Link>
@@ -338,7 +332,7 @@ export function Navbar() {
           </div>
 
           {/* Nav list */}
-          <div className="flex-1 overflow-y-auto bg-white dark:bg-[#0F0F15]">
+          <div className="flex-1 overflow-y-auto bg-white dark:bg-[#071828]">
             {mobileNav.map((item) => (
               <div key={item.name} className="border-b border-gray-100 dark:border-white/[0.06] last:border-0">
                 {item.hasDropdown ? (
@@ -346,31 +340,29 @@ export function Navbar() {
                     <button
                       onClick={() => setMobileExpanded(mobileExpanded === item.name ? null : item.name)}
                       className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 dark:hover:bg-white/[0.04] transition-colors">
-                      {/* ✅ SOLID white text */}
                       <span className="text-[15px] font-semibold text-gray-900 dark:text-white">
                         {item.name}
                       </span>
                       <span className={cn(
                         "w-6 h-6 flex items-center justify-center rounded-full border text-base font-bold leading-none flex-shrink-0 transition-all duration-200",
                         mobileExpanded === item.name
-                          ? "border-violet-500 text-violet-500 bg-violet-500/10 rotate-45"
+                          ? "border-sky-500 text-sky-500 bg-sky-500/10 rotate-45"
                           : "border-gray-300 dark:border-white/30 text-gray-500 dark:text-white"
                       )}>+</span>
                     </button>
 
                     <div className={cn(
                       "overflow-hidden transition-all duration-300",
-                      "bg-gray-50 dark:bg-[#0A0A10]",
+                      "bg-gray-50 dark:bg-[#040F1E]",
                       mobileExpanded === item.name ? "max-h-[400px]" : "max-h-0"
                     )}>
                       <Link href={item.href} onClick={closeAll}
                         className="flex items-center gap-3 px-6 py-3 border-b border-gray-100 dark:border-white/[0.05] hover:bg-gray-100 dark:hover:bg-white/[0.05] transition-colors">
-                        <span className="w-1.5 h-1.5 bg-violet-500 rounded-full flex-shrink-0" />
-                        {/* ✅ solid violet */}
-                        <span className="text-[13px] font-semibold text-violet-600 dark:text-violet-400">
+                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full flex-shrink-0" />
+                        <span className="text-[13px] font-semibold text-sky-600 dark:text-sky-400">
                           View All {item.name}
                         </span>
-                        <ArrowRight className="w-3 h-3 ml-auto text-violet-500" />
+                        <ArrowRight className="w-3 h-3 ml-auto text-sky-500" />
                       </Link>
 
                       {item.dropdownItems?.map((sub, si) => (
@@ -381,7 +373,6 @@ export function Navbar() {
                               ? "border-b border-gray-100 dark:border-white/[0.05]" : ""
                           )}>
                           <span className="w-1 h-1 bg-gray-300 dark:bg-white/40 rounded-full flex-shrink-0" />
-                          {/* ✅ SOLID white text */}
                           <span className="text-[13px] text-gray-600 dark:text-white">
                             {sub.name}
                           </span>
@@ -392,7 +383,6 @@ export function Navbar() {
                 ) : (
                   <Link href={item.href} onClick={closeAll}
                     className="flex items-center justify-between px-5 py-4 hover:bg-gray-50 dark:hover:bg-white/[0.04] transition-colors">
-                    {/* ✅ SOLID white text */}
                     <span className="text-[15px] font-semibold text-gray-900 dark:text-white">
                       {item.name}
                     </span>
@@ -403,22 +393,22 @@ export function Navbar() {
           </div>
 
           {/* Contact strip */}
-          <div className="px-5 py-3 border-t border-gray-100 dark:border-white/10 flex items-center gap-4 bg-gray-50 dark:bg-[#0A0A10] flex-shrink-0">
+          <div className="px-5 py-3 border-t border-gray-100 dark:border-white/10 flex items-center gap-4 bg-gray-50 dark:bg-[#040F1E] flex-shrink-0">
             <a href={`tel:${PHONE}`}
               className="flex items-center gap-1.5 text-gray-500 dark:text-white text-[11px] font-medium">
-              <Phone className="w-3 h-3 text-violet-500" /> {PHONE_DISP}
+              <Phone className="w-3 h-3 text-sky-500" /> {PHONE_DISP}
             </a>
             <span className="w-px h-3 bg-gray-200 dark:bg-white/20" />
             <a href={`mailto:${EMAIL}`}
               className="flex items-center gap-1.5 text-gray-500 dark:text-white text-[11px] font-medium truncate">
-              <Mail className="w-3 h-3 text-violet-500 flex-shrink-0" /> {EMAIL}
+              <Mail className="w-3 h-3 text-sky-500 flex-shrink-0" /> {EMAIL}
             </a>
           </div>
 
           {/* Footer CTAs */}
           <div className="flex-shrink-0">
             <Link href="/contact" onClick={closeAll}
-              className="flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold py-4 text-sm hover:opacity-90 active:scale-[0.99] transition-all w-full">
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-4 text-sm hover:opacity-90 active:scale-[0.99] transition-all w-full">
               <Zap className="w-4 h-4" /> GET FREE AUDIT NOW
             </Link>
             <a href={`tel:${PHONE}`}

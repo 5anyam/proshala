@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "SEO Services | Search Engine Optimisation | Rigveda Ads",
+  title: "SEO Services | Search Engine Optimisation | Adshouz Digital",
   description:
     "Data-driven SEO services — Local SEO, Technical SEO, and Content Marketing — that grow organic traffic, build authority, and generate leads on autopilot.",
   keywords: "seo services, search engine optimisation, seo agency Delhi, organic traffic, local seo, technical seo",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const subServices = [
   {
@@ -93,7 +94,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "SEO Services",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

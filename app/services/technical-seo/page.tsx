@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Technical SEO Services India | Site Audit, Core Web Vitals & Speed Optimisation | Rigveda Ads",
+  title: "Technical SEO Services India | Site Audit, Core Web Vitals & Speed Optimisation | Adshouz Digital",
   description:
     "Expert Technical SEO services in India — site audits, Core Web Vitals optimisation, crawl error fixes, schema markup, page speed & structured data. Google-certified team with proven results.",
   keywords: [
@@ -24,18 +24,19 @@ export const metadata: Metadata = {
     "website speed SEO",
     "Google Search Console errors",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/technical-seo" },
+  alternates: { canonical: "https://adshouz.com/services/technical-seo" },
   openGraph: {
-    title: "Technical SEO Services India | Rigveda Ads",
+    title: "Technical SEO Services India | Adshouz Digital",
     description:
-      "Fix crawl errors, boost Core Web Vitals, and rank higher with expert Technical SEO from Rigveda Ads — India's performance-first digital marketing agency.",
-    url: "https://rigvedaadds.com/services/technical-seo",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+      "Fix crawl errors, boost Core Web Vitals, and rank higher with expert Technical SEO from Adshouz Digital — India's performance-first digital marketing agency.",
+    url: "https://adshouz.com/services/technical-seo",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const issues = [
@@ -141,13 +142,13 @@ const jsonLd = {
   name: "Technical SEO Services",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   description:
     "Expert Technical SEO services including site audits, Core Web Vitals, page speed optimisation, schema markup, crawl error fixes and mobile-first optimisation.",
   areaServed: { "@type": "Country", name: "India" },
-  url: "https://rigvedaadds.com/services/technical-seo",
+  url: "https://adshouz.com/services/technical-seo",
 };
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -359,7 +360,7 @@ export default function TechnicalSEOPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-violet-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   </span>
-                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   Technical SEO Done{" "}

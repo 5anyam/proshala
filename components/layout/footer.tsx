@@ -6,21 +6,18 @@ import {
 } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
-const EMAIL      = "info@rigvedaadds.com";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
-// ─── Text Logo ────────────────────────────────────────────────────────────────
+// ─── Logo ─────────────────────────────────────────────────────────────────────
 function Logo() {
   return (
-    <div className="flex flex-col leading-none select-none">
-      <span className="font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300 text-[24px]">
-        Rigveda
-      </span>
-      <span className="font-semibold tracking-widest uppercase text-white/40 text-[8px] mt-0.5">
-        Ads Agency Pvt. Ltd.
-      </span>
-    </div>
+    <img
+      src="/adshouz-logo.jpg"
+      alt="Adshouz"
+      className="h-9 w-auto object-contain"
+    />
   );
 }
 
@@ -38,7 +35,6 @@ const services = [
   { label: "Google Ads (PPC)",         href: "/services/google-ads" },
   { label: "SEO & Organic Growth",     href: "/services/seo" },
   { label: "Facebook & Instagram Ads", href: "/services/social-media-ads" },
-  { label: "Brand Bidding",            href: "/services/brand-bidding" },
   { label: "Performance Marketing",    href: "/services/performance-marketing" },
   { label: "International Campaigns",  href: "/services/international-campaigns" },
   { label: "YouTube Advertising",      href: "/services/youtube-ads" },
@@ -46,31 +42,31 @@ const services = [
 ];
 
 const usefulLinks = [
-  { label: "Google Ads Manager",    href: "https://ads.google.com" },
-  { label: "Google Analytics",      href: "https://analytics.google.com" },
-  { label: "Google Search Console", href: "https://search.google.com/search-console" },
-  { label: "Meta Ads Manager",      href: "https://www.facebook.com/adsmanager" },
-  { label: "Google Merchant Center",href: "https://merchants.google.com" },
-  { label: "Disclaimer",            href: "/disclaimer", internal: true },
+  { label: "Google Ads Manager",     href: "https://ads.google.com" },
+  { label: "Google Analytics",       href: "https://analytics.google.com" },
+  { label: "Google Search Console",  href: "https://search.google.com/search-console" },
+  { label: "Meta Ads Manager",       href: "https://www.facebook.com/adsmanager" },
+  { label: "Google Merchant Center", href: "https://merchants.google.com" },
+  { label: "Disclaimer",             href: "/disclaimer", internal: true },
 ];
 
 const socialLinks = [
-  { icon: Facebook,  href: "https://www.facebook.com/rigvedaadds",       label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/rigvedaadds",      label: "Instagram" },
-  { icon: Linkedin,  href: "https://www.linkedin.com/company/rigvedaadds",label: "LinkedIn" },
-  { icon: Twitter,   href: "https://twitter.com/rigvedaadds",             label: "X (Twitter)" },
+  { icon: Facebook,  href: "https://www.facebook.com/adshouz",        label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/adshouz",       label: "Instagram" },
+  { icon: Linkedin,  href: "https://www.linkedin.com/company/adshouz", label: "LinkedIn" },
+  { icon: Twitter,   href: "https://twitter.com/adshouz",              label: "X (Twitter)" },
 ];
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 export function Footer() {
   return (
-    <footer className="bg-[#0B0B0F] text-white relative overflow-hidden">
+    <footer className="bg-[#030E1C] text-white relative overflow-hidden">
 
-      {/* Top glow border */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent" />
+      {/* Top glow border — sky */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/60 to-transparent" />
 
-      {/* Background blob */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-violet-900/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background blob — sky */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-sky-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="pt-16 pb-12">
@@ -78,58 +74,48 @@ export function Footer() {
 
             {/* ── Company Info */}
             <div className="lg:col-span-1">
-              {/* Text logo — replaces <Image> */}
               <Link href="/" className="inline-block mb-6">
                 <Logo />
               </Link>
 
               <p className="text-white/40 mb-7 leading-relaxed text-sm">
-                Rigveda Ads is a certified Google Ads &amp; performance marketing agency
-                delivering data-driven campaigns with proven ROI — across all industries in
-                India and internationally.
+                Adshouz is a performance-first digital agency delivering data-driven
+                Google Ads, SEO, Social Media campaigns and Website Development — with
+                proven ROI across India and international markets.
               </p>
 
               <div className="space-y-3.5">
                 {/* Address */}
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-4 w-4 text-violet-400 mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-4 w-4 text-sky-400 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-white/50 leading-snug">
-                    D-7/296, 2nd Floor, Sector-6<br />
-                    Rohini, New Delhi — 110086
+                    Delhi, India
                   </div>
                 </div>
 
-                {/* Phone — single updated number */}
+                {/* Phone */}
                 <div className="flex items-start gap-3">
-                  <Phone className="h-4 w-4 text-violet-400 mt-0.5 flex-shrink-0" />
-                  <a
-                    href={`tel:${PHONE}`}
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200"
-                  >
+                  <Phone className="h-4 w-4 text-sky-400 mt-0.5 flex-shrink-0" />
+                  <a href={`tel:${PHONE}`}
+                    className="text-sm text-white/50 hover:text-white transition-colors duration-200">
                     {PHONE_DISP}
                   </a>
                 </div>
 
-                {/* WhatsApp — same number */}
+                {/* WhatsApp */}
                 <div className="flex items-center gap-3">
-                  <MessageSquare className="h-4 w-4 text-violet-400 flex-shrink-0" />
-                  <a
-                    href={`https://wa.me/${PHONE}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200"
-                  >
+                  <MessageSquare className="h-4 w-4 text-sky-400 flex-shrink-0" />
+                  <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noopener noreferrer"
+                    className="text-sm text-white/50 hover:text-white transition-colors duration-200">
                     {PHONE_DISP} (WhatsApp)
                   </a>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 text-violet-400 flex-shrink-0" />
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200"
-                  >
+                  <Mail className="h-4 w-4 text-sky-400 flex-shrink-0" />
+                  <a href={`mailto:${EMAIL}`}
+                    className="text-sm text-white/50 hover:text-white transition-colors duration-200">
                     {EMAIL}
                   </a>
                 </div>
@@ -145,7 +131,7 @@ export function Footer() {
                 {quickLinks.map(({ label, href }) => (
                   <Link key={href} href={href}
                     className="flex items-center gap-1.5 text-white/45 hover:text-white text-sm transition-colors duration-200 group">
-                    <span className="w-1 h-1 bg-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="w-1 h-1 bg-sky-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                     {label}
                   </Link>
                 ))}
@@ -161,7 +147,7 @@ export function Footer() {
                 {services.map(({ label, href }) => (
                   <Link key={href} href={href}
                     className="flex items-center gap-1.5 text-white/45 hover:text-white text-sm transition-colors duration-200 group">
-                    <span className="w-1 h-1 bg-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="w-1 h-1 bg-sky-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                     {label}
                   </Link>
                 ))}
@@ -178,13 +164,13 @@ export function Footer() {
                   internal ? (
                     <Link key={href} href={href}
                       className="flex items-center gap-1.5 text-white/45 hover:text-white text-sm transition-colors duration-200 group">
-                      <span className="w-1 h-1 bg-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="w-1 h-1 bg-sky-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                       {label}
                     </Link>
                   ) : (
                     <a key={href} href={href} target="_blank" rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-white/45 hover:text-white text-sm transition-colors duration-200 group">
-                      <span className="w-1 h-1 bg-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="w-1 h-1 bg-sky-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                       {label}
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-60 transition-opacity ml-auto" />
                     </a>
@@ -223,13 +209,13 @@ export function Footer() {
                 </p>
                 <div className="space-y-2">
                   {[
-                    "Google Certified Partner",
-                    "8+ Years of Experience",
-                    "500+ Campaigns Managed",
-                    "Pan-India + International",
+                    "Meta & Google Certified",
+                    "7+ Years of Experience",
+                    "450+ Campaigns Delivered",
+                    "India + International Markets",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-2">
-                      <Zap className="w-3 h-3 text-violet-400 flex-shrink-0" />
+                      <Zap className="w-3 h-3 text-sky-400 flex-shrink-0" />
                       <span className="text-xs text-white/50">{item}</span>
                     </div>
                   ))}
@@ -244,7 +230,7 @@ export function Footer() {
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a key={href} href={href} target="_blank" rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-9 h-9 bg-white/5 border border-white/8 rounded-xl flex items-center justify-center text-white/40 hover:text-white hover:bg-violet-500/20 hover:border-violet-500/40 transition-all duration-200">
+                    className="w-9 h-9 bg-white/5 border border-white/8 rounded-xl flex items-center justify-center text-white/40 hover:text-white hover:bg-sky-500/20 hover:border-sky-500/40 transition-all duration-200">
                     <Icon className="h-4 w-4" />
                   </a>
                 ))}
@@ -258,7 +244,7 @@ export function Footer() {
         <div className="border-t border-white/5 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/25 text-xs text-center md:text-left">
-              © {new Date().getFullYear()} Rigveda Ads Agency Pvt. Ltd. All rights reserved.
+              © {new Date().getFullYear()} Adshouz. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
               {[

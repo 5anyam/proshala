@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Local SEO Services | Google Maps Ranking | Rigveda Ads",
+  title: "Local SEO Services | Google Maps Ranking | Adshouz Digital",
   description:
     "Dominate local search results and Google Maps. Local SEO services that drive foot traffic, calls, and leads from customers near you.",
   keywords: "local seo, google maps seo, local search optimization, google my business, local seo agency Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: MapPin,       title: "Google Business Profile",  desc: "Full GBP setup and optimisation — categories, services, photos, posts, and Q&A — to rank in the Local Pack." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Local SEO",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "NCR"],
   serviceType: "Digital Marketing",
 };

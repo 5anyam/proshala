@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Facebook & Instagram Ads | Social Media Advertising | Rigveda Ads",
+  title: "Facebook & Instagram Ads | Social Media Advertising | Adshouz Digital",
   description:
-    "High-ROI Facebook and Instagram ad campaigns that grow your audience, generate leads, and drive sales. Expert Meta Ads management by Rigveda Ads.",
+    "High-ROI Facebook and Instagram ad campaigns that grow your audience, generate leads, and drive sales. Expert Meta Ads management by Adshouz Digital.",
   keywords: "facebook ads, instagram ads, meta ads, social media advertising, facebook ad agency Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Target,    title: "Lead Generation Ads",   desc: "Instant Forms and landing page campaigns targeting high-intent audiences at the lowest CPL." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Facebook & Instagram Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital Agency Pvt. Ltd.", url: "https://adshouz.com" },
   areaServed: "India",
   serviceType: "Digital Marketing",
 };

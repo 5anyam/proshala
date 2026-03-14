@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Google Search Ads | PPC Search Campaigns | Rigveda Ads",
+  title: "Google Search Ads | PPC Search Campaigns | Adshouz Digital",
   description:
-    "Appear at the top of Google when buyers search for your product. Expert Search Ads management with keyword research, ad copy, and conversion tracking by Rigveda Ads.",
+    "Appear at the top of Google when buyers search for your product. Expert Search Ads management with keyword research, ad copy, and conversion tracking by Adshouz Digital.",
   keywords: "google search ads, ppc search campaigns, google search advertising, search ads management Delhi, pay per click",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Search,    title: "Keyword Research",         desc: "Deep keyword mining — exact, phrase, and broad match — with negative keyword lists built before launch to stop wasted spend." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Google Search Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

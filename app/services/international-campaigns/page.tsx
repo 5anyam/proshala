@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "International Digital Marketing Campaigns India | Global Google & Meta Ads | Rigveda Ads",
+  title: "International Digital Marketing Campaigns India | Global Google & Meta Ads | Adshouz Digital",
   description:
     "Run international digital marketing campaigns from India — Google Ads, Meta Ads, SEO and landing pages targeting USA, UK, UAE, Australia, Canada and global markets. Google-certified agency with multi-currency, multilingual campaign expertise.",
   keywords: [
@@ -24,18 +24,19 @@ export const metadata: Metadata = {
     "global Meta Ads management India",
     "cross-border digital marketing",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/international-campaigns" },
+  alternates: { canonical: "https://adshouz.com/services/international-campaigns" },
   openGraph: {
-    title: "International Digital Marketing Campaigns | Rigveda Ads India",
+    title: "International Digital Marketing Campaigns | Adshouz Digital",
     description:
       "Target USA, UK, UAE, Australia and global markets with Google Ads, Meta Ads and SEO campaigns managed from India. Cost-efficient, Google-certified, results-driven.",
-    url: "https://rigvedaadds.com/services/international-campaigns",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+    url: "https://adshouz.com/services/international-campaigns",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const markets = [
@@ -200,8 +201,8 @@ const jsonLd = {
   name: "International Digital Marketing Campaigns",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital Agency Pvt. Ltd.",
+    url: "https://adshouz.com",
   },
   description:
     "International digital marketing campaigns targeting USA, UK, UAE, Australia and global markets — Google Ads, Meta Ads, SEO and multilingual campaigns managed from India.",
@@ -213,7 +214,7 @@ const jsonLd = {
     { "@type": "Country", name: "Canada" },
     { "@type": "Country", name: "India" },
   ],
-  url: "https://rigvedaadds.com/services/international-campaigns",
+  url: "https://adshouz.com/services/international-campaigns",
 };
 
 const tagColors: Record<string, string> = {
@@ -436,7 +437,7 @@ export default function InternationalCampaignsPage() {
                 <div className="grid grid-cols-3 bg-gray-100 dark:bg-white/[0.04] border-b border-gray-200 dark:border-white/[0.06]">
                   <div className="px-4 py-3 text-xs font-bold text-gray-500 dark:text-white">Agency Type</div>
                   <div className="px-4 py-3 text-xs font-bold text-gray-700 dark:text-white text-center">Monthly Mgmt Fee</div>
-                  <div className="px-4 py-3 text-xs font-bold text-violet-600 dark:text-violet-400 text-center">Rigveda Ads</div>
+                  <div className="px-4 py-3 text-xs font-bold text-violet-600 dark:text-violet-400 text-center">Adshouz Digital</div>
                 </div>
                 {[
                   ["US / UK Agency",      "$3,000–$8,000/mo",   "✅ 60–70% less"],
@@ -499,7 +500,7 @@ export default function InternationalCampaignsPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-violet-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   </span>
-                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   Global Reach,{" "}

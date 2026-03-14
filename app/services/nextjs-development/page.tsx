@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Next.js Development | React Web Apps | Rigveda Ads",
+  title: "Next.js Development | React Web Apps | Adshouz Digital",
   description:
     "Custom Next.js web applications — blazing fast, SEO-optimised, and built to scale. Full-stack Next.js development for SaaS, e-commerce, and business websites.",
   keywords: "nextjs development, next.js developer, react web app, nextjs agency Delhi, full stack nextjs, nextjs SEO",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Globe,      title: "Business Websites",      desc: "Fast, SEO-ready marketing sites with perfect Core Web Vitals — built to rank and convert from day one." },
@@ -72,7 +73,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Next.js Development",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Web Development",
 };

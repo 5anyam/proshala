@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Website Development Services India | Next.js, WordPress & Landing Pages | Rigveda Ads",
+  title: "Website Development Services India | Next.js, WordPress & Landing Pages | Adshouz Digital",
   description:
     "Professional website development in India — Next.js, WordPress, WooCommerce, Landing Pages. Fast, SEO-optimised, mobile-first websites that generate real leads. Google-certified agency.",
   keywords: [
@@ -24,18 +24,19 @@ export const metadata: Metadata = {
     "mobile-first website design",
     "lead generation website India",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/website-development" },
+  alternates: { canonical: "https://adshouz.com/services/website-development" },
   openGraph: {
-    title: "Website Development Services India | Rigveda Ads",
+    title: "Website Development Services India | Adshouz Digital",
     description:
-      "Fast, SEO-optimised, mobile-first websites built on Next.js and WordPress. Rigveda Ads builds websites that rank and convert.",
-    url: "https://rigvedaadds.com/services/website-development",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+      "Fast, SEO-optimised, mobile-first websites built on Next.js and WordPress. Adshouz Digital builds websites that rank and convert.",
+    url: "https://adshouz.com/services/website-development",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const services = [
@@ -175,13 +176,13 @@ const jsonLd = {
   name: "Website Development Services",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   description:
     "Professional website development services in India — Next.js, WordPress, WooCommerce, Landing Pages. Fast, SEO-optimised, mobile-first websites.",
   areaServed: { "@type": "Country", name: "India" },
-  url: "https://rigvedaadds.com/services/website-development",
+  url: "https://adshouz.com/services/website-development",
 };
 
 const tagColors: Record<string, string> = {
@@ -411,7 +412,7 @@ export default function WebsiteDevelopmentPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-violet-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   </span>
-                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   We Build Websites{" "}

@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Performance Marketing | ROI-Driven Campaigns | Rigveda Ads",
+  title: "Performance Marketing | ROI-Driven Campaigns | Adshouz Digital",
   description:
     "Full-funnel performance marketing — paid search, social, display, and retargeting campaigns optimised for measurable ROI. Every rupee tracked, every conversion attributed.",
   keywords: "performance marketing, ROI marketing, paid marketing agency, full funnel marketing, performance marketing Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Target,    title: "Paid Search (PPC)",         desc: "Google and Bing Search campaigns targeting high-intent buyers at every stage of the purchase funnel." },
@@ -72,7 +73,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Performance Marketing",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital Agency Pvt. Ltd.", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

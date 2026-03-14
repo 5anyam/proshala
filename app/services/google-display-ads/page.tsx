@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Google Display Ads | Banner Advertising | Rigveda Ads",
+  title: "Google Display Ads | Banner Advertising | Adshouz Digital",
   description:
-    "Reach 90% of internet users with Google Display Ads. Banner, responsive, and remarketing ads across 2M+ websites managed by Rigveda Ads.",
+    "Reach 90% of internet users with Google Display Ads. Banner, responsive, and remarketing ads across 2M+ websites managed by Adshouz Digital.",
   keywords: "google display ads, banner ads, display advertising, remarketing ads, GDN, google display network Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: ImageIcon, title: "Responsive Display Ads",   desc: "Google auto-assembles your headlines and images into the best-performing ad format for every placement." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Google Display Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };

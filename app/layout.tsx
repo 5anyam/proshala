@@ -22,11 +22,11 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rigveda Ads - Google Ads & Performance Marketing Agency India',
-    template: '%s | Rigveda Ads',
+    default: 'Adshouz - Performance Marketing & Web Development Agency India',
+    template: '%s | Adshouz',
   },
   description:
-    'Rigveda Ads is a certified Google Ads & performance marketing agency in India. We specialise in PPC, SEO, social media ads, brand bidding and international campaigns that deliver measurable ROI.',
+    'Adshouz is a Meta & Google certified performance marketing agency in India. We specialise in Google Ads, SEO, social media ads, brand bidding, website development and international campaigns that deliver measurable ROI.',
   keywords: [
     'Google Ads agency India',
     'performance marketing agency',
@@ -35,13 +35,14 @@ export const metadata: Metadata = {
     'Facebook ads agency',
     'brand bidding Google Ads',
     'digital marketing agency Delhi',
-    'paid advertising agency',
-    'Google certified partner India',
+    'website development agency India',
+    'Meta Google certified partner India',
     'ROI focused digital marketing',
+    'Adshouz',
   ],
-  authors: [{ name: 'Rigveda Ads', url: 'https://rigvedaadds.com' }],
-  creator: 'Rigveda Ads',
-  publisher: 'Rigveda Ads',
+  authors: [{ name: 'Adshouz', url: 'https://adshouz.com' }],
+  creator: 'Adshouz',
+  publisher: 'Adshouz',
   robots: {
     index: true,
     follow: true,
@@ -55,43 +56,42 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://rigvedaadds.com',
-    siteName: 'Rigveda Ads',
-    title: 'Rigveda Ads — Google Ads & Performance Marketing Agency',
+    url: 'https://adshouz.com',
+    siteName: 'Adshouz',
+    title: 'Adshouz — Performance Marketing & Web Development Agency',
     description:
-      'Certified Google Ads agency delivering data-driven PPC, SEO, social media and performance marketing campaigns with proven ROI across all industries in India and internationally.',
+      'Meta & Google certified agency delivering data-driven PPC, SEO, social media, website development and performance marketing campaigns with proven ROI across India and international markets.',
     images: [
       {
-        url: 'https://rigvedaadds.com/og-image.jpg',
+        url: 'https://adshouz.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Rigveda Ads — Performance Marketing Agency India',
+        alt: 'Adshouz — Performance Marketing Agency India',
         type: 'image/jpeg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@rigvedaadds',
-    creator: '@rigvedaadds',
-    title: 'Rigveda Ads — Google Ads & Performance Marketing Agency',
+    site: '@adshouz',
+    creator: '@adshouz',
+    title: 'Adshouz — Performance Marketing & Web Development Agency',
     description:
-      'Certified Google Ads agency delivering data-driven PPC, SEO, and performance marketing with proven ROI.',
-    images: ['https://rigvedaadds.com/og-image.jpg'],
+      'Meta & Google certified agency delivering data-driven PPC, SEO, web development and performance marketing with proven ROI.',
+    images: ['https://adshouz.com/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://rigvedaadds.com',
+    canonical: 'https://adshouz.com',
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'your-google-verification-code', // 🔁 replace karo
   },
-  // ✅ theme-color Next.js Metadata API se — body mein <meta> ki zarurat nahi
   themeColor: [
-    { media: '(prefers-color-scheme: dark)',  color: '#0B0B0F' },
+    { media: '(prefers-color-scheme: dark)',  color: '#030E1C' },
     { media: '(prefers-color-scheme: light)', color: '#F2F2F7' },
   ],
   category: 'Digital Marketing',
-  metadataBase: new URL('https://rigvedaadds.com'),
+  metadataBase: new URL('https://adshouz.com'),
 };
 
 const jsonLd = {
@@ -99,58 +99,54 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://rigvedaadds.com/#organization',
-      name: 'Rigveda Ads Agency Pvt. Ltd.',
-      url: 'https://rigvedaadds.com',
+      '@id': 'https://adshouz.com/#organization',
+      name: 'Adshouz',
+      url: 'https://adshouz.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://rigvedaadds.com/logo.png',
+        url: 'https://adshouz.com/adshouz-logo.jpg',
         width: 200,
         height: 60,
       },
       description:
-        'Certified Google Ads & performance marketing agency providing PPC, SEO, social media advertising and international campaigns for businesses across India.',
-      foundingDate: '2016',
+        'Meta & Google certified performance marketing and web development agency providing PPC, SEO, social media advertising, website development and international campaigns for businesses across India and globally.',
+      foundingDate: '2018',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'D-7/296, 2nd Floor, Sector-6, Rohini',
         addressLocality: 'New Delhi',
         addressRegion: 'Delhi',
-        postalCode: '110086',
         addressCountry: 'IN',
       },
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+91-7840000618',
+          telephone: '+91-8588837072',
           contactType: 'customer service',
-          email: 'info@rigvedaadds.com',
+          email: 'contact@adshouz.com',
           availableLanguage: ['English', 'Hindi'],
-          areaServed: 'IN',
+          areaServed: ['IN', 'US', 'GB', 'AE'],
         },
       ],
       sameAs: [
-        'https://www.facebook.com/rigvedaadds',
-        'https://www.instagram.com/rigvedaadds',
-        'https://www.linkedin.com/company/rigvedaadds',
-        'https://twitter.com/rigvedaadds',
+        'https://www.facebook.com/adshouz',
+        'https://www.instagram.com/adshouz',
+        'https://www.linkedin.com/company/adshouz',
+        'https://twitter.com/adshouz',
       ],
     },
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://rigvedaadds.com/#localbusiness',
-      name: 'Rigveda Ads Agency Pvt. Ltd.',
-      url: 'https://rigvedaadds.com',
-      image: 'https://rigvedaadds.com/og-image.jpg',
+      '@id': 'https://adshouz.com/#localbusiness',
+      name: 'Adshouz',
+      url: 'https://adshouz.com',
+      image: 'https://adshouz.com/og-image.jpg',
       priceRange: '₹₹',
-      telephone: '+91-7840000618',
-      email: 'info@rigvedaadds.com',
+      telephone: '+91-8588837072',
+      email: 'contact@adshouz.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'D-7/296, 2nd Floor, Sector-6, Rohini',
         addressLocality: 'New Delhi',
         addressRegion: 'Delhi',
-        postalCode: '110086',
         addressCountry: 'IN',
       },
       openingHoursSpecification: {
@@ -162,35 +158,41 @@ const jsonLd = {
     },
     {
       '@type': 'ProfessionalService',
-      '@id': 'https://rigvedaadds.com/#service',
-      name: 'Google Ads & Performance Marketing',
-      provider: { '@id': 'https://rigvedaadds.com/#organization' },
-      serviceType: 'Digital Marketing Agency',
-      areaServed: { '@type': 'Country', name: 'India' },
+      '@id': 'https://adshouz.com/#service',
+      name: 'Performance Marketing & Web Development',
+      provider: { '@id': 'https://adshouz.com/#organization' },
+      serviceType: 'Digital Marketing & Web Development Agency',
+      areaServed: [
+        { '@type': 'Country', name: 'India' },
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'Country', name: 'United Arab Emirates' },
+      ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Digital Marketing Services',
+        name: 'Digital Marketing & Development Services',
         itemListElement: [
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Ads (PPC) Management' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Search Engine Optimisation (SEO)' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Facebook & Instagram Advertising' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Brand Bidding Campaigns' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Performance Marketing' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'International Campaigns' } },
         ],
       },
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://rigvedaadds.com/#website',
-      url: 'https://rigvedaadds.com',
-      name: 'Rigveda Ads',
-      publisher: { '@id': 'https://rigvedaadds.com/#organization' },
+      '@id': 'https://adshouz.com/#website',
+      url: 'https://adshouz.com',
+      name: 'Adshouz',
+      publisher: { '@id': 'https://adshouz.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://rigvedaadds.com/search?q={search_term_string}',
+          urlTemplate: 'https://adshouz.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
@@ -202,7 +204,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      // ✅ NO hardcoded "dark" class here — ThemeProvider inject karega
       className={`${inter.variable} ${syne.variable}`}
       suppressHydrationWarning
     >
@@ -214,22 +215,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
-    dangerouslySetInnerHTML={{
-      __html: `
-        (function() {
-          try {
-            var stored = localStorage.getItem('rigveda-theme');
-            var theme = stored || 'dark';
-            if (theme === 'system') {
-              theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-            document.documentElement.classList.add(theme);
-            document.documentElement.setAttribute('data-theme', theme);
-          } catch(e) {}
-        })();
-      `,
-    }}
-  />
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('adshouz-theme');
+                  var theme = stored || 'dark';
+                  if (theme === 'system') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.classList.add(theme);
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -238,15 +239,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`
           ${inter.variable} font-sans antialiased
-          bg-white dark:bg-[#0B0B0F]
+          bg-white dark:bg-[#030E1C]
           text-gray-900 dark:text-white
         `}
       >
         <ThemeProvider
-          attribute="class"       // ✅ adds/removes "dark" class on <html>
-          defaultTheme="dark"     // ✅ dark by default on first visit
-          enableSystem            // ✅ respects OS preference after first visit
-          storageKey="rigveda-theme" // ✅ persists user's manual toggle in localStorage
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          storageKey="adshouz-theme"
           disableTransitionOnChange={false}
         >
           <Navbar />
@@ -257,7 +258,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             toastOptions={{
               classNames: {
                 toast:
-                  "dark:bg-[#13131A] dark:border-white/8 dark:text-white bg-white border-black/10 text-gray-900",
+                  "dark:bg-[#071828] dark:border-white/8 dark:text-white bg-white border-black/10 text-gray-900",
               },
             }}
           />

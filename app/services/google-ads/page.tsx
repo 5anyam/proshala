@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Google Ads Management | PPC Agency Delhi | Rigveda Ads",
+  title: "Google Ads Management | PPC Agency Delhi | Adshouz Digital",
   description:
     "Expert Google Ads management — Search, Display, YouTube, and Shopping campaigns. Data-driven PPC that maximises ROI and delivers measurable results.",
   keywords: "google ads management, ppc agency, google ads agency Delhi, search ads, display ads, youtube ads",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const adTypes = [
   {
@@ -102,7 +103,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Google Ads Management",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };
@@ -235,7 +236,7 @@ export default function GoogleAdsPage() {
                 <span className="w-4 h-4 rounded-full border-2 border-violet-500 flex items-center justify-center">
                   <span className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
                 </span>
-                <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Rigveda Ads</span>
+                <span className="text-violet-600 dark:text-violet-400 font-semibold text-sm">Why Adshouz Digital</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white mb-3">
                 We Do not Just Run Ads —{" "}

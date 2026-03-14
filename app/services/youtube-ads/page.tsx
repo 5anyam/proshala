@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "YouTube Ads Services India | Video Advertising & YouTube Marketing | Rigveda Ads",
+  title: "YouTube Ads Services India | Video Advertising & YouTube Marketing | Adshouz Digital",
   description:
     "Expert YouTube Ads management in India — In-Stream, Discovery, Bumper & Shorts ads. Google-certified team managing YouTube video campaigns that drive brand awareness, leads and sales.",
   keywords: [
@@ -24,18 +24,19 @@ export const metadata: Metadata = {
     "YouTube lead generation",
     "YouTube Shorts ads",
   ],
-  alternates: { canonical: "https://rigvedaadds.com/services/youtube-ads" },
+  alternates: { canonical: "https://adshouz.com/services/youtube-ads" },
   openGraph: {
-    title: "YouTube Ads Services India | Rigveda Ads",
+    title: "YouTube Ads Services India | Adshouz Digital",
     description:
-      "Google-certified YouTube Ads management — In-Stream, Discovery, Bumper & Shorts. Drive brand awareness and leads with video advertising from Rigveda Ads.",
-    url: "https://rigvedaadds.com/services/youtube-ads",
-    images: [{ url: "https://rigvedaadds.com/og-image.jpg", width: 1200, height: 630 }],
+      "Google-certified YouTube Ads management — In-Stream, Discovery, Bumper & Shorts. Drive brand awareness and leads with video advertising from Adshouz Digital.",
+    url: "https://adshouz.com/services/youtube-ads",
+    images: [{ url: "https://adshouz.com/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const adFormats = [
@@ -193,13 +194,13 @@ const jsonLd = {
   name: "YouTube Ads Services",
   provider: {
     "@type": "Organization",
-    name: "Rigveda Ads Agency Pvt. Ltd.",
-    url: "https://rigvedaadds.com",
+    name: "Adshouz Digital LLP",
+    url: "https://adshouz.com",
   },
   description:
     "Expert YouTube Ads management in India — In-Stream, Discovery, Bumper & Shorts ads. Google-certified team driving brand awareness, leads and sales through video advertising.",
   areaServed: { "@type": "Country", name: "India" },
-  url: "https://rigvedaadds.com/services/youtube-ads",
+  url: "https://adshouz.com/services/youtube-ads",
 };
 
 const tagColors: Record<string, string> = {
@@ -430,7 +431,7 @@ export default function YouTubeAdsPage() {
                   <span className="w-4 h-4 rounded-full border-2 border-red-500 flex items-center justify-center">
                     <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
                   </span>
-                  <span className="text-red-600 dark:text-red-400 font-semibold text-sm">Why Rigveda Ads</span>
+                  <span className="text-red-600 dark:text-red-400 font-semibold text-sm">Why Adshouz Digital</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                   YouTube Ads Managed by{" "}

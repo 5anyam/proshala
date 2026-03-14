@@ -8,14 +8,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Google Shopping Ads | Product Listing Ads | Rigveda Ads",
+  title: "Google Shopping Ads | Product Listing Ads | Adshouz Digital",
   description:
-    "Drive e-commerce sales with Google Shopping Ads. Product listing campaigns with price, image, and ratings shown directly in search results — managed by Rigveda Ads.",
+    "Drive e-commerce sales with Google Shopping Ads. Product listing campaigns with price, image, and ratings shown directly in search results — managed by Adshouz Digital.",
   keywords: "google shopping ads, product listing ads, pla ads, shopping campaign management, ecommerce ads Delhi",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 const services = [
   { icon: Package,   title: "Product Feed Optimisation",  desc: "Title, description, category, and GTIN optimised in your Merchant Center feed — the #1 factor in Shopping ad performance." },
@@ -63,7 +64,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Google Shopping Ads",
-  provider: { "@type": "Organization", name: "Rigveda Ads Agency Pvt. Ltd.", url: "https://rigvedaadds.com" },
+  provider: { "@type": "Organization", name: "Adshouz Digital LLP", url: "https://adshouz.com" },
   areaServed: ["India", "Delhi", "US", "UK", "UAE"],
   serviceType: "Digital Marketing",
 };
