@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight, Calendar, Clock, User, ArrowRight, Search } from "lucide-react";
 
-const WP_API_URL = "https://cms.rigvedaadds.com/wp-json/wp/v2";
+const WP_API_URL = "https://cms.adshouz.com/wp-json/wp/v2";
 
 interface WordPressPost {
   id: number;

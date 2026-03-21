@@ -8,22 +8,23 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | Rigveda Ads Agency | Digital Marketing Experts Delhi",
+  title: "About Us | Adshouz | Performance Marketing Agency Delhi",
   description:
-    "Learn about Rigveda Ads — a performance-driven digital marketing agency with 8+ years of experience, ₹50Cr+ ad spend managed, and 500+ clients served across India and internationally.",
+    "Learn about Adshouz — a Meta & Google certified performance marketing agency with 7+ years of experience, ₹50Cr+ ad spend managed, and 450+ clients scaled across India and internationally.",
   keywords:
-    "about rigveda ads, digital marketing agency Delhi, performance marketing agency, google ads agency India",
+    "about adshouz, performance marketing agency Delhi, Google Ads agency India, digital marketing agency",
 };
 
-const PHONE      = "+917840000618";
-const PHONE_DISP = "+91 78400 00618";
+const PHONE      = "+918588837072";
+const PHONE_DISP = "+91 85888 37072";
+const EMAIL      = "contact@adshouz.com";
 
 // ─── Data ──────────────────────────────────────────────────────
 const stats = [
-  { value: "8+",     label: "Years Experience",     sub: "In performance marketing" },
-  { value: "500+",   label: "Clients Served",       sub: "Across India & globally" },
-  { value: "₹50Cr+", label: "Ad Spend Managed",     sub: "Across all channels" },
-  { value: "300%",   label: "Average ROI",          sub: "Delivered to clients" },
+  { value: "7+",     label: "Years Experience",  sub: "In performance marketing" },
+  { value: "450+",   label: "Clients Scaled",    sub: "Across India & globally" },
+  { value: "₹50Cr+", label: "Ad Spend Managed",  sub: "Across all channels" },
+  { value: "320%",   label: "Average ROI",       sub: "Delivered to clients" },
 ];
 
 const values = [
@@ -31,15 +32,15 @@ const values = [
     icon: Target,
     title: "ROI Obsessed",
     desc: "Every decision — channel, creative, bid — is made with one question in mind: does this generate more return for our client?",
-    color: "text-violet-500",
-    bg: "bg-violet-500/10 group-hover:bg-violet-500/20",
+    color: "text-sky-500",
+    bg: "bg-sky-500/10 group-hover:bg-sky-500/20",
   },
   {
     icon: Shield,
     title: "Radical Transparency",
     desc: "You own your accounts, see every rupee spent, and get weekly reports in plain English — no smoke, no mirrors.",
-    color: "text-blue-500",
-    bg: "bg-blue-500/10 group-hover:bg-blue-500/20",
+    color: "text-cyan-500",
+    bg: "bg-cyan-500/10 group-hover:bg-cyan-500/20",
   },
   {
     icon: Lightbulb,
@@ -72,52 +73,52 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2016", title: "Founded in Delhi",          desc: "Started as a boutique Google Ads consultancy serving local Delhi businesses." },
-  { year: "2018", title: "SEO Practice Launched",     desc: "Expanded into technical SEO and content marketing — serving national brands." },
-  { year: "2020", title: "Crossed 200 Clients",       desc: "Scaled the team and crossed ₹10Cr in annual ad spend under management." },
-  { year: "2022", title: "Went International",        desc: "Onboarded first UK and UAE clients. Added LinkedIn and YouTube Ads practice." },
-  { year: "2024", title: "₹50Cr+ Managed",            desc: "Full-service agency with 5 specialised practices and a dedicated team of 20+." },
-  { year: "2025", title: "Web Dev Practice Added",    desc: "Launched Next.js and WordPress development to deliver end-to-end digital solutions." },
+  { year: "2018", title: "Founded in Delhi",         desc: "Started as a boutique Google Ads consultancy serving local Delhi businesses." },
+  { year: "2019", title: "SEO Practice Launched",    desc: "Expanded into technical SEO and content marketing — serving national brands." },
+  { year: "2021", title: "Crossed 150 Clients",      desc: "Scaled the team and crossed ₹10Cr in annual ad spend under management." },
+  { year: "2022", title: "Went International",       desc: "Onboarded first UK and UAE clients. Added LinkedIn and YouTube Ads practice." },
+  { year: "2024", title: "₹50Cr+ Managed",           desc: "Full-service agency with 5 specialised practices and a dedicated team of 15+." },
+  { year: "2025", title: "Web Dev Practice Added",   desc: "Launched Next.js and WordPress development to deliver end-to-end digital solutions." },
 ];
 
 const team = [
   {
-    name: "Vikram Sharma",
+    name: "Rahul Sharma",
     role: "Founder & Head of Strategy",
-    exp: "8+ years · Ex-Google Partner",
-    initials: "VS",
-    color: "from-violet-500 to-indigo-600",
+    exp: "7+ years · Google Certified",
+    initials: "RS",
+    color: "from-sky-500 to-cyan-600",
   },
   {
     name: "Priya Nair",
     role: "Head of SEO & Content",
-    exp: "7 years · 100+ SEO Projects",
+    exp: "6 years · 100+ SEO Projects",
     initials: "PN",
     color: "from-emerald-500 to-teal-600",
   },
   {
     name: "Arjun Mehta",
     role: "Head of Paid Social",
-    exp: "6 years · Meta & LinkedIn Certified",
+    exp: "5 years · Meta Certified",
     initials: "AM",
     color: "from-pink-500 to-rose-600",
   },
   {
     name: "Riya Kapoor",
     role: "Head of Web Development",
-    exp: "5 years · Next.js & WordPress Expert",
+    exp: "5 years · Next.js & WordPress",
     initials: "RK",
     color: "from-orange-500 to-amber-600",
   },
 ];
 
 const services = [
-  { name: "Google Ads",           href: "/services/google-ads" },
-  { name: "SEO",                  href: "/services/seo" },
-  { name: "Social Media Ads",     href: "/services/social-media-ads" },
-  { name: "Performance Marketing",href: "/services/performance-marketing" },
-  { name: "Web Development",      href: "/services/website-development" },
-  { name: "Brand Bidding",        href: "/services/brand-bidding" },
+  { name: "Google Ads",            href: "/services/google-ads" },
+  { name: "SEO",                   href: "/services/seo" },
+  { name: "Social Media Ads",      href: "/services/social-media-ads" },
+  { name: "Performance Marketing", href: "/services/performance-marketing" },
+  { name: "Web Development",       href: "/services/website-development" },
+  { name: "Brand Bidding",         href: "/services/brand-bidding" },
 ];
 
 const certifications = [
@@ -131,11 +132,11 @@ const certifications = [
 
 const faqs = [
   {
-    q: "Where is Rigveda Ads based and do you work with clients outside Delhi?",
-    a: "We're headquartered in Delhi, India, but operate as a remote-first agency. We serve clients across India — Mumbai, Bangalore, Hyderabad, Pune — and internationally in the UK, UAE, and beyond. All engagements are managed remotely with weekly calls and real-time reporting.",
+    q: "Where is Adshouz based and do you work with clients outside Delhi?",
+    a: "We're headquartered in Delhi, India, but operate as a remote-first agency. We serve clients across India — Mumbai, Bangalore, Hyderabad, Pune — and internationally in the UK, UAE, USA and beyond. All engagements are managed remotely with weekly calls and real-time reporting.",
   },
   {
-    q: "How is Rigveda Ads different from other digital marketing agencies?",
+    q: "How is Adshouz different from other digital marketing agencies?",
     a: "Three things set us apart: first, every client gets a named senior strategist — not a junior account manager. Second, we obsess over attribution — you always know which channel, campaign, and ad drove each conversion. Third, we have no lock-in contracts — we earn your business every month.",
   },
   {
@@ -151,11 +152,11 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Rigveda Ads Agency Pvt. Ltd.",
-  url: "https://rigvedaadds.com",
-  foundingDate: "2016",
-  description: "Performance-driven digital marketing agency based in Delhi, India.",
-  areaServed: ["India", "UK", "UAE"],
+  name: "Adshouz",
+  url: "https://adshouz.com",
+  foundingDate: "2018",
+  description: "Meta & Google certified performance marketing and web development agency based in Delhi, India.",
+  areaServed: ["India", "UK", "UAE", "USA"],
 };
 
 export default function AboutPage() {
@@ -167,47 +168,47 @@ export default function AboutPage() {
       />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative bg-white dark:bg-[#0B0B0F] pt-10 pb-0 overflow-hidden">
+      <section className="relative bg-white dark:bg-[#030E1C] pt-10 pb-0 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-violet-500/10 dark:bg-violet-600/15 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 -left-10 w-[300px] h-[300px] bg-indigo-600/8 dark:bg-indigo-800/12 rounded-full blur-[80px]" />
+          <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-sky-500/10 dark:bg-sky-500/15 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 -left-10 w-[300px] h-[300px] bg-cyan-600/8 dark:bg-cyan-800/12 rounded-full blur-[80px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <nav className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-white/35 mb-6 flex-wrap">
-            <Link href="/" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-gray-600 dark:text-white/60">About Us</span>
           </nav>
 
           <div className="max-w-3xl pb-14 lg:pb-16" style={{ animation: "heroFadeIn 0.7s ease both" }}>
-            <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 rounded-full px-4 py-1.5 mb-5">
-              <Zap className="w-3.5 h-3.5 text-violet-500" />
-              <span className="text-violet-700 dark:text-violet-300 text-xs font-semibold">
-                Founded 2016 · Delhi, India · Google Certified Partner
+            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-5">
+              <Zap className="w-3.5 h-3.5 text-sky-500" />
+              <span className="text-sky-700 dark:text-sky-300 text-xs font-semibold">
+                Founded 2018 · Delhi, India · Meta & Google Certified Partner
               </span>
             </div>
 
             <h1 className="text-[36px] sm:text-5xl lg:text-[56px] font-black leading-[1.06] tracking-tight mb-5">
               <span className="text-gray-900 dark:text-white">We are a Team That </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-indigo-500 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500">
                 Lives for Your ROI
               </span>
             </h1>
 
             <p className="text-gray-500 dark:text-white/55 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
-              Rigveda Ads is a performance-driven digital marketing agency
-              founded in Delhi in 2016. We have managed{" "}
+              Adshouz is a performance-first digital marketing agency founded
+              in Delhi in 2018. We have managed{" "}
               <strong className="text-gray-900 dark:text-white">₹50Cr+ in ad spend</strong>,
-              served <strong className="text-gray-900 dark:text-white">500+ clients</strong>, and
+              scaled <strong className="text-gray-900 dark:text-white">450+ clients</strong>, and
               built a reputation for one thing: measurable results with zero BS.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-7">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold px-7 py-4 rounded-2xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-xl shadow-violet-500/25 text-sm group"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold px-7 py-4 rounded-2xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-xl shadow-sky-500/25 text-sm group"
               >
                 Work With Us
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -216,7 +217,7 @@ export default function AboutPage() {
                 href={`tel:${PHONE}`}
                 className="inline-flex items-center justify-center gap-2 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white font-semibold px-7 py-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all text-sm"
               >
-                <Phone className="w-4 h-4 text-violet-500" /> {PHONE_DISP}
+                <Phone className="w-4 h-4 text-sky-500" /> {PHONE_DISP}
               </a>
             </div>
 
@@ -232,19 +233,19 @@ export default function AboutPage() {
 
         <div className="w-full overflow-hidden leading-none">
           <svg viewBox="0 0 1440 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-7">
-            <path d="M0,18 C360,36 1080,0 1440,18 L1440,36 L0,36 Z" className="fill-gray-50 dark:fill-[#0F0F14]" />
+            <path d="M0,18 C360,36 1080,0 1440,18 L1440,36 L0,36 Z" className="fill-gray-50 dark:fill-[#040F1E]" />
           </svg>
         </div>
       </section>
 
       {/* ── STATS ────────────────────────────────────────────── */}
-      <section className="bg-gray-50 dark:bg-[#0F0F14] py-10">
+      <section className="bg-gray-50 dark:bg-[#040F1E] py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map(({ value, label, sub }, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 text-center hover:border-violet-400/40 hover:-translate-y-0.5 transition-all"
+                className="bg-white dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 text-center hover:border-sky-400/40 hover:-translate-y-0.5 transition-all"
                 style={{ animation: `fadeSlideUp 0.5s ease ${i * 0.07}s both` }}
               >
                 <div className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white mb-1">{value}</div>
@@ -257,25 +258,25 @@ export default function AboutPage() {
       </section>
 
       {/* ── STORY ────────────────────────────────────────────── */}
-      <section className="py-14 lg:py-20 bg-white dark:bg-[#0B0B0F]">
+      <section className="py-14 lg:py-20 bg-white dark:bg-[#030E1C]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div style={{ animation: "fadeSlideUp 0.6s ease both" }}>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-5">
                 Built on a Simple{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
                   Belief
                 </span>
               </h2>
               <div className="space-y-4 text-gray-500 dark:text-white/55 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Rigveda Ads was founded in 2016 by a team frustrated with one
+                  Adshouz was founded in 2018 by a team frustrated with one
                   thing: digital marketing agencies that prioritised impressions
                   over impact. We built this agency around the opposite belief —
                   that every rupee spent should be traceable to revenue.
                 </p>
                 <p>
-                  We started with Google Ads for Delhi businesses. Over 8 years,
+                  We started with Google Ads for Delhi businesses. Over 7 years,
                   we have grown into a full-service performance agency — covering
                   SEO, Social Media Ads, Web Development, and Performance
                   Marketing — while staying obsessed with the same core question:{" "}
@@ -284,10 +285,9 @@ export default function AboutPage() {
                   </strong>
                 </p>
                 <p>
-                  Today we serve 500+ clients across India, UK, and UAE. Our
-                  team of 20+ certified specialists manages ₹50Cr+ in annual
-                  ad spend — and counts ourselves as genuine growth partners,
-                  not vendors.
+                  Today we scale 450+ clients across India, UK, UAE and USA. Our
+                  certified specialists manage ₹50Cr+ in annual ad spend — and
+                  count ourselves as genuine growth partners, not vendors.
                 </p>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -295,7 +295,7 @@ export default function AboutPage() {
                   <Link
                     key={name}
                     href={href}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-violet-600 dark:text-violet-400 bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/20 px-3 py-1.5 rounded-full transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-sky-600 dark:text-sky-400 bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/20 px-3 py-1.5 rounded-full transition-colors"
                   >
                     {name} <ChevronRight className="w-3 h-3" />
                   </Link>
@@ -304,15 +304,17 @@ export default function AboutPage() {
             </div>
 
             {/* Certifications */}
-            <div className="bg-gray-50 dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-6 sm:p-8"
-              style={{ animation: "fadeSlideUp 0.6s ease 0.1s both" }}>
+            <div
+              className="bg-gray-50 dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-6 sm:p-8"
+              style={{ animation: "fadeSlideUp 0.6s ease 0.1s both" }}
+            >
               <h3 className="font-black text-gray-900 dark:text-white text-lg mb-5 flex items-center gap-2">
-                <Award className="w-5 h-5 text-violet-500" /> Certifications & Credentials
+                <Award className="w-5 h-5 text-sky-500" /> Certifications & Credentials
               </h3>
               <div className="space-y-3 mb-6">
                 {certifications.map((cert, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-7 h-7 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm shadow-violet-500/20">
+                    <div className="w-7 h-7 bg-gradient-to-br from-sky-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm shadow-sky-500/20">
                       <CheckCircle className="w-3.5 h-3.5 text-white" />
                     </div>
                     <span className="text-sm text-gray-700 dark:text-white/75 font-medium">{cert}</span>
@@ -321,16 +323,14 @@ export default function AboutPage() {
               </div>
               <div className="pt-5 border-t border-gray-200 dark:border-white/[0.06]">
                 <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
                   <span className="text-xs font-bold text-gray-900 dark:text-white ml-1">5.0</span>
                   <span className="text-xs text-gray-400 dark:text-white/40">· 120+ Google Reviews</span>
                 </div>
                 <p className="text-xs text-gray-400 dark:text-white/40 italic">
-                  Rigveda Ads tripled our leads in 3 months — with the same budget. — Client, E-commerce
+                  Adshouz tripled our leads in 45 days — with the same budget. — Client, D2C Brand
                 </p>
               </div>
             </div>
@@ -339,12 +339,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── VALUES ───────────────────────────────────────────── */}
-      <section className="py-14 bg-gray-50 dark:bg-[#0F0F14]">
+      <section className="py-14 bg-gray-50 dark:bg-[#040F1E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 dark:text-white mb-2">
               What We{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
                 Stand For
               </span>
             </h2>
@@ -356,7 +356,7 @@ export default function AboutPage() {
             {values.map(({ icon: Icon, title, desc, color, bg }, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-violet-400/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-300 group"
+                className="bg-white dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-sky-400/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/5 transition-all duration-300 group"
                 style={{ animation: `fadeSlideUp 0.6s ease ${i * 0.07}s both` }}
               >
                 <div className={`w-9 h-9 ${bg} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-all`}>
@@ -371,12 +371,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── TIMELINE ─────────────────────────────────────────── */}
-      <section className="py-14 lg:py-20 bg-white dark:bg-[#0B0B0F]">
+      <section className="py-14 lg:py-20 bg-white dark:bg-[#030E1C]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">
               Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
                 Journey
               </span>
             </h2>
@@ -385,15 +385,15 @@ export default function AboutPage() {
             {milestones.map(({ year, title, desc }, i) => (
               <div
                 key={i}
-                className="flex gap-5 bg-gray-50 dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-violet-400/30 transition-all group"
+                className="flex gap-5 bg-gray-50 dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-sky-400/30 transition-all group"
                 style={{ animation: `fadeSlideUp 0.5s ease ${i * 0.08}s both` }}
               >
                 <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-14 h-9 bg-gradient-to-br from-violet-600 to-indigo-600 text-white rounded-xl flex items-center justify-center font-black text-sm shadow-md shadow-violet-500/20 group-hover:scale-105 transition-transform">
+                  <div className="w-14 h-9 bg-gradient-to-br from-sky-500 to-cyan-500 text-white rounded-xl flex items-center justify-center font-black text-sm shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
                     {year}
                   </div>
                   {i < milestones.length - 1 && (
-                    <div className="w-px flex-1 bg-gradient-to-b from-violet-400/30 to-transparent mt-2 min-h-[16px]" />
+                    <div className="w-px flex-1 bg-gradient-to-b from-sky-400/30 to-transparent mt-2 min-h-[16px]" />
                   )}
                 </div>
                 <div className="pt-1">
@@ -407,12 +407,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── TEAM ─────────────────────────────────────────────── */}
-      <section className="py-14 bg-gray-50 dark:bg-[#0F0F14]">
+      <section className="py-14 bg-gray-50 dark:bg-[#040F1E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white mb-2">
               The{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
                 Core Team
               </span>
             </h2>
@@ -424,7 +424,7 @@ export default function AboutPage() {
             {team.map(({ name, role, exp, initials, color }, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-violet-400/30 hover:-translate-y-1 transition-all duration-300 group text-center"
+                className="bg-white dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-5 hover:border-sky-400/30 hover:-translate-y-1 transition-all duration-300 group text-center"
                 style={{ animation: `fadeSlideUp 0.6s ease ${i * 0.08}s both` }}
               >
                 <div className={`w-14 h-14 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -433,20 +433,20 @@ export default function AboutPage() {
                 <h3 className="font-black text-gray-900 dark:text-white text-sm mb-0.5">{name}</h3>
                 <p className="text-gray-500 dark:text-white/50 text-xs mb-2">{role}</p>
                 <div className="inline-flex items-center gap-1 bg-gray-100 dark:bg-white/[0.05] px-2.5 py-1 rounded-full">
-                  <BarChart3 className="w-3 h-3 text-violet-500" />
+                  <BarChart3 className="w-3 h-3 text-sky-500" />
                   <span className="text-[11px] font-medium text-gray-500 dark:text-white/40">{exp}</span>
                 </div>
               </div>
             ))}
           </div>
           <p className="text-center text-xs text-gray-400 dark:text-white/35 mt-6">
-            + 16 more specialists across PPC, SEO, Content, Social, and Development
+            + 11 more specialists across PPC, SEO, Content, Social, and Development
           </p>
         </div>
       </section>
 
       {/* ── FAQs ─────────────────────────────────────────────── */}
-      <section className="py-14 bg-white dark:bg-[#0B0B0F]">
+      <section className="py-14 bg-white dark:bg-[#030E1C]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white text-center mb-8">
             Common Questions
@@ -455,12 +455,12 @@ export default function AboutPage() {
             {faqs.map(({ q, a }, i) => (
               <details
                 key={i}
-                className="group bg-gray-50 dark:bg-[#13131A] border border-gray-200 dark:border-white/[0.06] rounded-2xl overflow-hidden"
+                className="group bg-gray-50 dark:bg-[#071828] border border-gray-200 dark:border-white/[0.06] rounded-2xl overflow-hidden"
                 style={{ animation: `fadeSlideUp 0.5s ease ${i * 0.07}s both` }}
               >
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-white/[0.03] transition-colors list-none">
                   <span className="text-sm font-semibold text-gray-800 dark:text-white/90 pr-4">{q}</span>
-                  <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full border border-gray-200 dark:border-white/[0.1] text-gray-400 group-open:border-violet-500 group-open:text-violet-500 group-open:bg-violet-500/10 transition-all font-bold text-base">
+                  <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full border border-gray-200 dark:border-white/[0.1] text-gray-400 group-open:border-sky-500 group-open:text-sky-500 group-open:bg-sky-500/10 transition-all font-bold text-base">
                     <span className="group-open:hidden">+</span>
                     <span className="hidden group-open:block">−</span>
                   </span>
@@ -477,9 +477,10 @@ export default function AboutPage() {
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="py-14 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-violet-900/40 to-indigo-900/35" />
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
-          <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-sky-900/40 to-cyan-900/35" />
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sky-600/15 rounded-full blur-[120px] animate-pulse-slow" />
         </div>
         <div
           className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
@@ -487,7 +488,7 @@ export default function AboutPage() {
         >
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
             Ready to Work With a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-indigo-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-300">
               Team That Delivers?
             </span>
           </h2>
@@ -498,7 +499,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-black px-8 py-4 rounded-2xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-xl shadow-violet-500/25 text-sm group"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-black px-8 py-4 rounded-2xl hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-xl shadow-sky-500/30 text-sm group"
             >
               Get Free Audit
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

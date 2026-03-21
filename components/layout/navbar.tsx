@@ -109,9 +109,9 @@ function DropdownPanel({ item, isOpen, align = "left", onClose }: {
     <div className={cn(
       "absolute top-[calc(100%+8px)] min-w-[190px] z-50",
       align === "right" ? "right-0" : "left-0",
-      "bg-white dark:bg-[#071828]",
+      "bg-white dark:bg-black",
       "border border-gray-200 dark:border-white/10",
-      "rounded-xl shadow-xl shadow-black/10 dark:shadow-black/60",
+      "rounded-xl shadow-xl shadow-black dark:shadow-black/60",
       "overflow-hidden transition-all duration-200",
       align === "right" ? "origin-top-right" : "origin-top-left",
       isOpen
@@ -189,7 +189,7 @@ export function Navbar() {
   return (
     <>
       {/* ── Top bar ─────────────────────────────────────────── */}
-      <div className="bg-gray-50 dark:bg-[#040D18] border-b border-gray-200 dark:border-white/[0.06] py-1.5 hidden md:block">
+      <div className="bg-gray-50 dark:bg-black border-b border-gray-200 dark:border-white/[0.06] py-1.5 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-5">
             <a href={`tel:${PHONE}`}
