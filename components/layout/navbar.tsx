@@ -215,8 +215,8 @@ export function Navbar() {
       <nav ref={dropdownRef} className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 dark:bg-[#030E1C]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl shadow-black/10 dark:shadow-black/40"
-          : "bg-white dark:bg-[#030E1C] border-b border-gray-100 dark:border-white/[0.06]"
+          ? "bg-white/90 dark:bg-black backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl shadow-black/10 dark:shadow-black/40"
+          : "bg-white dark:bg-black border-b border-gray-100 dark:border-white/[0.06]"
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 gap-4">
@@ -236,7 +236,7 @@ export function Navbar() {
                     className={cn(
                       "inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 whitespace-nowrap",
                       activeDropdown === item.name
-                        ? "text-gray-900 dark:text-white bg-black/5 dark:bg-white/10"
+                        ? "text-gray-900 dark:text-white bg-black dark:bg-white/10"
                         : "text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
                     )}>
                     {item.name}
