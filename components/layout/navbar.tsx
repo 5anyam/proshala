@@ -46,7 +46,7 @@ type NavItem = {
 function Logo({ size = "md" }: { size?: "sm" | "md" }) {
   return (
     <img
-      src="/adshouz-logo.jpg"
+      src="/adshouz-logo.png"
       alt="Adshouz"
       className={cn(
         "object-contain select-none",

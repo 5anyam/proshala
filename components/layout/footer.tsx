@@ -14,7 +14,7 @@ const EMAIL      = "contact@adshouz.com";
 function Logo() {
   return (
     <img
-      src="/adshouz-logo.jpg"
+      src="/adshouz-logo.png"
       alt="Adshouz"
       className="h-9 w-auto object-contain"
     />
