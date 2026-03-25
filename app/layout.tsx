@@ -6,13 +6,14 @@ import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/sonner";
+import { FloatingActions } from '@/components/FloatingActions';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  fallback: ['system-ui', 'arial'],  // ← yeh add karo
-  preload: false,                     // ← yeh bhi
+  fallback: ['system-ui', 'arial'], 
+  preload: false,                    
 });
 
 const syne = Syne({
@@ -20,41 +21,40 @@ const syne = Syne({
   variable: '--font-syne',
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
-  fallback: ['system-ui', 'arial'],  // ← yeh add karo
-  preload: false,                     // ← yeh bhi
+  fallback: ['system-ui', 'arial'],  
+  preload: false,                    
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Adshouz - Performance Marketing & Web Development Agency India',
-    template: '%s | Adshouz',
+    default: 'Proshala - Tech, Automation & Performance Marketing Agency India',
+    template: '%s | Proshala',
   },
   icons: {
     icon: [
-      { url: '/adshouz-logo.jpg', type: 'image/jpeg' },
-      { url: '/favicon.ico',      sizes: 'any' },
+      { url: '/proshala-logo.jpg', type: 'image/jpeg' },
+      { url: '/favicon.ico',       sizes: 'any' },
     ],
-    apple: '/adshouz-logo.jpg',
-    shortcut: '/adshouz-logo.jpg',
+    apple: '/proshala-logo.jpg',
+    shortcut: '/proshala-logo.jpg',
   },
   description:
-    'Adshouz is a Meta & Google certified performance marketing agency in India. We specialise in Google Ads, SEO, social media ads, brand bidding, website development and international campaigns that deliver measurable ROI.',
+    'Proshala is a premium performance marketing and tech agency in India. We specialise in Affiliate Marketing, Business Automation, AI Tools, Next.js Development, and Google Ads that deliver scalable ROI.',
   keywords: [
+    'Performance marketing agency India',
+    'Affiliate marketing agency',
+    'Business automation solutions',
+    'AI SaaS tools development',
+    'Next.js development agency',
     'Google Ads agency India',
-    'performance marketing agency',
-    'PPC management India',
+    'PPC management Delhi',
     'SEO services India',
-    'Facebook ads agency',
-    'brand bidding Google Ads',
-    'digital marketing agency Delhi',
-    'website development agency India',
-    'Meta Google certified partner India',
-    'ROI focused digital marketing',
-    'Adshouz',
+    'Digital marketing agency Delhi',
+    'Proshala',
   ],
-  authors: [{ name: 'Adshouz', url: 'https://adshouz.com' }],
-  creator: 'Adshouz',
-  publisher: 'Adshouz',
+  authors: [{ name: 'Proshala', url: 'https://proshala.com' }],
+  creator: 'Proshala',
+  publisher: 'Proshala',
   robots: {
     index: true,
     follow: true,
@@ -68,42 +68,42 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://adshouz.com',
-    siteName: 'Adshouz',
-    title: 'Adshouz — Performance Marketing & Web Development Agency',
+    url: 'https://proshala.com',
+    siteName: 'Proshala',
+    title: 'Proshala — Tech, Automation & Performance Marketing Agency',
     description:
-      'Meta & Google certified agency delivering data-driven PPC, SEO, social media, website development and performance marketing campaigns with proven ROI across India and international markets.',
+      'Full-stack digital agency delivering data-driven Affiliate Marketing, AI Automation, Web Development and Performance Marketing campaigns with proven ROI across India and international markets.',
     images: [
       {
-        url: 'https://adshouz.com/og-image.jpg',
+        url: 'https://proshala.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Adshouz — Performance Marketing Agency India',
+        alt: 'Proshala — Performance Marketing & Tech Agency India',
         type: 'image/jpeg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@adshouz',
-    creator: '@adshouz',
-    title: 'Adshouz — Performance Marketing & Web Development Agency',
+    site: '@proshala',
+    creator: '@proshala',
+    title: 'Proshala — Tech, Automation & Performance Marketing Agency',
     description:
-      'Meta & Google certified agency delivering data-driven PPC, SEO, web development and performance marketing with proven ROI.',
-    images: ['https://adshouz.com/og-image.jpg'],
+      'Full-stack agency delivering data-driven Affiliate Marketing, Web Development and Performance Marketing with proven ROI.',
+    images: ['https://proshala.com/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://adshouz.com',
+    canonical: 'https://proshala.com',
   },
   verification: {
     google: 'your-google-verification-code', // 🔁 replace karo
   },
   themeColor: [
-    { media: '(prefers-color-scheme: dark)',  color: '#030E1C' },
-    { media: '(prefers-color-scheme: light)', color: '#F2F2F7' },
+    { media: '(prefers-color-scheme: dark)',  color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
   ],
-  category: 'Digital Marketing',
-  metadataBase: new URL('https://adshouz.com'),
+  category: 'Technology & Digital Marketing',
+  metadataBase: new URL('https://proshala.com'),
 };
 
 const jsonLd = {
@@ -111,53 +111,53 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://adshouz.com/#organization',
-      name: 'Adshouz',
-      url: 'https://adshouz.com',
+      '@id': 'https://proshala.com/#organization',
+      name: 'Proshala',
+      url: 'https://proshala.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://adshouz.com/adshouz-logo.jpg',
+        url: 'https://proshala.com/proshala-logo.jpg',
         width: 200,
-        height: 60,
+        height: 200,
       },
       description:
-        'Meta & Google certified performance marketing and web development agency providing PPC, SEO, social media advertising, website development and international campaigns for businesses across India and globally.',
+        'Premium performance marketing and tech agency providing Affiliate Marketing, AI Automation, Web Development and PPC campaigns for businesses across India and globally.',
       foundingDate: '2018',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'New Delhi',
+        addressLocality: 'Delhi',
         addressRegion: 'Delhi',
         addressCountry: 'IN',
       },
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+91-8588837072',
+          telephone: '+91-9999774046',
           contactType: 'customer service',
-          email: 'contact@adshouz.com',
+          email: 'contact@proshala.com',
           availableLanguage: ['English', 'Hindi'],
           areaServed: ['IN', 'US', 'GB', 'AE'],
         },
       ],
       sameAs: [
-        'https://www.facebook.com/adshouz',
-        'https://www.instagram.com/adshouz',
-        'https://www.linkedin.com/company/adshouz',
-        'https://twitter.com/adshouz',
+        'https://www.facebook.com/proshala',
+        'https://www.instagram.com/proshala',
+        'https://www.linkedin.com/company/proshala',
+        'https://twitter.com/proshala',
       ],
     },
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://adshouz.com/#localbusiness',
-      name: 'Adshouz',
-      url: 'https://adshouz.com',
-      image: 'https://adshouz.com/og-image.jpg',
-      priceRange: '₹₹',
-      telephone: '+91-8588837072',
-      email: 'contact@adshouz.com',
+      '@id': 'https://proshala.com/#localbusiness',
+      name: 'Proshala',
+      url: 'https://proshala.com',
+      image: 'https://proshala.com/og-image.jpg',
+      priceRange: '₹₹₹',
+      telephone: '+91-9999774046',
+      email: 'contact@proshala.com',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'New Delhi',
+        addressLocality: 'Delhi',
         addressRegion: 'Delhi',
         addressCountry: 'IN',
       },
@@ -170,10 +170,10 @@ const jsonLd = {
     },
     {
       '@type': 'ProfessionalService',
-      '@id': 'https://adshouz.com/#service',
-      name: 'Performance Marketing & Web Development',
-      provider: { '@id': 'https://adshouz.com/#organization' },
-      serviceType: 'Digital Marketing & Web Development Agency',
+      '@id': 'https://proshala.com/#service',
+      name: 'Tech & Performance Marketing',
+      provider: { '@id': 'https://proshala.com/#organization' },
+      serviceType: 'Technology & Digital Marketing Agency',
       areaServed: [
         { '@type': 'Country', name: 'India' },
         { '@type': 'Country', name: 'United States' },
@@ -182,29 +182,29 @@ const jsonLd = {
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Digital Marketing & Development Services',
+        name: 'Tech & Marketing Services',
         itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Performance Marketing' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Affiliate Marketing (CPA/CPL)' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Automation & AI Tools' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Next.js & WordPress Development' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Ads (PPC) Management' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Search Engine Optimisation (SEO)' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Facebook & Instagram Advertising' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Brand Bidding Campaigns' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Performance Marketing' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'International Campaigns' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Ecommerce Growth Strategies' } },
         ],
       },
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://adshouz.com/#website',
-      url: 'https://adshouz.com',
-      name: 'Adshouz',
-      publisher: { '@id': 'https://adshouz.com/#organization' },
+      '@id': 'https://proshala.com/#website',
+      url: 'https://proshala.com',
+      name: 'Proshala',
+      publisher: { '@id': 'https://proshala.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://adshouz.com/search?q={search_term_string}',
+          urlTemplate: 'https://proshala.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
@@ -231,7 +231,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 try {
-                  var stored = localStorage.getItem('adshouz-theme');
+                  var stored = localStorage.getItem('proshala-theme');
                   var theme = stored || 'dark';
                   if (theme === 'system') {
                     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -250,8 +250,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body
         className={`
-          ${inter.variable} font-sans antialiased
-          bg-white dark:bg-[#030E1C]
+          ${inter.variable} ${syne.variable} font-sans antialiased
+          bg-white dark:bg-[#0A0A0A]
           text-gray-900 dark:text-white
         `}
       >
@@ -259,18 +259,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          storageKey="adshouz-theme"
+          storageKey="proshala-theme"
           disableTransitionOnChange={false}
         >
           <Navbar />
           <main>{children}</main>
+          <FloatingActions/>
           <Footer />
           <Toaster
             theme="system"
             toastOptions={{
               classNames: {
                 toast:
-                  "dark:bg-[#071828] dark:border-white/8 dark:text-white bg-white border-black/10 text-gray-900",
+                  "dark:bg-[#1A1A1A] dark:border-white/10 dark:text-white bg-white border-black/10 text-gray-900",
               },
             }}
           />
