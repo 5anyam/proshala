@@ -7,13 +7,14 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/sonner";
 import { FloatingActions } from '@/components/FloatingActions';
+import Script from 'next/script'; // ← ADD THIS
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  fallback: ['system-ui', 'arial'], 
-  preload: false,                    
+  fallback: ['system-ui', 'arial'],
+  preload: false,
 });
 
 const syne = Syne({
@@ -21,8 +22,8 @@ const syne = Syne({
   variable: '--font-syne',
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
-  fallback: ['system-ui', 'arial'],  
-  preload: false,                    
+  fallback: ['system-ui', 'arial'],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -96,7 +97,7 @@ export const metadata: Metadata = {
     canonical: 'https://proshala.com',
   },
   verification: {
-    google: 'your-google-verification-code', // 🔁 replace karo
+    google: 'your-google-verification-code',
   },
   themeColor: [
     { media: '(prefers-color-scheme: dark)',  color: '#0A0A0A' },
@@ -105,6 +106,8 @@ export const metadata: Metadata = {
   category: 'Technology & Digital Marketing',
   metadataBase: new URL('https://proshala.com'),
 };
+
+const GA_ID = 'G-FCHC0XD63Q'; // ← YOUR GA4 MEASUREMENT ID
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -255,6 +258,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           text-gray-900 dark:text-white
         `}
       >
+        {/* ── GOOGLE ANALYTICS 4 ──────────────────────────────────────── */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+        {/* ────────────────────────────────────────────────────────────── */}
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -264,7 +284,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <Navbar />
           <main>{children}</main>
-          <FloatingActions/>
+          <FloatingActions />
           <Footer />
           <Toaster
             theme="system"
