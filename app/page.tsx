@@ -5,9 +5,10 @@ import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight, Phone, CheckCircle2, Star, Code2, Globe,
   ChevronRight, Calendar, BookOpen, Quote, Cpu,
-  Target, Search, TrendingUp, Building2,
+  Target, Search, TrendingUp, Building2, MapPin,
 } from "lucide-react";
 import WaveCanvas from "../components/Wavecanvas";
+import { allLocationLinks } from "@/lib/data/locations";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface WordPressPost {
@@ -604,6 +605,39 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ════════════════ DELHI NCR LOCATIONS ═════════════════════════════ */}
+      <section className="py-16 lg:py-20 border-t border-white/[0.06] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(245,158,11,0.05) 0%, transparent 70%)' }} />
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+          <FadeUp className="text-center mb-10">
+            <Pill text="Delhi NCR & Haryana" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              <span className="text-white">Digital Marketing Agency </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
+                Near You
+              </span>
+            </h2>
+            <p className="text-white/40 text-sm max-w-xl mx-auto mt-4 leading-relaxed">
+              Local SEO, Google Ads, and growth systems for businesses across Delhi NCR —
+              with locality-level targeting and teams that know your market.
+            </p>
+          </FadeUp>
+          <FadeUp delay={80}>
+            <div className="flex flex-wrap justify-center gap-3">
+              {allLocationLinks.map(({ city, href }) => (
+                <Link key={href} href={href}
+                  className="inline-flex items-center gap-2 bg-white/[0.03] border border-white/[0.08] text-white/60 text-sm font-semibold px-5 py-3 rounded-2xl hover:border-amber-500/40 hover:text-amber-400 hover:bg-amber-500/5 hover:-translate-y-0.5 transition-all duration-200 group">
+                  <MapPin className="w-4 h-4 text-amber-500/60 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                  {city}
+                  <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                </Link>
+              ))}
+            </div>
+          </FadeUp>
+        </div>
+      </section>
 
       {/* ════════════════ BOTTOM CTA ══════════════════════════════════════ */}
       <section className="border-t border-white/[0.06]">

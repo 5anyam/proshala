@@ -93,7 +93,13 @@ const mainNav: NavItem[] = [
 const moreNav: NavItem[] = [
   { name: "About Us",          href: "/about" },
   { name: "Case Studies",      href: "/case-studies" },
-  { name: "Affiliate Network", href: "/services/affiliate-marketing" },
+  { name: "Affiliate Network", href: "/services/performance-marketing" },
+  { name: "Delhi",             href: "/digital-marketing-delhi" },
+  { name: "Gurgaon",           href: "/digital-marketing-gurgaon" },
+  { name: "Noida",             href: "/digital-marketing-noida" },
+  { name: "Ghaziabad",         href: "/digital-marketing-ghaziabad" },
+  { name: "Faridabad",         href: "/digital-marketing-faridabad" },
+  { name: "Sonipat",           href: "/digital-marketing-sonipat" },
 ];
 
 

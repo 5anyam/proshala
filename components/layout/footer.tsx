@@ -2,7 +2,7 @@ import Link from "next/link";
 import {
   Phone, Mail, MapPin, MessageSquare,
   Facebook, Twitter, Linkedin, Instagram,
-  ArrowUpRight, Zap
+  Zap
 } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -42,20 +42,24 @@ const services = [
   { label: "AI Tools & Automation",    href: "/services/automation" },
   { label: "Business Automation",      href: "/services/business-automation" },
   { label: "Performance Marketing",    href: "/services/performance-marketing" },
-  { label: "Affiliate Marketing",      href: "/services/affiliate-marketing" },
+  { label: "Affiliate Marketing",      href: "/services/performance-marketing" },
   { label: "Google Ads (PPC)",         href: "/services/google-ads" },
   { label: "Web & App Development",    href: "/services/website-development" },
   { label: "SEO & Organic Growth",     href: "/services/seo" },
-  { label: "Ecommerce Marketing",      href: "/services/ecommerce-marketing" },
+  { label: "Ecommerce Marketing",      href: "/services/shopping-ads" },
 ];
 
-const usefulLinks = [
-  { label: "Google Ads Manager",     href: "https://ads.google.com" },
-  { label: "Google Analytics",       href: "https://analytics.google.com" },
-  { label: "Google Search Console",  href: "https://search.google.com/search-console" },
-  { label: "Meta Ads Manager",       href: "https://www.facebook.com/adsmanager" },
-  { label: "Google Merchant Center", href: "https://merchants.google.com" },
-  { label: "Disclaimer",             href: "/disclaimer", internal: true },
+const locationLinks = [
+  { label: "Digital Marketing Delhi",         href: "/digital-marketing-delhi" },
+  { label: "Digital Marketing Gurgaon",       href: "/digital-marketing-gurgaon" },
+  { label: "Digital Marketing Noida",         href: "/digital-marketing-noida" },
+  { label: "Digital Marketing Greater Noida", href: "/digital-marketing-greater-noida" },
+  { label: "Digital Marketing Ghaziabad",     href: "/digital-marketing-ghaziabad" },
+  { label: "Digital Marketing Faridabad",     href: "/digital-marketing-faridabad" },
+  { label: "Digital Marketing Sonipat",       href: "/digital-marketing-sonipat" },
+  { label: "Digital Marketing Panipat",       href: "/digital-marketing-panipat" },
+  { label: "Digital Marketing Rohtak",        href: "/digital-marketing-rohtak" },
+  { label: "Digital Marketing Bahadurgarh",   href: "/digital-marketing-bahadurgarh" },
 ];
 
 const socialLinks = [
@@ -156,28 +160,19 @@ export function Footer() {
               </div>
             </div>
 
-            {/* ── Useful Links ─────────────────────────────────────────── */}
+            {/* ── Delhi NCR Locations ──────────────────────────────────── */}
             <div>
               <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.18em] mb-6">
-                Useful Links
+                Delhi NCR Locations
               </h3>
               <div className="space-y-3">
-                {usefulLinks.map(({ label, href, internal }) =>
-                  internal ? (
-                    <Link key={href} href={href}
-                      className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
-                      <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                      {label}
-                    </Link>
-                  ) : (
-                    <a key={href} href={href} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
-                      <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                      {label}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-60 transition-opacity ml-auto" />
-                    </a>
-                  )
-                )}
+                {locationLinks.map(({ label, href }) => (
+                  <Link key={href} href={href}
+                    className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
+                    <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                    {label}
+                  </Link>
+                ))}
               </div>
             </div>
 
