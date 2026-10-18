@@ -7,7 +7,7 @@ export const industries: Industry[] = [
     icon: 'Stethoscope',
     metaTitle: 'Websites & Automation for Clinics in Delhi | Proshala',
     metaDescription:
-      'Clinic and hospital websites with online booking, WhatsApp reminders and doctor profiles that rank locally — built for dental, skin, eye, physio and multi-speciality clinics.',
+      'Clinic and hospital websites with online booking, WhatsApp reminders and doctor profiles that rank locally — for dental, skin, eye and physio clinics.',
     h1: 'Websites & Automation for Clinics and Hospitals',
     intro:
       'Patients choose a clinic on their phone: they search, compare reviews, check timings and call or WhatsApp. We build clinic websites with doctor profiles, treatment pages and online booking, then automate reminders and follow-ups so fewer appointments are missed and front-desk staff spend less time on the phone.',
@@ -37,9 +37,9 @@ export const industries: Industry[] = [
     slug: 'schools-coaching-institutes',
     name: 'Schools & Coaching',
     icon: 'GraduationCap',
-    metaTitle: 'Websites for Schools & Coaching Institutes in Delhi | Proshala',
+    metaTitle: 'Websites for Schools & Coaching in Delhi | Proshala',
     metaDescription:
-      'Websites, admission landing pages, enquiry automation and student portals for schools and coaching institutes in Delhi — built for admission season traffic.',
+      'Websites, admission landing pages, enquiry automation and student portals for schools and coaching institutes in Delhi, built for admission season.',
     h1: 'Websites & Automation for Schools and Coaching Institutes',
     intro:
       'Admissions are won in a few busy weeks. We build school and coaching websites that answer parents’ and students’ questions clearly, admission landing pages for ad campaigns, and automations that reply to every enquiry instantly, schedule counselling calls and follow up until the seat is filled.',
@@ -69,7 +69,7 @@ export const industries: Industry[] = [
     slug: 'real-estate',
     name: 'Real Estate',
     icon: 'Building',
-    metaTitle: 'Real Estate Websites & Lead Automation in Delhi NCR | Proshala',
+    metaTitle: 'Real Estate Websites & Lead Automation, Delhi NCR | Proshala',
     metaDescription:
       'Project websites, property listing portals, site-visit booking and lead automation for real estate builders, brokers and channel partners in Delhi NCR.',
     h1: 'Websites & Lead Automation for Real Estate',
@@ -165,7 +165,7 @@ export const industries: Industry[] = [
     slug: 'manufacturing',
     name: 'Manufacturing & B2B',
     icon: 'Factory',
-    metaTitle: 'Websites & Automation for Manufacturers in Delhi NCR | Proshala',
+    metaTitle: 'Manufacturer Websites & Automation, Delhi NCR | Proshala',
     metaDescription:
       'B2B websites, product catalogues, dealer portals and enquiry automation for manufacturers and exporters in Bawana, Narela, Wazirpur and across Delhi NCR.',
     h1: 'Websites & Automation for Manufacturers and B2B',

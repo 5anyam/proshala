@@ -25,6 +25,7 @@ export function LeadForm({
   const pathname = usePathname()
   const [state, action, pending] = useActionState<LeadState, FormData>(submitLead, { ok: false })
   const err = state.fieldErrors ?? {}
+  const v = state.values ?? {}
   const groups = [...new Set(services.map((s) => s.group))]
   const serviceRef = useRef<HTMLSelectElement>(null)
 
@@ -36,7 +37,9 @@ export function LeadForm({
   }, [defaultService, services])
 
   return (
-    <form action={action} className="space-y-4" noValidate>
+    // Remount with the returned values after an error: React 19 resets forms after
+    // an action, and <select> ignores defaultValue changes after mount.
+    <form key={state.values ? JSON.stringify(state.values) : 'initial'} action={action} className="space-y-4" noValidate>
       <input type="hidden" name="page" value={pathname} />
       {/* Honeypot — hidden from people and assistive tech */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
@@ -51,7 +54,7 @@ export function LeadForm({
           <label htmlFor="lead-name" className="text-sm font-medium">
             Your name <span className="text-muted">*</span>
           </label>
-          <input id="lead-name" name="name" required autoComplete="name" className={field} aria-invalid={!!err.name} aria-describedby={err.name ? 'e-name' : undefined} />
+          <input id="lead-name" name="name" defaultValue={v.name} required autoComplete="name" className={field} aria-invalid={!!err.name} aria-describedby={err.name ? 'e-name' : undefined} />
           {err.name && <p id="e-name" className="mt-1 text-sm text-red-500">{err.name}</p>}
         </div>
         <div>
@@ -61,6 +64,7 @@ export function LeadForm({
           <input
             id="lead-phone"
             name="phone"
+            defaultValue={v.phone}
             type="tel"
             inputMode="tel"
             required
@@ -79,14 +83,14 @@ export function LeadForm({
           <label htmlFor="lead-email" className="text-sm font-medium">
             Email <span className="text-muted">(optional)</span>
           </label>
-          <input id="lead-email" name="email" type="email" autoComplete="email" className={field} aria-invalid={!!err.email} aria-describedby={err.email ? 'e-email' : undefined} />
+          <input id="lead-email" name="email" type="email" defaultValue={v.email} autoComplete="email" className={field} aria-invalid={!!err.email} aria-describedby={err.email ? 'e-email' : undefined} />
           {err.email && <p id="e-email" className="mt-1 text-sm text-red-500">{err.email}</p>}
         </div>
         <div>
           <label htmlFor="lead-service" className="text-sm font-medium">
             What do you need?
           </label>
-          <select ref={serviceRef} id="lead-service" name="service" defaultValue={defaultService ?? ''} className={field}>
+          <select ref={serviceRef} id="lead-service" name="service" defaultValue={v.service ?? defaultService ?? ''} className={field}>
             <option value="">Not sure yet</option>
             {groups.map((g) => (
               <optgroup key={g} label={g}>
@@ -108,7 +112,7 @@ export function LeadForm({
           <label htmlFor="lead-budget" className="text-sm font-medium">
             Approximate budget <span className="text-muted">(optional)</span>
           </label>
-          <select id="lead-budget" name="budget" defaultValue="" className={field}>
+          <select id="lead-budget" name="budget" defaultValue={v.budget ?? ''} className={field}>
             <option value="">Prefer to discuss</option>
             <option>Under ₹25,000</option>
             <option>₹25,000 – ₹75,000</option>
@@ -122,7 +126,7 @@ export function LeadForm({
         <label htmlFor="lead-message" className="text-sm font-medium">
           Tell us a little about your business <span className="text-muted">(optional)</span>
         </label>
-        <textarea id="lead-message" name="message" rows={compact ? 3 : 4} className={cn(field, 'py-2')} />
+        <textarea id="lead-message" name="message" defaultValue={v.message} rows={compact ? 3 : 4} className={cn(field, 'py-2')} />
       </div>
 
       {state.error && (

@@ -10,7 +10,7 @@ import { Container, Eyebrow, Section } from '@/components/ui'
 
 const TITLE = 'Services: Websites, AI Automation & Ads | Proshala'
 const DESCRIPTION =
-  'Everything Proshala builds and runs: websites and web apps, AI automations and agents, and Google & Meta ads — for businesses in Delhi and across India.'
+  'Everything Proshala builds and runs: websites and web apps, AI automations and agents, and Google & Meta ads for businesses in Delhi and India.'
 
 export const metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: '/services', kicker: 'Build · Automate · Grow' })
 

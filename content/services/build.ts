@@ -12,7 +12,7 @@ export const buildServices: Service[] = [
     icon: 'Globe',
     metaTitle: 'Business Website Development in Delhi | Proshala',
     metaDescription:
-      'Fast, mobile-first business websites for Delhi companies — built to load in under 2 seconds, rank on Google and turn visitors into calls and WhatsApp enquiries.',
+      'Fast, mobile-first business websites for Delhi companies — built to load in under 2 seconds, rank on Google and turn visitors into calls and enquiries.',
     h1: 'Business Website Development in Delhi',
     primaryKeyword: 'business website development Delhi',
     secondaryKeywords: ['company website design Delhi', 'small business website India', 'professional website developer'],
@@ -113,7 +113,7 @@ export const buildServices: Service[] = [
     icon: 'LayoutTemplate',
     metaTitle: 'WordPress Website Developer in Delhi | Proshala',
     metaDescription:
-      'Custom WordPress websites for Delhi businesses — lightweight themes, fast hosting, security hardening and an editor your team can use without breaking the design.',
+      'Custom WordPress websites for Delhi businesses — lightweight themes, fast hosting, security hardening and an editor your team can safely use.',
     h1: 'WordPress Website Development',
     primaryKeyword: 'WordPress developer Delhi',
     secondaryKeywords: ['WordPress website design company', 'WordPress developer Rohini', 'custom WordPress theme'],
@@ -162,7 +162,7 @@ export const buildServices: Service[] = [
     icon: 'ShoppingCart',
     metaTitle: 'E-commerce Website Development in Delhi | Proshala',
     metaDescription:
-      'Shopify, WooCommerce and custom e-commerce websites for Delhi brands — UPI and card payments, COD, shipping integration, GST invoices and fast mobile checkout.',
+      'Shopify, WooCommerce and custom online stores for Delhi brands — UPI, cards and COD, shipping integration, GST invoices and fast mobile checkout.',
     h1: 'E-commerce Website Development',
     primaryKeyword: 'e-commerce website development Delhi',
     secondaryKeywords: ['Shopify developer Delhi', 'WooCommerce developer', 'e-commerce website development Rohini', 'online store development India'],
@@ -212,7 +212,7 @@ export const buildServices: Service[] = [
     icon: 'Rocket',
     metaTitle: 'Landing Page Development for Google & Meta Ads | Proshala',
     metaDescription:
-      'High-converting landing pages for Google and Meta ad campaigns — one goal per page, sub-2-second load, form and WhatsApp tracking, and A/B testing built in.',
+      'Landing pages for Google and Meta ad campaigns — one goal per page, sub-2-second load, form and WhatsApp tracking, and A/B testing built in.',
     h1: 'Landing Page Development for Ads',
     primaryKeyword: 'landing page development',
     secondaryKeywords: ['landing page design Delhi', 'Google Ads landing page', 'lead generation landing page'],
@@ -260,7 +260,7 @@ export const buildServices: Service[] = [
     icon: 'LayoutDashboard',
     metaTitle: 'Custom Web App & Dashboard Development | Proshala',
     metaDescription:
-      'Custom web applications for Indian businesses: customer portals, CRMs, booking systems and admin dashboards — built on Next.js and PostgreSQL, owned by you.',
+      'Custom web apps for Indian businesses: customer portals, CRMs, booking systems and admin dashboards — built on Next.js and PostgreSQL, owned by you.',
     h1: 'Custom Web Applications & Dashboards',
     primaryKeyword: 'custom web application development',
     secondaryKeywords: ['web app development company Delhi', 'custom CRM development', 'booking system development', 'admin dashboard development'],
@@ -310,7 +310,7 @@ export const buildServices: Service[] = [
     icon: 'Gauge',
     metaTitle: 'Website Redesign & Speed Optimisation in Delhi | Proshala',
     metaDescription:
-      'Redesign an outdated website or fix a slow one. We improve Core Web Vitals, mobile UX and conversions while keeping your Google rankings intact with proper 301s.',
+      'Redesign an outdated website or fix a slow one. We improve Core Web Vitals, mobile UX and conversions while protecting your Google rankings.',
     h1: 'Website Redesign & Speed Optimisation',
     primaryKeyword: 'website redesign services Delhi',
     secondaryKeywords: ['website speed optimisation', 'Core Web Vitals fix', 'technical SEO audit', 'website revamp'],
@@ -407,7 +407,7 @@ export const buildServices: Service[] = [
     icon: 'Plug',
     metaTitle: 'API Integration & Backend Development in Delhi | Proshala',
     metaDescription:
-      'API integrations and backend development: connect your website to payments, WhatsApp, CRMs, Tally, Google Sheets and shipping — reliable, logged and secure.',
+      'API integrations and backend development: connect your website to payments, WhatsApp, CRMs, Tally, Sheets and shipping — logged and secure.',
     h1: 'API Integrations & Backend Development',
     primaryKeyword: 'API integration services India',
     secondaryKeywords: ['backend development company Delhi', 'payment gateway integration', 'Tally integration', 'webhook development'],

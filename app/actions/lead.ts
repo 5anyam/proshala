@@ -8,7 +8,13 @@ import { site } from '@/content/site'
 import { getService } from '@/content/services'
 import { rateLimit } from '@/lib/rate-limit'
 
-export type LeadState = { ok: boolean; error?: string; fieldErrors?: Partial<Record<string, string>> }
+export type LeadState = {
+  ok: boolean
+  error?: string
+  fieldErrors?: Partial<Record<string, string>>
+  /** Echoed back so React 19's automatic form reset doesn't wipe what the visitor typed */
+  values?: Record<string, string>
+}
 
 const LeadSchema = z.object({
   name: z.string().trim().min(2, 'Please enter your name').max(80),
@@ -33,15 +39,20 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
 
   const h = await headers()
   const ip = h.get('x-forwarded-for')?.split(',')[0]?.trim() || h.get('x-real-ip') || 'unknown'
-  if (!rateLimit(`lead:${ip}`)) {
-    return { ok: false, error: `Too many submissions. Please WhatsApp or call us on ${site.phoneDisplay}.` }
-  }
-
-  const parsed = LeadSchema.safeParse(Object.fromEntries(formData))
+  const raw = Object.fromEntries(formData)
+  const values = Object.fromEntries(
+    ['name', 'phone', 'email', 'service', 'budget', 'message'].map((k) => [k, String(raw[k] ?? '')]),
+  )
+  const parsed = LeadSchema.safeParse(raw)
   if (!parsed.success) {
     const fieldErrors: Record<string, string> = {}
     for (const issue of parsed.error.issues) fieldErrors[String(issue.path[0])] ??= issue.message
-    return { ok: false, error: 'Please check the highlighted fields.', fieldErrors }
+    return { ok: false, error: 'Please check the highlighted fields.', fieldErrors, values }
+  }
+
+  // Count only valid submissions, so people fixing typos are never locked out.
+  if (!rateLimit(`lead:${ip}`)) {
+    return { ok: false, error: `Too many submissions. Please WhatsApp or call us on ${site.phoneDisplay}.`, values }
   }
 
   const lead = {
@@ -105,14 +116,14 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
       console.info('[lead] no RESEND_API_KEY / LEAD_WEBHOOK_URL set — lead not delivered:', lead)
     } else {
       console.error('[lead] no delivery channel configured')
-      return { ok: false, error: `Sorry, the form is not working right now. Please WhatsApp or call ${site.phoneDisplay}.` }
+      return { ok: false, error: `Sorry, the form is not working right now. Please WhatsApp or call ${site.phoneDisplay}.`, values }
     }
   } else {
     const results = await Promise.allSettled(tasks)
     const failed = results.filter((r) => r.status === 'rejected')
     failed.forEach((f) => console.error('[lead] delivery failed:', (f as PromiseRejectedResult).reason))
     if (failed.length === results.length) {
-      return { ok: false, error: `Sorry, something went wrong. Please WhatsApp or call ${site.phoneDisplay}.` }
+      return { ok: false, error: `Sorry, something went wrong. Please WhatsApp or call ${site.phoneDisplay}.`, values }
     }
   }
 

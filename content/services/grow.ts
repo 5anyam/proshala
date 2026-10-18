@@ -10,7 +10,7 @@ export const growServices: Service[] = [
     icon: 'Search',
     metaTitle: 'Google Ads Management in Delhi | Proshala',
     metaDescription:
-      'Google Ads management for Delhi businesses — Search, Performance Max and YouTube campaigns tied to real leads and sales, with landing pages and tracking built in-house.',
+      'Google Ads for Delhi businesses — Search, Performance Max and YouTube campaigns measured on real leads and sales, with tracking built in-house.',
     h1: 'Google Ads Management in Delhi',
     primaryKeyword: 'Google Ads agency Delhi',
     secondaryKeywords: ['PPC management Delhi', 'Google Ads expert Rohini', 'Performance Max management', 'YouTube ads agency'],
@@ -58,7 +58,7 @@ export const growServices: Service[] = [
     icon: 'Megaphone',
     metaTitle: 'Meta Ads (Facebook & Instagram) Agency in Delhi | Proshala',
     metaDescription:
-      'Facebook and Instagram ads for Delhi businesses — lead ads, WhatsApp click ads and sales campaigns with Conversions API tracking and leads piped straight to your CRM.',
+      'Facebook and Instagram ads for Delhi businesses — lead, click-to-WhatsApp and sales campaigns with Conversions API tracking and leads sent to your CRM.',
     h1: 'Meta Ads — Facebook & Instagram',
     primaryKeyword: 'Meta ads agency Delhi',
     secondaryKeywords: ['Facebook ads agency Delhi', 'Instagram ads management', 'click to WhatsApp ads', 'Meta lead ads'],

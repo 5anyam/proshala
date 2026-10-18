@@ -20,7 +20,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development Company in Rohini, Delhi | Proshala',
     metaDescription:
-      'Proshala is a Rohini-based website development company. Fast business websites, e-commerce, WordPress and AI automation for Rohini businesses — meet us locally.',
+      'Proshala is a Rohini-based website development company: fast business websites, e-commerce, WordPress and AI automation. Meet us locally.',
     h1: 'Website Development Company in Rohini, Delhi',
     primaryKeyword: 'website development company in Rohini',
     secondaryKeywords: [
@@ -82,7 +82,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Designer in Pitampura, Delhi | Proshala',
     metaDescription:
-      'Website design and development for Pitampura businesses — coaching institutes, clinics, CA firms and shops. Fast, mobile-first sites from a team next door in Rohini.',
+      'Website design for Pitampura businesses — coaching institutes, clinics, CA firms and shops. Fast, mobile-first sites from a team next door in Rohini.',
     h1: 'Website Designer in Pitampura, Delhi',
     primaryKeyword: 'website designer in Pitampura',
     secondaryKeywords: ['web development company Pitampura', 'website development Pitampura Delhi', 'website design North West Delhi'],
@@ -129,7 +129,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Web Development Company in Netaji Subhash Place | Proshala',
     metaDescription:
-      'Web development and AI automation for companies in Netaji Subhash Place (NSP), Delhi — corporate websites, web apps, CRM and lead automation for B2B and professional firms.',
+      'Web development and AI automation for firms in Netaji Subhash Place (NSP), Delhi — corporate websites, web apps, CRMs and lead automation.',
     h1: 'Web Development Company in Netaji Subhash Place (NSP)',
     primaryKeyword: 'web development company Netaji Subhash Place',
     secondaryKeywords: ['website development NSP Delhi', 'website designer Netaji Subhash Place', 'IT company NSP Pitampura'],
@@ -176,7 +176,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development in Shalimar Bagh, Delhi | Proshala',
     metaDescription:
-      'Websites, online booking and WhatsApp automation for Shalimar Bagh clinics, diagnostics, traders and local businesses — built by a team based in nearby Rohini.',
+      'Websites, online booking and WhatsApp automation for Shalimar Bagh clinics, diagnostics and traders — built by a team based in nearby Rohini.',
     h1: 'Website Development in Shalimar Bagh, Delhi',
     primaryKeyword: 'website development Shalimar Bagh',
     secondaryKeywords: ['website designer Shalimar Bagh', 'clinic website Shalimar Bagh', 'web design North West Delhi'],
@@ -223,7 +223,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Design Company in Delhi | Proshala',
     metaDescription:
-      'Website design and development company in Delhi, based in Rohini. Business websites, e-commerce, web apps and AI automation for Delhi businesses across every zone.',
+      'Website design and development company in Delhi, based in Rohini. Business websites, e-commerce, web apps and AI automation across Delhi.',
     h1: 'Website Design & Development Company in Delhi',
     primaryKeyword: 'website design company in Delhi',
     secondaryKeywords: ['website development company Delhi', 'website design company in North West Delhi', 'web development company Delhi'],
@@ -313,7 +313,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development Company in Noida | Proshala',
     metaDescription:
-      'Website development, e-commerce and AI automation for Noida businesses — IT firms in Sectors 62 and 63, retailers around Sector 18, and exporters in the Phase 2 industrial area.',
+      'Websites, e-commerce and AI automation for Noida businesses — IT firms in Sectors 62–63, retailers around Sector 18 and exporters in Phase 2.',
     h1: 'Website Development Company in Noida',
     primaryKeyword: 'website development company in Noida',
     secondaryKeywords: ['web design company Noida', 'e-commerce website Noida', 'web app development Noida'],
@@ -356,7 +356,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development in Greater Noida | Proshala',
     metaDescription:
-      'Websites and automation for Greater Noida institutes in Knowledge Park, real estate in Greater Noida West, and industrial units along the Yamuna Expressway.',
+      'Websites and automation for Greater Noida: Knowledge Park institutes, Greater Noida West real estate and Yamuna Expressway industrial units.',
     h1: 'Website Development in Greater Noida',
     primaryKeyword: 'website development Greater Noida',
     secondaryKeywords: ['website designer Greater Noida West', 'college website development', 'real estate website Greater Noida'],
@@ -399,7 +399,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development Company in Ghaziabad | Proshala',
     metaDescription:
-      'Websites, e-commerce and automation for Ghaziabad businesses — Indirapuram and Vaishali retail, Raj Nagar Extension services, and Sahibabad industrial units.',
+      'Websites, e-commerce and automation for Ghaziabad — Indirapuram and Vaishali retail, Raj Nagar Extension services and Sahibabad industry.',
     h1: 'Website Development Company in Ghaziabad',
     primaryKeyword: 'website development company Ghaziabad',
     secondaryKeywords: ['website designer Ghaziabad', 'web design Indirapuram', 'e-commerce website Ghaziabad'],
@@ -442,7 +442,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development Company in Faridabad | Proshala',
     metaDescription:
-      'B2B websites, dealer portals and automation for Faridabad manufacturers, plus websites for clinics, schools and retailers in NIT, Sector 15 and Greater Faridabad.',
+      'B2B websites, dealer portals and automation for Faridabad manufacturers, plus sites for clinics, schools and retailers in NIT and Sector 15.',
     h1: 'Website Development Company in Faridabad',
     primaryKeyword: 'website development company Faridabad',
     secondaryKeywords: ['website designer Faridabad', 'manufacturer website Faridabad', 'web development Faridabad'],
@@ -571,7 +571,7 @@ export const areas: Area[] = [
     status: 'ready',
     metaTitle: 'Website Development in Rohtak, Haryana | Proshala',
     metaDescription:
-      'Websites and automation for Rohtak coaching institutes, clinics, IMT Rohtak manufacturers and local businesses — fast, mobile-first and built to capture enquiries.',
+      'Websites and automation for Rohtak coaching institutes, clinics, IMT Rohtak manufacturers and local businesses — fast, mobile-first and lead-ready.',
     h1: 'Website Development in Rohtak',
     primaryKeyword: 'website development Rohtak',
     secondaryKeywords: ['website designer Rohtak', 'coaching institute website Rohtak', 'web design Haryana'],

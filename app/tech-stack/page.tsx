@@ -8,7 +8,7 @@ import { Section } from '@/components/ui'
 
 const TITLE = 'Our Tech Stack: Next.js, WordPress, n8n & AI | Proshala'
 const DESCRIPTION =
-  'The technologies Proshala uses to build websites, web apps and AI automations — Next.js, React, WordPress, Shopify, Node.js, PostgreSQL, n8n, Claude and OpenAI APIs.'
+  'The tools Proshala uses to build websites, web apps and AI automations — Next.js, React, WordPress, Shopify, Node.js, PostgreSQL, n8n and AI APIs.'
 
 export const metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: '/tech-stack', kicker: 'Tech stack' })
 

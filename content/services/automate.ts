@@ -8,9 +8,9 @@ export const automateServices: Service[] = [
     group: 'automate',
     name: 'Process Automation',
     icon: 'Workflow',
-    metaTitle: 'Business Process Automation with n8n, Make & Zapier | Proshala',
+    metaTitle: 'Business Process Automation: n8n, Make, Zapier | Proshala',
     metaDescription:
-      'Automate repetitive work — lead routing, invoices, reports, follow-ups — with n8n, Make or Zapier. Built, documented and monitored by a Delhi engineering team.',
+      'Automate repetitive work — lead routing, invoices, reports, follow-ups — with n8n, Make or Zapier. Built, documented and monitored from Delhi.',
     h1: 'Business Process Automation',
     primaryKeyword: 'business process automation company India',
     secondaryKeywords: ['n8n automation agency', 'Zapier expert India', 'Make.com automation', 'workflow automation Delhi'],
@@ -59,7 +59,7 @@ export const automateServices: Service[] = [
     icon: 'Bot',
     metaTitle: 'AI Agent Development for Business in India | Proshala',
     metaDescription:
-      'Custom AI agents for sales, support, lead qualification and internal ops — connected to your CRM, WhatsApp and documents, with human approval where it matters.',
+      'Custom AI agents for sales, support, lead qualification and ops — connected to your CRM, WhatsApp and documents, with human approval where it matters.',
     h1: 'AI Agent Development',
     primaryKeyword: 'AI agent development company India',
     secondaryKeywords: ['AI sales agent', 'AI support agent', 'lead qualification AI', 'AI agents for small business'],
@@ -110,7 +110,7 @@ export const automateServices: Service[] = [
     icon: 'MessageSquare',
     metaTitle: 'AI Chatbots for Websites & WhatsApp in India | Proshala',
     metaDescription:
-      'AI chatbots for your website and WhatsApp that answer from your own content, capture leads 24×7 and hand over to your team — in English, Hindi and Hinglish.',
+      'AI chatbots for your website and WhatsApp that answer from your own content, capture leads 24×7 and hand over to your team — in English and Hindi.',
     h1: 'AI Chatbots for Websites & WhatsApp',
     primaryKeyword: 'AI chatbot development India',
     secondaryKeywords: ['WhatsApp chatbot for business', 'website chatbot', 'AI customer support chatbot', 'chatbot development Delhi'],
@@ -305,7 +305,7 @@ export const automateServices: Service[] = [
     icon: 'Sparkles',
     metaTitle: 'Custom AI Integration with OpenAI & Claude APIs | Proshala',
     metaDescription:
-      'Add AI to your website, app or internal tools using OpenAI and Claude APIs — document search, data extraction, summaries and AI features your customers use.',
+      'Add AI to your website, app or internal tools with OpenAI and Claude APIs — document search, data extraction, summaries and customer-facing features.',
     h1: 'Custom AI Integrations (OpenAI & Claude APIs)',
     primaryKeyword: 'OpenAI API integration services',
     secondaryKeywords: ['Claude API integration', 'AI integration company Delhi', 'RAG development', 'document AI'],

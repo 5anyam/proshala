@@ -21,9 +21,9 @@ import {
 import { FaqList } from '@/components/faq'
 import { CtaBand } from '@/components/cta-band'
 
-const TITLE = 'Website Development & AI Automation Company in Delhi | Proshala'
+const TITLE = 'Website Development & AI Automation in Delhi | Proshala'
 const DESCRIPTION =
-  'Proshala builds fast websites, web apps and AI automations for businesses in Rohini and across Delhi — and runs Google & Meta ads to fill them with customers.'
+  'Proshala builds fast websites, web apps and AI automations for businesses in Rohini and across Delhi, and runs Google & Meta ads to bring them customers.'
 
 export const metadata = pageMetadata({
   title: TITLE,

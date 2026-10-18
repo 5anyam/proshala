@@ -15,7 +15,7 @@ import { ogImageUrl } from '@/lib/seo'
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'Website Development & AI Automation Company in Delhi | Proshala',
+    default: 'Website Development & AI Automation in Delhi | Proshala',
     template: '%s | Proshala',
   },
   description: site.description,

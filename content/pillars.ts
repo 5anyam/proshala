@@ -23,7 +23,7 @@ export const websitePillar: Pillar = {
   path: '/website-development',
   metaTitle: 'Website Development Company in Delhi | Proshala',
   metaDescription:
-    'Website development company in Rohini, Delhi. Business websites, e-commerce, WordPress, Next.js and web apps — fast, SEO-ready and fully owned by you. Free quote.',
+    'Website development company in Rohini, Delhi: business websites, e-commerce, WordPress, Next.js and web apps — fast, SEO-ready and owned by you.',
   eyebrow: 'Build · Website & web app development',
   h1: 'Website Development Company in Delhi',
   intro:
@@ -113,7 +113,7 @@ export const automationPillar: Pillar = {
   path: '/ai-automation',
   metaTitle: 'AI Automation & AI Agents Company in Delhi | Proshala',
   metaDescription:
-    'AI automation company in Delhi: AI agents, WhatsApp automation, chatbots, CRM workflows and voice agents that take repetitive work off your team. Book a free consultation.',
+    'AI automation company in Delhi: AI agents, WhatsApp automation, chatbots, CRM workflows and voice agents that take repetitive work off your team.',
   eyebrow: 'Automate · AI automations & AI agents',
   h1: 'AI Automation & AI Agents for Businesses',
   intro:
