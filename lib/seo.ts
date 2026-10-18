@@ -58,7 +58,7 @@ export function pageMetadata(input: PageMetaInput): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@proshala',
+      site: '@proshalatech',
       title: ogTitle,
       description: input.description,
       images: [image.url],

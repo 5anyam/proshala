@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: site.url,
     images: [{ url: ogImageUrl('We build the tech that runs your business.', 'proshala.com'), width: 1200, height: 630 }],
   },
-  twitter: { card: 'summary_large_image', site: '@proshala' },
+  twitter: { card: 'summary_large_image', site: '@proshalatech' },
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
     : undefined,

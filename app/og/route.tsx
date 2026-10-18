@@ -41,10 +41,10 @@ export async function GET(req: Request) {
               width: 14,
               height: 14,
               borderRadius: 999,
-              background: '#C5F24A',
+              background: '#F5C542',
             }}
           />
-          <div style={{ fontFamily: 'GeistMono', fontSize: 26, color: '#C5F24A', textTransform: 'uppercase', letterSpacing: 3 }}>
+          <div style={{ fontFamily: 'GeistMono', fontSize: 26, color: '#F5C542', textTransform: 'uppercase', letterSpacing: 3 }}>
             {kicker}
           </div>
         </div>

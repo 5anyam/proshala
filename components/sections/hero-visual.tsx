@@ -54,7 +54,7 @@ export function HeroVisual() {
       <div className="relative -mt-6 ml-4 overflow-hidden rounded-xl border border-border-strong bg-[#07080a] font-mono text-[11.5px] leading-relaxed text-[#cfd3da] shadow-card sm:ml-10">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
           <span className="inline-flex items-center gap-2 text-[#9aa2ae]">
-            <span className="live-dot size-1.5 rounded-full bg-[#c5f24a]" /> automation · lead-flow
+            <span className="live-dot size-1.5 rounded-full bg-[#f5c542]" /> automation · lead-flow
           </span>
           <span className="text-[#8b93a1]">demo</span>
         </div>
@@ -62,12 +62,12 @@ export function HeroVisual() {
           {log.map((l, i) => (
             <li key={i} className="term-line flex gap-2" style={{ animationDelay: `${0.4 + i * 0.55}s` }}>
               <span className="shrink-0 text-[#8b93a1]">{l.t}</span>
-              <span className="shrink-0 text-[#c5f24a]">{l.tag.padEnd(8, ' ')}</span>
+              <span className="shrink-0 text-[#f5c542]">{l.tag.padEnd(8, ' ')}</span>
               <span className="min-w-0">{l.text}</span>
             </li>
           ))}
           <li className="term-line text-[#8b93a1]" style={{ animationDelay: '3.4s' }}>
-            $ <span className="caret inline-block h-3 w-1.5 translate-y-0.5 bg-[#c5f24a]" />
+            $ <span className="caret inline-block h-3 w-1.5 translate-y-0.5 bg-[#f5c542]" />
           </li>
         </ol>
       </div>

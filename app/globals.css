@@ -4,7 +4,7 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /* ── Design tokens ──────────────────────────────────────────────
-   Direction A "Terminal": dark-first, one accent (signal lime).
+   Direction A "Terminal": dark-first, one accent (warm yellow).
    --accent is a FILL colour (buttons, dots). For accent-coloured
    TEXT use --accent-ink, which stays readable in both themes. */
 :root,
@@ -16,10 +16,10 @@
   --border-strong: #2c313b;
   --fg: #e8eaed;
   --muted: #9aa2ae;
-  --accent: #c5f24a;
+  --accent: #f5c542;
   --accent-fg: #0a0b0d;
-  --accent-ink: #c5f24a;
-  --accent-soft: rgb(197 242 74 / 0.1);
+  --accent-ink: #f5c542;
+  --accent-soft: rgb(245 197 66 / 0.1);
   --grid-dot: rgb(255 255 255 / 0.07);
   --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.8);
   color-scheme: dark;
@@ -33,10 +33,10 @@
   --border-strong: #cfd1cb;
   --fg: #0b0d12;
   --muted: #545b66;
-  --accent: #c5f24a;
+  --accent: #f5c542;
   --accent-fg: #0a0b0d;
-  --accent-ink: #3d5a00;
-  --accent-soft: rgb(110 150 0 / 0.1);
+  --accent-ink: #8a6100;
+  --accent-soft: rgb(245 197 66 / 0.14);
   --grid-dot: rgb(0 0 0 / 0.08);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 20px 40px -28px rgb(0 0 0 / 0.25);
   color-scheme: light;

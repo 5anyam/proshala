@@ -39,10 +39,10 @@ export const site = {
   // TODO: Google Maps embed URL (Share → Embed a map → copy the src="" value)
   mapEmbedUrl: '' as string,
   socials: {
-    facebook: 'https://www.facebook.com/proshala',
-    instagram: 'https://www.instagram.com/proshala',
-    linkedin: 'https://www.linkedin.com/company/proshala',
-    twitter: 'https://twitter.com/proshala',
+    facebook: 'https://www.facebook.com/proshalatech',
+    instagram: 'https://www.instagram.com/proshalatech',
+    linkedin: 'https://www.linkedin.com/company/proshalatech',
+    twitter: 'https://x.com/proshalatech',
   },
   logo: '/proshala-logo.jpg',
   locale: 'en_IN',
