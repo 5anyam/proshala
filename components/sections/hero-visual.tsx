@@ -56,17 +56,17 @@ export function HeroVisual() {
           <span className="inline-flex items-center gap-2 text-[#9aa2ae]">
             <span className="live-dot size-1.5 rounded-full bg-[#c5f24a]" /> automation · lead-flow
           </span>
-          <span className="text-[#6b7280]">demo</span>
+          <span className="text-[#8b93a1]">demo</span>
         </div>
         <ol className="space-y-1.5 px-4 py-3">
           {log.map((l, i) => (
             <li key={i} className="term-line flex gap-2" style={{ animationDelay: `${0.4 + i * 0.55}s` }}>
-              <span className="shrink-0 text-[#6b7280]">{l.t}</span>
+              <span className="shrink-0 text-[#8b93a1]">{l.t}</span>
               <span className="shrink-0 text-[#c5f24a]">{l.tag.padEnd(8, ' ')}</span>
               <span className="min-w-0">{l.text}</span>
             </li>
           ))}
-          <li className="term-line text-[#6b7280]" style={{ animationDelay: '3.4s' }}>
+          <li className="term-line text-[#8b93a1]" style={{ animationDelay: '3.4s' }}>
             $ <span className="caret inline-block h-3 w-1.5 translate-y-0.5 bg-[#c5f24a]" />
           </li>
         </ol>

@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata, Viewport } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Geist, Geist_Mono } from 'next/font/google'
 import { site } from '@/content/site'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
@@ -11,6 +10,12 @@ import { Analytics } from '@/components/analytics'
 import { JsonLd } from '@/components/json-ld'
 import { graph, localBusinessSchema, organizationSchema, websiteSchema } from '@/lib/schema'
 import { ogImageUrl } from '@/lib/seo'
+
+// Self-hosted at build time by next/font (no request to Google at runtime).
+// Latin subset keeps the files small; mono is only used for small labels, so it
+// is not preloaded and never competes with the LCP text.
+const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display: 'swap' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap', preload: false })
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -63,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en-IN"
       data-theme="dark"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <head>

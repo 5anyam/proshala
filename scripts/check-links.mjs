@@ -53,7 +53,7 @@ while (queue.length) {
     if (canonical !== expected) problems.push(`${path}: canonical "${canonical}" ≠ "${expected}"`)
   }
   if (/randomuser\.me|your-google-verification-code|name="keywords"/.test(html)) problems.push(`${path}: legacy placeholder found`)
-  if (/>\s*TODO/.test(html)) problems.push(`${path}: visible TODO text (expected only in dev / NEXT_PUBLIC_SHOW_TODOS)`)
+  if (/>\s*TODO|\(TODO|TODO:/.test(html.replace(/<script[\s\S]*?<\/script>/g, ''))) problems.push(`${path}: visible TODO text (expected only in dev / NEXT_PUBLIC_SHOW_TODOS)`)
 
   for (const m of html.matchAll(/href="([^"#]+)(#[^"]*)?"/g)) {
     let href = m[1]

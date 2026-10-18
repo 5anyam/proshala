@@ -36,8 +36,9 @@ export const areas: Area[] = [
       'Rohini is one of the largest planned residential sub-cities in Asia, and its economy reflects that: neighbourhood clinics and diagnostic labs, coaching centres for school, CA and competitive exams, schools, property dealers, boutiques, gyms and restaurants clustered around the District Centre in Sector 10. Most of these businesses serve customers within a few kilometres, which makes local search — and a website that converts phone visitors — the main growth lever. Rohini also sits next to the Bawana, Narela and Mangolpuri industrial belts, so many B2B manufacturers and traders run their offices from here.',
     landmarks: ['District Centre, Sector 10', 'Japanese Park', 'DC Chowk, Sector 9', 'Rohini West & Rohini East metro (Red Line)', 'Rithala metro', 'Rohini Courts, Sector 14'],
     neighbourhoods: ['Sector 3', 'Sector 7', 'Sector 8', 'Sector 9', 'Sector 11', 'Sector 13', 'Sector 15', 'Sector 16', 'Sector 24', 'Avantika', 'Budh Vihar', 'Vijay Vihar', 'Begumpur', 'Rithala'],
+    // TODO: once the address is in content/site.ts, name the exact sector here.
     travel:
-      'Our office is in Rohini (TODO: exact sector), so for any business in Rohini we can meet at your shop, clinic or office within a short drive — usually the same or next working day. Most projects then run on WhatsApp and short video calls, with in-person reviews at key milestones.',
+      'Our office is in Rohini, so for any business in Rohini we can meet at your shop, clinic or office within a short drive — usually the same or next working day. Most projects then run on WhatsApp and short video calls, with in-person reviews at key milestones.',
     sections: [
       {
         h2: 'Why do Rohini businesses need a local website, not just an Instagram page?',

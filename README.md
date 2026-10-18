@@ -1,226 +1,195 @@
-# CSPKIndia - Company Secretary Services Website
+# proshala.com
 
-A modern, production-ready website for CSPKIndia, a leading Company Secretary firm in India. Built with Next.js, TypeScript, and Tailwind CSS.
+Website for **Proshala** — a tech company in Rohini, Delhi that builds websites, web apps and AI automations, and runs Google & Meta ads.
 
-## 🚀 Features
+- **Stack:** Next.js 16 (App Router, fully static), React 19, TypeScript, Tailwind CSS v4, MDX blog, Lucide icons, Geist font (self-hosted via `next/font`).
+- **Hosting:** Vercel. Canonical host is **https://www.proshala.com**.
+- **Content lives in `content/`.** You can edit services, locations, FAQs, portfolio, pricing and blog posts without touching components.
 
-- **Modern Tech Stack**: Next.js 13+ with App Router, TypeScript, Tailwind CSS
-- **Responsive Design**: Mobile-first approach with beautiful UI components
-- **SEO Optimized**: Meta tags, OpenGraph, JSON-LD structured data, sitemap
-- **Performance**: Optimized images, lazy loading, code splitting
-- **Accessibility**: WCAG compliant with proper focus states and semantic HTML
-- **Forms**: Contact forms with server actions and email integration
-- **Content Management**: Easy-to-manage service data and blog content
+---
 
-## 🏗️ Architecture
+## Quick start
 
-```
-app/
-├── (routes)/
-│   ├── about/
-│   ├── services/
-│   ├── blogs/
-│   ├── career/
-│   └── contact/
-├── api/          # API routes for forms
-├── globals.css
-└── layout.tsx
-
-components/
-├── layout/       # Navbar, Footer
-├── ui/          # Reusable UI components
-└── sections/    # Page sections
-
-lib/
-├── data/        # Service data, blog content
-└── utils.ts     # Utility functions
-```
-
-## 🛠️ Getting Started
-
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd cspkindia-website
-```
-
-2. **Install dependencies**
 ```bash
 npm install
+cp .env.example .env.local   # fill in what you have
+npm run dev                  # http://localhost:3000 — TODO placeholders are visible in dev
+npm run build && npm start   # production build — TODO placeholders are hidden
 ```
 
-3. **Run development server**
-```bash
-npm run dev
+## Environment variables
+
+See `.env.example`. Summary:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `RESEND_API_KEY` | one of these two | Emails each lead (verify `proshala.com` in Resend first) |
+| `LEAD_WEBHOOK_URL` | one of these two | POSTs each lead as JSON (Google Sheet via Apps Script, Zapier/Make/n8n, CRM) |
+| `LEAD_EMAIL_TO` / `LEAD_EMAIL_FROM` | optional | Recipients (comma-separated) / sender |
+| `NEXT_PUBLIC_GA_ID` | optional | GA4 (previous site used `G-FCHC0XD63Q`) |
+| `NEXT_PUBLIC_GTM_ID` | optional | Google Tag Manager — don't also configure GA4 inside GTM if `GA_ID` is set |
+| `NEXT_PUBLIC_META_PIXEL_ID` | optional | Meta Pixel, loaded only after cookie consent |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | optional | Search Console meta-tag verification |
+| `NEXT_PUBLIC_SHOW_TODOS` | optional | `true` shows TODO placeholders on a production/preview build |
+
+**If neither `RESEND_API_KEY` nor `LEAD_WEBHOOK_URL` is set in production, the form shows "please WhatsApp or call us" instead of losing the lead.**
+
+Tracking uses Google Consent Mode v2: analytics and ad storage are denied until the visitor accepts the cookie banner, and the Meta Pixel loads only after consent. Conversion events:
+
+| Event | When |
+|---|---|
+| `generate_lead` (Meta: `Lead`) | Once per real form submission, on `/thank-you` |
+| `whatsapp_click`, `phone_click`, `email_click` (Meta: `Contact`) | Any element with `data-track="..."` |
+
+---
+
+## Project structure
+
+```
+app/                     routes (one folder per URL)
+  [slug]/                local pages: /website-development-{area}
+  services/[slug]/       service pages
+  industries/[slug]/     industry pages
+  blog/[slug]/           MDX posts
+  og/                    auto-generated Open Graph images (/og?title=...)
+  llms.txt/              plain-text summary for AI assistants
+  actions/lead.ts        form server action (validation, honeypot, rate limit, email + webhook)
+content/                 ← edit this
+  site.ts                name, address, phone, hours, socials (NAP — keep identical to Google Business Profile)
+  services/              build.ts · automate.ts · grow.ts
+  areas.ts               local pages
+  industries.ts
+  pillars.ts             /website-development and /ai-automation
+  pricing.ts
+  portfolio.ts           projects, case studies, testimonials, verified rating
+  faqs.ts                home page FAQs
+  authors.ts             blog authors
+  tech-stack.ts
+  blog/*.mdx             blog posts
+  redirects.json         every 301 redirect
+components/              UI (ui.tsx primitives, sections/, layout/)
+lib/                     seo.ts (metadata), schema.ts (JSON-LD), blog.ts, track.ts
+scripts/                 verification scripts (see below)
+docs/                    keyword-map.md, redirects.md
 ```
 
-4. **Build for production**
-```bash
-npm run build
-npm start
-```
+---
 
-## 📝 Content Management
+## How to…
 
-### Services
+### Add or edit a service
+1. Add an object to the right array in `content/services/build.ts`, `automate.ts` or `grow.ts`. Copy an existing one and keep every field.
+2. Set `slug`, `icon` (a name from `components/icon.tsx`), `metaTitle` (≤ 60 chars) and `metaDescription` (≤ 155 chars).
+3. Write a 40–60 word `intro` that answers the question directly, plus 6–10 real `faqs`.
+4. Set `priceFrom` to e.g. `'₹24,999'`, or leave it as `'TODO'` and the page shows "On quote".
 
-Edit service information in `lib/data/services.ts`:
+The page, menu, footer, sitemap, `llms.txt` and Service/FAQ schema all update automatically.
 
-```typescript
-export const services: Service[] = [
-  {
-    id: 'unique-service-id',
-    title: 'Service Title',
-    slug: 'url-friendly-slug',
-    category: 'Service Category',
-    shortDesc: 'Brief description for cards',
-    longDesc: 'Detailed description for service page',
-    eligibility: ['Eligibility criteria'],
-    documents: ['Required documents'],
-    process: ['Process steps'],
-    timeline: 'Expected timeline',
-    govtFees: 'Government fees',
-    ourFees: 'Our service fees',
-    faqs: [
-      {
-        question: 'FAQ question',
-        answer: 'FAQ answer'
-      }
-    ]
-  }
-];
-```
+### Add a local area page
+1. In `content/areas.ts`, either fill in one of the `todo` stubs (Prashant Vihar, Ashok Vihar, Model Town, Paschim Vihar, Punjabi Bagh, Narela, Bawana, Alipur) or copy a ready page.
+2. Write **genuinely local** content: the business mix, real landmarks and markets, neighbourhoods, travel and meeting details, 2–3 area-specific sections and area-specific FAQs. Never paste another area's text with the name swapped — Google treats that as doorway pages.
+3. Set `status: 'ready'`. The page goes live at `/website-development-{slug}` and is added to the sitemap, footer, "Areas we serve" and `llms.txt`.
+4. If an old URL existed for that area (e.g. `/best-digital-marketing-services-in-bawana`), point its redirect in `content/redirects.json` to the new page.
 
-### Blog Posts
+### Add a portfolio item or case study
+1. Put the screenshot in `public/portfolio/` (WebP or PNG, around 1600×1000).
+2. Add the project to `projects` (or `caseStudies`) in `content/portfolio.ts` with `status: 'ready'`, the real client name, `url`, `stack`, the `services` used, and `results` you can verify.
+3. Only publish with the client's permission. Never invent numbers.
 
-Blog posts are managed in the `app/blogs/page.tsx` file. For a CMS approach:
+### Add a testimonial
+Add it to `testimonials` in `content/portfolio.ts` with `status: 'ready'`, using the client's exact words, with permission. Add `sourceUrl` (the link to their Google review) whenever possible. Fill in `verifiedRating` only with your real Google Business Profile rating and review count.
 
-1. Create a `content/blogs/` directory
-2. Add markdown files with frontmatter
-3. Install and configure a markdown processor like `next-mdx-remote`
+### Add a blog post
+1. Create `content/blog/my-post-slug.mdx`. Don't put a year in the slug.
+2. Add the frontmatter (copy from an existing post): `title`, `metaTitle` (≤ 60 chars), `description` (≤ 155 chars), `date`, `author`, `tags`, `services`, `areas`, and optionally `faqs`.
+3. Start with a 40–60 word **Short answer**, use question-style H2s, and link to at least one service page, one local page and one other post.
 
-### Contact Form
+### Add or edit FAQs
+- Home page: `content/faqs.ts`
+- Service, area, industry, pillar and pricing pages: the `faqs` field of that item
+- Blog post: the `faqs` frontmatter
 
-The contact form uses server actions. To integrate with actual email service:
+FAQPage schema is generated automatically, once per page.
 
-1. Update the form handler in `components/ui/contact-form.tsx`
-2. Add environment variables for email service (SendGrid, Resend, etc.)
-3. Configure the API route in `app/api/contact/route.ts`
+### Add a redirect
+Add `{ "source": "/old-url", "destination": "/new-url" }` to `content/redirects.json`, then run `npm run check:redirects`.
 
-## 🎨 Customization
+---
 
-### Colors
+## Quality checks
 
-Primary brand colors are defined in `app/globals.css`:
-
-```css
-:root {
-  --primary: #3AA6FF;
-  --primary-light: #E6F3FF;
-  --primary-dark: #2690E6;
-  --primary-darker: #1a7cc7;
-}
-```
-
-### Components
-
-All UI components are built with shadcn/ui and can be customized in the `components/ui/` directory.
-
-### Typography
-
-The site uses Inter font. Update in `app/layout.tsx` if needed.
-
-## 🔧 Environment Variables
-
-Create a `.env.local` file:
-
-```env
-# Email service configuration
-SMTP_HOST=your-smtp-host
-SMTP_PORT=587
-SMTP_USER=your-email
-SMTP_PASS=your-password
-
-# Contact form destination
-CONTACT_EMAIL=contact@cspkindia.in
-
-# Site configuration
-NEXT_PUBLIC_SITE_URL=https://cspkindia.in
-```
-
-## 📱 Responsive Breakpoints
-
-- Mobile: `< 768px`
-- Tablet: `768px - 1024px` 
-- Desktop: `> 1024px`
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Configure environment variables
-4. Deploy automatically
-
-### Manual Deployment
+Run against a production build (`npm run build && npm start`, then in another terminal):
 
 ```bash
-npm run build
-npm run export  # For static export if needed
+BASE=http://localhost:3000 npm run check:links      # crawl: broken links, one H1, title ≤60, description ≤155, canonical, duplicates
+BASE=http://localhost:3000 npm run check:redirects  # every old URL → 301 → live page
+BASE=http://localhost:3000 npm run check:schema     # JSON-LD parses, required properties, no unverified ratings
+npm run check:todos                                 # everything still to fill in
+npm run lint && npm run typecheck
 ```
 
-## 📊 SEO Features
+After deploying, also test key URLs in Google's [Rich Results Test](https://search.google.com/test/rich-results) and [PageSpeed Insights](https://pagespeed.web.dev/).
 
-- Dynamic meta tags and titles
-- OpenGraph social media tags
-- JSON-LD structured data for Organization and Services
-- Sitemap.xml and robots.txt
-- Canonical URLs
-- Mobile-friendly design
+---
 
-## 🔍 Performance Optimizations
+## Deployment checklist (Vercel)
 
-- Next.js Image optimization
-- Code splitting and lazy loading
-- Preloading of critical routes
-- Optimized bundle size
-- Web Vitals monitoring ready
+- [ ] Vercel → Domains: make `www.proshala.com` primary, and set `proshala.com` to redirect to it with **308 (permanent)**. It is currently 307 (temporary).
+- [ ] Add the environment variables, at minimum one lead delivery channel.
+- [ ] Search Console: verify the `https://www.proshala.com` property, submit `/sitemap.xml`, and watch the Pages report for 404s from old URLs.
+- [ ] `cms.proshala.com` (old WordPress) currently returns HTTP 500. Set it to noindex or shut it down so it doesn't compete with the main site.
+- [ ] Export the old WordPress post URLs (or the Search Console Pages report) and add a redirect for any that are still getting traffic.
 
-## 🤝 Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+## Off-site local SEO checklist (Rohini & North-West Delhi)
 
-## 📄 License
+On-site work only gets you halfway. Local ranking mostly comes from these:
 
-This project is proprietary to CSPKIndia. All rights reserved.
+**Google Business Profile**
+- [ ] Primary category **"Website designer"**. Secondary: "Website development company", "Software company", "Internet marketing service".
+- [ ] Name, address and phone **exactly** as in `content/site.ts` (NAP consistency). Don't add keywords to the business name.
+- [ ] Hours Mon–Sat 10:00–19:00. Website: `https://www.proshala.com/website-development-rohini` or the homepage.
+- [ ] Services: list each service with a short description, using the names from the site.
+- [ ] Service areas: Rohini, Pitampura, Shalimar Bagh, Prashant Vihar, Netaji Subhash Place, Ashok Vihar, Model Town, Paschim Vihar, Punjabi Bagh, Narela, Bawana, Alipur, Delhi.
+- [ ] Photos: office exterior and signage, interior, team at work, screenshots of client sites (with permission). Add new ones monthly.
+- [ ] Posts: one or two per week (a new project, a blog post, an offer).
+- [ ] Q&A: add and answer your own top 5 FAQs.
+- [ ] Then copy the Maps share link and embed URL into `content/site.ts` (`mapUrl`, `mapEmbedUrl`) and add the coordinates (`geo`).
 
-## 📞 Support
+**Reviews**
+- [ ] Ask every happy client for a Google review. Send the direct review link on WhatsApp after launch.
+- [ ] Reply to every review within 48 hours.
+- [ ] Never buy reviews or post fake ones. It risks suspension of the profile.
 
-For technical support or questions:
-- Email: tech@cspkindia.in
-- Phone: +91 9876543210
+**Citations**: same NAP everywhere, same categories, link to www.proshala.com
+- [ ] Justdial
+- [ ] Sulekha
+- [ ] IndiaMART
+- [ ] Clutch
+- [ ] GoodFirms
+- [ ] Also: Bing Places, Apple Business Connect, Facebook page (address + hours), LinkedIn company page, DesignRush, TradeIndia
+- [ ] Update the old listings that still say "digital marketing agency" so they describe the new positioning.
 
-## 🔄 Updates
+**Links**
+- [ ] Add "Website by Proshala" footer credits (with permission) on client sites.
+- [ ] Get listed in local business associations and market associations in Rohini and North-West Delhi.
+- [ ] Write guest posts or get interviews on Delhi business and startup sites.
 
-### Version 1.0.0 (Current)
-- Initial release with all core features
-- Complete service catalog
-- Blog functionality
-- Career portal
-- Contact forms
-- SEO optimization
+---
 
-### Planned Features
-- Client portal for tracking applications
-- Online payment integration
-- Document upload system
-- Multi-language support (Hindi)
-- Advanced search functionality# rigveda
-# rigveda
-# adshouz
-# adshouz
+## Remaining TODOs
+
+Run `npm run check:todos` for the full list. The main ones:
+
+1. **Office address, PIN, coordinates and Maps links** in `content/site.ts`. This is the most important item for local ranking.
+2. **Prices** in `content/pricing.ts` and the `priceFrom` field on each service.
+3. **Portfolio, case studies and testimonials:** real, permitted and verifiable (`content/portfolio.ts`).
+4. **About page:** founding story and team members.
+5. **Blog author:** a real person in `content/authors.ts`.
+6. **8 North/West Delhi area pages** (stubs in `content/areas.ts`).
+7. **GST statement** on the pricing FAQ.
+8. **Legal pages:** have a lawyer review them.
+9. **Careers:** real openings.
+10. **Typical timelines** on service pages: check they match how you actually work.
+11. **Favicon:** `layout.tsx` still references `/icon.svg`, `/apple-touch-icon.png` and `/site.webmanifest` (kept as instructed), but these files have never existed and return 404. Either add the files or remove the references; until then, Lighthouse best-practices is capped at 96.

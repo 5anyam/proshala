@@ -200,7 +200,7 @@ export default function Home() {
             intro={
               <>
                 We pick the stack that fits your budget and team — not the one we happen to like.{' '}
-                <Link href="/tech-stack" className="text-accent-ink underline-offset-4 hover:underline">
+                <Link href="/tech-stack" className="text-accent-ink underline underline-offset-4">
                   See our full tech stack
                 </Link>
                 .
