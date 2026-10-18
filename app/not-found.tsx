@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <section className="dot-grid border-b border-border py-20 sm:py-28">
       <Container>
-        <Eyebrow>// error 404</Eyebrow>
+        <Eyebrow>{"// error 404"}</Eyebrow>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">This page does not exist.</h1>
         <p className="mt-4 max-w-xl text-muted">
           It may have moved when we rebuilt the site. Try one of these instead, or tell us what you were looking for on

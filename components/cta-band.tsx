@@ -13,7 +13,7 @@ export function CtaBand({
     <section className="border-t border-border py-16 sm:py-24">
       <Container>
         <div className="dot-grid relative overflow-hidden rounded-2xl border border-border bg-surface px-6 py-12 sm:px-12">
-          <Eyebrow className="mb-3">// next step</Eyebrow>
+          <Eyebrow className="mb-3">{"// next step"}</Eyebrow>
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
           <p className="mt-4 max-w-xl text-muted">{body}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
