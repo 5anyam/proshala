@@ -1,391 +1,207 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
-@layer base {
-  /* ── Light theme ─────────────────────────────────── */
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 4%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 94%;
-    --secondary-foreground: 240 10% 4%;
-    --muted: 240 5% 92%;
-    --muted-foreground: 240 4% 40%;
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 88%;
-    --input: 240 6% 88%;
-    --ring: 262 83% 58%;
-    --radius: 0.5rem;
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-    /* ── Custom surface variables (light) ─────────── */
-    --bg-base:      #F2F2F7;
-    --bg-surface:   #FFFFFF;
-    --bg-elevated:  #E8E8EF;
-    --text-primary:   #0A0A0F;
-    --text-secondary: rgba(10,10,15,0.65);
-    --text-muted:     rgba(10,10,15,0.40);
-    --surface-border: rgba(0,0,0,0.07);
-  }
-
-  /* ── Dark theme — matches your current site exactly ── */
-  .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 100%;
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 100%;
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 12%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 240 5% 14%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 12%;
-    --input: 240 6% 12%;
-    --ring: 262 83% 58%;
-
-    /* ── Custom surface variables (dark) ──────────── */
-    --bg-base:      #0B0B0F;
-    --bg-surface:   #13131A;
-    --bg-elevated:  #0F0F14;
-    --text-primary:   #FFFFFF;
-    --text-secondary: rgba(255,255,255,0.65);
-    --text-muted:     rgba(255,255,255,0.40);
-    --surface-border: rgba(255,255,255,0.06);
-  }
+/* ── Design tokens ──────────────────────────────────────────────
+   Direction A "Terminal": dark-first, one accent (signal lime).
+   --accent is a FILL colour (buttons, dots). For accent-coloured
+   TEXT use --accent-ink, which stays readable in both themes. */
+:root,
+[data-theme='dark'] {
+  --bg: #0a0b0d;
+  --surface: #111318;
+  --surface-2: #171a20;
+  --border: #1e2229;
+  --border-strong: #2c313b;
+  --fg: #e8eaed;
+  --muted: #9aa2ae;
+  --accent: #c5f24a;
+  --accent-fg: #0a0b0d;
+  --accent-ink: #c5f24a;
+  --accent-soft: rgb(197 242 74 / 0.1);
+  --grid-dot: rgb(255 255 255 / 0.07);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.8);
+  color-scheme: dark;
 }
 
-/* ── Smooth theme transition on everything ─────────────── */
-*, *::before, *::after {
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease;
-}
-
-/* Disable transition on elements that shouldn't animate */
-img, video, svg {
-  transition: none;
-}
-
-/* ── Marquee ───────────────────────────────────────────── */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-  will-change: transform;
-}
-.animate-marquee:hover { animation-play-state: paused; }
-
-/* ── Page animations ───────────────────────────────────── */
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-
-}
-
-/* ── New animation keyframes ──────────────────────────────── */
-@keyframes heroSlideRight {
-  from { opacity: 0; transform: translateX(80px) scale(0.97); }
-  to   { opacity: 1; transform: translateX(0)    scale(1); }
-}
-@keyframes starPop {
-  from { opacity: 0; transform: scale(0) rotate(-20deg); }
-  to   { opacity: 1; transform: scale(1) rotate(0deg); }
-}
-@keyframes testimonialIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes modalSlideUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0)    scale(1); }
-}
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
-}
-@keyframes pingSlow {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  100% { transform: scale(2.2); opacity: 0; }
-}
-@keyframes pulseSlow {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.5; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-
-/* ── Utility animation classes ───────────────────────────── */
-.animate-float        { animation: float 3.5s ease-in-out infinite; }
-.animate-ping-slow    { animation: pingSlow 2.2s ease-out infinite; }
-.animate-pulse-slow   { animation: pulseSlow 4s ease-in-out infinite; }
-.animate-gradient     {
-  background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
-}
-
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeSlideLeft {
-  from { opacity: 0; transform: translateX(28px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes heroSlideRight {
-  from { opacity: 0; transform: translateX(60px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-/* globals.css */
-
-/* ── WordPress Blog Content ─────────────────────────────── */
-.wp-content h1,
-.wp-content h2,
-.wp-content h3,
-.wp-content h4,
-.wp-content h5,
-.wp-content h6 {
-  font-weight: 800;
-  line-height: 1.2;
-  margin-top: 1.8em;
-  margin-bottom: 0.6em;
-  color: #111827; /* gray-900 */
-}
-
-.dark .wp-content h1,
-.dark .wp-content h2,
-.dark .wp-content h3,
-.dark .wp-content h4,
-.dark .wp-content h5,
-.dark .wp-content h6 {
-  color: #ffffff;
-}
-
-.wp-content h2 { font-size: 1.5rem; }
-.wp-content h3 { font-size: 1.25rem; }
-
-.wp-content p {
-  color: #4b5563;        /* gray-600 */
-  line-height: 1.8;
-  margin-bottom: 1.2em;
-  font-size: 1rem;
-}
-
-.dark .wp-content p {
-  color: rgba(255,255,255,0.65);
-}
-
-.wp-content ul,
-.wp-content ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.2em;
-  color: #4b5563;
-}
-
-.dark .wp-content ul,
-.dark .wp-content ol {
-  color: rgba(255,255,255,0.65);
-}
-
-.wp-content ul { list-style-type: disc; }
-.wp-content ol { list-style-type: decimal; }
-
-.wp-content li {
-  margin-bottom: 0.4em;
-  line-height: 1.7;
-}
-
-.wp-content ul li::marker,
-.wp-content ol li::marker {
-  color: #7c3aed; /* violet-600 */
-}
-
-.wp-content a {
-  color: #7c3aed;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.wp-content a:hover {
-  text-decoration: underline;
-}
-
-.dark .wp-content a {
-  color: #a78bfa; /* violet-400 */
-}
-
-.wp-content strong,
-.wp-content b {
-  font-weight: 700;
-  color: #111827;
-}
-
-.dark .wp-content strong,
-.dark .wp-content b {
-  color: #ffffff;
-}
-
-.wp-content blockquote {
-  border-left: 3px solid #7c3aed;
-  background: rgba(124, 58, 237, 0.05);
-  padding: 1rem 1.25rem;
-  border-radius: 0 0.75rem 0.75rem 0;
-  margin: 1.5em 0;
-  color: #374151;
-}
-
-.dark .wp-content blockquote {
-  background: rgba(124, 58, 237, 0.1);
-  color: rgba(255,255,255,0.7);
-}
-
-.wp-content blockquote p { margin-bottom: 0; }
-
-.wp-content code {
-  background: rgba(124, 58, 237, 0.08);
-  color: #7c3aed;
-  padding: 0.15em 0.4em;
-  border-radius: 0.3rem;
-  font-size: 0.875em;
-}
-
-.dark .wp-content code {
-  background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
-}
-
-.wp-content pre {
-  background: #1e1e2e;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  overflow-x: auto;
-  margin: 1.5em 0;
-}
-
-.wp-content pre code {
-  background: transparent;
-  color: #e2e8f0;
-  padding: 0;
-}
-
-.wp-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
-  margin: 1.5em auto;
-  display: block;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-
-.dark .wp-content img {
-  border-color: rgba(255,255,255,0.06);
-}
-
-.wp-content hr {
-  border: none;
-  border-top: 1px solid #e5e7eb;
-  margin: 2em 0;
-}
-
-.dark .wp-content hr {
-  border-color: rgba(255,255,255,0.08);
-}
-
-.wp-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.9rem;
-  overflow-x: auto;
-  display: block;
-}
-
-.wp-content th {
-  background: #f3f4f6;
-  font-weight: 700;
-  padding: 0.75rem 1rem;
-  border: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-.dark .wp-content th {
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.08);
-  color: white;
-}
-
-.wp-content td {
-  padding: 0.6rem 1rem;
-  border: 1px solid #e5e7eb;
-  color: #374151;
-}
-
-.dark .wp-content td {
-  border-color: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.65);
-}
-html {
-  background-color: #0B0B0F;
-  color-scheme: dark light;
-}
-
-html.light {
-  background-color: #ffffff;
+[data-theme='light'] {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --surface-2: #f2f3f0;
+  --border: #e4e5e1;
+  --border-strong: #cfd1cb;
+  --fg: #0b0d12;
+  --muted: #545b66;
+  --accent: #c5f24a;
+  --accent-fg: #0a0b0d;
+  --accent-ink: #3d5a00;
+  --accent-soft: rgb(110 150 0 / 0.1);
+  --grid-dot: rgb(0 0 0 / 0.08);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 20px 40px -28px rgb(0 0 0 / 0.25);
   color-scheme: light;
 }
-/* globals.css */
 
-/* Force dark background immediately — flash prevent */
-html.dark {
-  background-color: #0F0F15 !important;
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --shadow-card: var(--shadow);
 }
 
-html.dark body {
-  background-color: #0B0B0F !important;
-  color: #ffffff !important;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+@utility dot-grid {
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
-@keyframes heroSlideRight {
-  from { opacity: 0; transform: translateX(60px); }
-  to   { opacity: 1; transform: translateX(0); }
+
+@utility line-grid {
+  background-image:
+    linear-gradient(var(--grid-dot) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-dot) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
-@keyframes starPop {
-  from { opacity: 0; transform: scale(0); }
-  to   { opacity: 1; transform: scale(1); }
+
+@utility glass {
+  background: color-mix(in oklab, var(--bg) 72%, transparent);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
 }
-@keyframes testimonialIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+/* Terminal typing: every line is in the HTML from the start; the
+   animation only reveals them. Reduced-motion users see all lines. */
+@keyframes reveal-line {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.term-line {
+  animation: reveal-line 0.4s ease-out both;
+}
+.caret {
+  animation: blink 1s steps(1) infinite;
+}
+.flow-line {
+  stroke-dasharray: 4 8;
+  animation: flow 1s linear infinite;
+}
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Long-form content (blog, legal) */
+.prose-proshala {
+  --tw-prose-body: var(--fg);
+  --tw-prose-headings: var(--fg);
+  --tw-prose-links: var(--accent-ink);
+  --tw-prose-bold: var(--fg);
+  --tw-prose-counters: var(--muted);
+  --tw-prose-bullets: var(--border-strong);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--fg);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-captions: var(--muted);
+  --tw-prose-code: var(--fg);
+  --tw-prose-pre-code: var(--fg);
+  --tw-prose-pre-bg: var(--surface);
+  --tw-prose-th-borders: var(--border-strong);
+  --tw-prose-td-borders: var(--border);
+}
+.prose-proshala :where(code):not(:where(pre *))::before,
+.prose-proshala :where(code):not(:where(pre *))::after {
+  content: none;
+}
+.prose-proshala :where(code):not(:where(pre *)) {
+  background: var(--surface-2);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.prose-proshala table {
+  display: block;
+  overflow-x: auto;
 }

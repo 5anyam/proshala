@@ -1,263 +1,175 @@
-import Link from "next/link";
-import {
-  Phone, Mail, MapPin, MessageSquare,
-  Facebook, Twitter, Linkedin, Instagram,
-  Zap
-} from "lucide-react";
+import Link from 'next/link'
+import { addressLine, mailLink, site, telLink, whatsappLink } from '@/content/site'
+import { areaGroups, areaPath } from '@/content/areas'
+import { industries } from '@/content/industries'
+import { BrandIcon, Icon } from '../icon'
+import { Container, Todo } from '../ui'
+import { Logo } from './logo'
+import { navGroups } from './nav-data'
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-const PHONE      = "+919999774046";
-const PHONE_DISP = "+91 99997 74046";
-const EMAIL      = "contact@proshala.com";
+const company = [
+  { name: 'About', href: '/about' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Case studies', href: '/case-studies' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Tech stack', href: '/tech-stack' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Contact', href: '/contact' },
+]
 
-// ─── Logo — matches Navbar ─────────────────────────────────────────────────────
-function Logo() {
+const legal = [
+  { name: 'Privacy policy', href: '/privacy-policy' },
+  { name: 'Terms of service', href: '/terms-of-service' },
+  { name: 'Disclaimer', href: '/disclaimer' },
+]
+
+export function NapBlock({ className }: { className?: string }) {
   return (
-    <div className="flex items-center gap-2.5 select-none">
-      <div className="h-9 w-9 rounded-lg overflow-hidden border border-amber-500/20 shadow-lg shadow-amber-500/10 flex-shrink-0">
-        <img
-          src="/proshala-logo.jpg"
-          alt="Proshala Icon"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <span className="font-black tracking-widest text-[22px] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500">
-        PROSHALA
-      </span>
-    </div>
-  );
+    <address className={className + ' not-italic'}>
+      <p className="font-medium">{site.legalName}</p>
+      <p className="mt-1 text-muted">{addressLine()}</p>
+      {!site.address.street && <Todo className="mt-2">Add full street address + PIN in content/site.ts</Todo>}
+      <ul className="mt-3 space-y-2 text-sm">
+        <li>
+          <a href={telLink} className="inline-flex items-center gap-2 hover:text-accent-ink" data-track="phone_click">
+            <Icon name="Phone" className="size-4 text-muted" />
+            {site.phoneDisplay}
+          </a>
+        </li>
+        <li>
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 hover:text-accent-ink"
+            data-track="whatsapp_click"
+          >
+            <BrandIcon name="whatsapp" className="size-4 text-muted" />
+            WhatsApp
+          </a>
+        </li>
+        <li>
+          <a href={mailLink} className="inline-flex items-center gap-2 hover:text-accent-ink" data-track="email_click">
+            <Icon name="Mail" className="size-4 text-muted" />
+            {site.email}
+          </a>
+        </li>
+        <li className="inline-flex items-center gap-2 text-muted">
+          <Icon name="Clock" className="size-4" />
+          {site.hours.display}
+        </li>
+        {site.mapUrl && (
+          <li>
+            <a href={site.mapUrl} target="_blank" rel="noopener" className="inline-flex items-center gap-2 hover:text-accent-ink">
+              <Icon name="MapPin" className="size-4 text-muted" />
+              Get directions
+            </a>
+          </li>
+        )}
+      </ul>
+    </address>
+  )
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-const quickLinks = [
-  { label: "About Us",        href: "/about" },
-  { label: "Our Services",    href: "/services" },
-  { label: "Case Studies",    href: "/case-studies" },
-  { label: "Blog & Insights", href: "/blogs" },
-  { label: "Careers",         href: "/career" },
-  { label: "Contact Us",      href: "/contact" },
-];
-
-const services = [
-  { label: "AI Tools & Automation",    href: "/services/automation" },
-  { label: "Business Automation",      href: "/services/business-automation" },
-  { label: "Performance Marketing",    href: "/services/performance-marketing" },
-  { label: "Affiliate Marketing",      href: "/services/performance-marketing" },
-  { label: "Google Ads (PPC)",         href: "/services/google-ads" },
-  { label: "Web & App Development",    href: "/services/website-development" },
-  { label: "SEO & Organic Growth",     href: "/services/seo" },
-  { label: "Ecommerce Marketing",      href: "/services/shopping-ads" },
-];
-
-const locationLinks = [
-  { label: "Digital Marketing Delhi",         href: "/digital-marketing-delhi" },
-  { label: "Digital Marketing Gurgaon",       href: "/digital-marketing-gurgaon" },
-  { label: "Digital Marketing Noida",         href: "/digital-marketing-noida" },
-  { label: "Digital Marketing Greater Noida", href: "/digital-marketing-greater-noida" },
-  { label: "Digital Marketing Ghaziabad",     href: "/digital-marketing-ghaziabad" },
-  { label: "Digital Marketing Faridabad",     href: "/digital-marketing-faridabad" },
-  { label: "Digital Marketing Sonipat",       href: "/digital-marketing-sonipat" },
-  { label: "Digital Marketing Panipat",       href: "/digital-marketing-panipat" },
-  { label: "Digital Marketing Rohtak",        href: "/digital-marketing-rohtak" },
-  { label: "Digital Marketing Bahadurgarh",   href: "/digital-marketing-bahadurgarh" },
-];
-
-const socialLinks = [
-  { icon: Facebook,  href: "https://www.facebook.com/proshala",         label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/proshala",        label: "Instagram" },
-  { icon: Linkedin,  href: "https://www.linkedin.com/company/proshala", label: "LinkedIn" },
-  { icon: Twitter,   href: "https://twitter.com/proshala",              label: "X (Twitter)" },
-];
-
-// ─── Footer ───────────────────────────────────────────────────────────────────
 export function Footer() {
+  const { local, ncr } = areaGroups()
   return (
-    <footer className="bg-[#0A0A0A] text-white relative overflow-hidden">
-
-      {/* Top glow border — amber */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
-
-      {/* Background ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-amber-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="pt-16 pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-
-            {/* ── Company Info ─────────────────────────────────────────── */}
-            <div className="lg:col-span-1">
-              <Link href="/" className="inline-block mb-6">
-                <Logo />
-              </Link>
-
-              <p className="text-white/40 mb-7 leading-relaxed text-sm">
-                Proshala is a full-stack tech & performance agency. We build AI tools,
-                automate workflows, run affiliate campaigns, and develop high-converting
-                digital products — all engineered for measurable ROI.
-              </p>
-
-              <div className="space-y-3.5">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-white/45 leading-snug">Delhi, India · Serving Global Clients</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
-                  <a href={`tel:${PHONE}`}
-                    className="text-sm text-white/45 hover:text-amber-400 transition-colors duration-200">
-                    {PHONE_DISP}
+    <footer className="border-t border-border bg-surface pb-24 pt-16 lg:pb-10">
+      <Container>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-4 max-w-xs text-sm text-muted">{site.tagline} Websites, web apps and AI automation from Rohini, Delhi.</p>
+            <NapBlock className="mt-6 text-sm" />
+            <ul className="mt-6 flex gap-2">
+              {(Object.keys(site.socials) as (keyof typeof site.socials)[]).map((k) => (
+                <li key={k}>
+                  <a
+                    href={site.socials[k]}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`Proshala on ${k}`}
+                    className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-muted hover:text-fg"
+                  >
+                    <BrandIcon name={k} className="size-4" />
                   </a>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <MessageSquare className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-white/45 hover:text-amber-400 transition-colors duration-200">
-                    {PHONE_DISP} (WhatsApp)
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <a href={`mailto:${EMAIL}`}
-                    className="text-sm text-white/45 hover:text-amber-400 transition-colors duration-200">
-                    {EMAIL}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* ── Quick Links ──────────────────────────────────────────── */}
-            <div>
-              <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.18em] mb-6">
-                Quick Links
-              </h3>
-              <div className="space-y-3">
-                {quickLinks.map(({ label, href }) => (
-                  <Link key={href} href={href}
-                    className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
-                    <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Services ─────────────────────────────────────────────── */}
-            <div>
-              <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.18em] mb-6">
-                Our Services
-              </h3>
-              <div className="space-y-3">
-                {services.map(({ label, href }) => (
-                  <Link key={href} href={href}
-                    className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
-                    <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Delhi NCR Locations ──────────────────────────────────── */}
-            <div>
-              <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.18em] mb-6">
-                Delhi NCR Locations
-              </h3>
-              <div className="space-y-3">
-                {locationLinks.map(({ label, href }) => (
-                  <Link key={href} href={href}
-                    className="flex items-center gap-1.5 text-white/45 hover:text-amber-400 text-sm transition-colors duration-200 group">
-                    <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Agency Info + Social ──────────────────────────────────── */}
-            <div>
-              <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.18em] mb-6">
-                Agency Info
-              </h3>
-
-              {/* Working Hours */}
-              <div className="mb-5 bg-white/[0.03] border border-white/[0.07] rounded-xl p-4">
-                <p className="text-[10px] font-bold text-white/25 uppercase tracking-widest mb-3">
-                  Working Hours
-                </p>
-                <div className="space-y-1.5 text-xs text-white/45">
-                  <div className="flex justify-between">
-                    <span>Mon – Sat</span>
-                    <span className="text-white/65">10:00 AM – 7:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="text-red-400/60">Closed</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Why Us */}
-              <div className="mb-6 bg-white/[0.03] border border-white/[0.07] rounded-xl p-4">
-                <p className="text-[10px] font-bold text-white/25 uppercase tracking-widest mb-3">
-                  Why Proshala
-                </p>
-                <div className="space-y-2">
-                  {[
-                    "Google & Meta Certified",
-                    "8+ Years of Experience",
-                    "500+ Campaigns Delivered",
-                    "AI-First Agency Approach",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <Zap className="w-3 h-3 text-amber-400 flex-shrink-0" />
-                      <span className="text-xs text-white/45">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Social */}
-              <p className="text-[10px] font-bold text-white/25 uppercase tracking-widest mb-3">
-                Follow Us
-              </p>
-              <div className="flex gap-2.5">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a key={href} href={href} target="_blank" rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-9 h-9 bg-white/[0.04] border border-white/[0.08] rounded-xl flex items-center justify-center text-white/35 hover:text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all duration-200">
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* ── Bottom Bar ───────────────────────────────────────────────── */}
-        <div className="border-t border-white/[0.06] py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/20 text-xs text-center md:text-left">
-              © {new Date().getFullYear()} Proshala Tech. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
-              {[
-                { label: "Privacy Policy",   href: "/privacy-policy" },
-                { label: "Terms of Service", href: "/terms-of-service" },
-                { label: "Disclaimer",       href: "/disclaimer" },
-              ].map(({ label, href }) => (
-                <Link key={href} href={href}
-                  className="text-white/20 hover:text-amber-400 text-xs transition-colors duration-200">
-                  {label}
-                </Link>
+                </li>
               ))}
+            </ul>
+          </div>
+
+          {navGroups.map((g) => (
+            <div key={g.key}>
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-ink">{g.label}</p>
+              <Link href={g.href} className="mt-2 block text-sm font-medium hover:underline">
+                {g.title}
+              </Link>
+              <ul className="mt-3 space-y-2 text-sm text-muted">
+                {g.items.map((it) => (
+                  <li key={it.href}>
+                    <Link href={it.href} className="hover:text-fg">
+                      {it.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-10 border-t border-border pt-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-ink">Areas we serve</p>
+            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
+              {[...local, ...ncr].map((a) => (
+                <li key={a.slug}>
+                  <Link href={areaPath(a.slug)} className="hover:text-fg">
+                    Website development {a.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-ink">Industries</p>
+            <ul className="mt-3 space-y-2 text-sm text-muted">
+              {industries.map((i) => (
+                <li key={i.slug}>
+                  <Link href={`/industries/${i.slug}`} className="hover:text-fg">
+                    {i.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-ink">Company</p>
+            <ul className="mt-3 space-y-2 text-sm text-muted">
+              {company.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-fg">
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
+
+        <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
+          <ul className="flex flex-wrap gap-4">
+            {legal.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-fg">
+                  {l.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
     </footer>
-  );
+  )
 }
