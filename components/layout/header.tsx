@@ -139,7 +139,7 @@ export function Header() {
         hidden={!mobileOpen}
         className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-border bg-bg lg:hidden"
       >
-        <nav aria-label="Mobile" className="px-4 pb-28 pt-4">
+        <nav aria-label="Mobile" className="px-4 pb-32 pt-4">
           {navGroups.map((g) => (
             <details key={g.key} className="border-b border-border" open={g.key === 'build'}>
               <summary className="flex min-h-12 cursor-pointer items-center justify-between">

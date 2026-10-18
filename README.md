@@ -23,8 +23,10 @@ See `.env.example`. Summary:
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `RESEND_API_KEY` | one of these two | Emails each lead (verify `proshala.com` in Resend first) |
-| `LEAD_WEBHOOK_URL` | one of these two | POSTs each lead as JSON (Google Sheet via Apps Script, Zapier/Make/n8n, CRM) |
+| `GOOGLE_SHEET_WEBHOOK_URL` | at least one of these three | Adds each lead as a row in a Google Sheet — see [Leads in Google Sheets](#leads-in-google-sheets) |
+| `GOOGLE_SHEET_SECRET` | optional | Shared secret, must match `SECRET` in the Apps Script |
+| `RESEND_API_KEY` | at least one of these three | Emails each lead (verify `proshala.com` in Resend first) |
+| `LEAD_WEBHOOK_URL` | at least one of these three | POSTs each lead as JSON (Zapier/Make/n8n, CRM) |
 | `LEAD_EMAIL_TO` / `LEAD_EMAIL_FROM` | optional | Recipients (comma-separated) / sender |
 | `NEXT_PUBLIC_GA_ID` | optional | GA4 (previous site used `G-FCHC0XD63Q`) |
 | `NEXT_PUBLIC_GTM_ID` | optional | Google Tag Manager — don't also configure GA4 inside GTM if `GA_ID` is set |
@@ -32,7 +34,7 @@ See `.env.example`. Summary:
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | optional | Search Console meta-tag verification |
 | `NEXT_PUBLIC_SHOW_TODOS` | optional | `true` shows TODO placeholders on a production/preview build |
 
-**If neither `RESEND_API_KEY` nor `LEAD_WEBHOOK_URL` is set in production, the form shows "please WhatsApp or call us" instead of losing the lead.**
+**If none of `GOOGLE_SHEET_WEBHOOK_URL`, `RESEND_API_KEY` or `LEAD_WEBHOOK_URL` is set in production, the form shows "please WhatsApp or call us" instead of losing the lead.**
 
 Tracking uses Google Consent Mode v2: analytics and ad storage are denied until the visitor accepts the cookie banner, and the Meta Pixel loads only after consent. Conversion events:
 
@@ -40,6 +42,18 @@ Tracking uses Google Consent Mode v2: analytics and ad storage are denied until 
 |---|---|
 | `generate_lead` (Meta: `Lead`) | Once per real form submission, on `/thank-you` |
 | `whatsapp_click`, `phone_click`, `email_click` (Meta: `Contact`) | Any element with `data-track="..."` |
+
+### Leads in Google Sheets
+
+Every form submission (free quote and contact) can be added as a row to a Google Sheet: date and time (IST), lead ID, name, phone, email, service, budget, message, page and a **Status** dropdown (New / Contacted / Quoted / Won / Lost).
+
+1. Create a Google Sheet, then go to **Extensions → Apps Script**.
+2. Paste the contents of [`scripts/google-sheet-apps-script.gs`](scripts/google-sheet-apps-script.gs).
+3. **Deploy → New deployment → Web app**, with *Execute as: Me* and *Who has access: Anyone*. Copy the URL ending in `/exec`.
+4. Set `GOOGLE_SHEET_WEBHOOK_URL` to that URL in Vercel (and optionally `GOOGLE_SHEET_SECRET`, matching `SECRET` in the script), then redeploy.
+5. Submit a test enquiry on `/free-quote`. If no row appears, open the `/exec` URL in a browser: it should say the endpoint is live. Then check the Vercel function logs for `[lead] delivery failed`.
+
+The sheet can be used together with email (Resend). The form counts as successful if at least one channel delivers, so a Google outage alone never loses a lead as long as email is also set up.
 
 ---
 

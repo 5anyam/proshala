@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { site } from '@/content/site'
 import { getService } from '@/content/services'
 import { rateLimit } from '@/lib/rate-limit'
+import { appendLeadToSheet, sheetConfigured } from '@/lib/google-sheet'
 
 export type LeadState = {
   ok: boolean
@@ -98,6 +99,22 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
     )
   }
 
+  if (sheetConfigured()) {
+    tasks.push(
+      appendLeadToSheet({
+        id: lead.id,
+        submittedAt: lead.submittedAt,
+        name: lead.name,
+        phone: lead.phone,
+        email: lead.email,
+        serviceName: lead.serviceName,
+        budget: lead.budget,
+        message: lead.message,
+        page: lead.page,
+      }),
+    )
+  }
+
   if (process.env.LEAD_WEBHOOK_URL) {
     tasks.push(
       fetch(process.env.LEAD_WEBHOOK_URL, {
@@ -113,7 +130,7 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
 
   if (!tasks.length) {
     if (process.env.NODE_ENV !== 'production') {
-      console.info('[lead] no RESEND_API_KEY / LEAD_WEBHOOK_URL set — lead not delivered:', lead)
+      console.info('[lead] no GOOGLE_SHEET_WEBHOOK_URL / RESEND_API_KEY / LEAD_WEBHOOK_URL set — lead not delivered:', lead)
     } else {
       console.error('[lead] no delivery channel configured')
       return { ok: false, error: `Sorry, the form is not working right now. Please WhatsApp or call ${site.phoneDisplay}.`, values }

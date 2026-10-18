@@ -75,7 +75,7 @@ export function NapBlock({ className }: { className?: string }) {
 export function Footer() {
   const { local, ncr } = areaGroups()
   return (
-    <footer className="border-t border-border bg-surface pb-24 pt-16 lg:pb-10">
+    <footer className="border-t border-border bg-surface pb-32 pt-16 lg:pb-10">
       <Container>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>

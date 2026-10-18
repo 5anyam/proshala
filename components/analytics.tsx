@@ -92,7 +92,7 @@ function ConsentBanner({ consent }: { consent: Consent }) {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-lg rounded-xl border border-border-strong bg-surface p-4 text-sm shadow-card lg:bottom-6 lg:left-6 lg:right-auto"
+      className="fixed inset-x-3 bottom-24 z-50 mx-auto max-w-lg rounded-xl border border-border-strong bg-surface p-4 text-sm shadow-card lg:bottom-6 lg:left-6 lg:right-auto"
     >
       <p className="text-muted">
         We use cookies for analytics and to measure our ads. You can accept or decline — the site works either way.{' '}
